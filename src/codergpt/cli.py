@@ -1,6 +1,8 @@
 """Command line interface for CoderGPT."""
 
 import logging
+from pathlib import Path
+from typing import TextIO, Union
 
 import click
 
@@ -37,8 +39,8 @@ def main(verbose: int, quiet: bool):
 
 @main.command()
 @click.argument("path", type=click.Path(exists=True))
-def inspect(path: str):
-    """Inspect pckage to show file-language-map."""
+def inspect(path: Union[str, Path, TextIO]):
+    """Inspect package to show file-language-map."""
     coder = CoderGPT()
     coder.inspect_package(path=path)
 
