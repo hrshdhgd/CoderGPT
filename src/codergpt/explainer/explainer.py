@@ -109,6 +109,13 @@ class CodeExplainer:
             response = self.chain.invoke({"input": f"Explain the following code: \n\n```\n{code}\n```"})
             # Pretty print the response
             print(f"Explanation for '{classname}':\n{response.content}")
+        else:
+            # Explain full code
+            with open(path, "r") as file:
+                code = file.read()
+            response = self.chain.invoke({"input": f"Explain the following code: \n\n```\n{code}\n```"})
+            # Pretty print the response
+            print(f"Explanation for the code:\n{response.content}")
 
         # # Ensure path is a string or Path object for consistency
         # if isinstance(path, str):
