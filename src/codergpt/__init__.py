@@ -1,4 +1,4 @@
-"""OptimGPT package."""
+"""CoderGPT package."""
 
 import importlib_metadata
 

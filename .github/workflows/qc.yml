@@ -1,4 +1,4 @@
-name: OptimGPT QC
+name: CoderGPT QC
 
 on:
   push:

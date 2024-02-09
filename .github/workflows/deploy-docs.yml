@@ -25,11 +25,11 @@ jobs:
 
     - name: Build documentation.
       run: |
-        echo ${{ secrets.GH_TOKEN }} >> src/optimgpt/token.txt
+        echo ${{ secrets.GH_TOKEN }} >> src/codergpt/token.txt
         mkdir gh-pages
         touch gh-pages/.nojekyll
         cd docs/
-        poetry run sphinx-apidoc -o . ../src/optimgpt/ --ext-autodoc -f
+        poetry run sphinx-apidoc -o . ../src/codergpt/ --ext-autodoc -f
         poetry run sphinx-build -b html . _build
         cp -r _build/* ../gh-pages/
 

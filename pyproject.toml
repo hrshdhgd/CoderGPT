@@ -1,7 +1,7 @@
 [tool.poetry]
-name = "OptimGPT"
+name = "CoderGPT"
 version = "0.0.0"
-description = "OptimGPT"
+description = "CoderGPT"
 authors = ["Harshad Hegde <hhegde@lbl.gov>"]
 license = "MIT"
 readme = "README.md"
@@ -12,6 +12,7 @@ click = "*"
 importlib-metadata = ">=4.8.0"
 langchain = "^0.1.6"
 poetry-dynamic-versioning = "^1.2.0"
+langchain-openai = "^0.0.5"
 
 [tool.poetry.group.dev.dependencies]
 pytest = {version = ">=7.1.2"}
@@ -29,7 +30,7 @@ sphinx-click = {version = ">=4.3.0"}
 myst-parser = {version = ">=0.18.1"}
 
 [tool.poetry.scripts]
-OptimGPT = "optimgpt.cli:main"
+code = "codergpt.cli:main"
 
 [tool.poetry-dynamic-versioning]
 enable = true

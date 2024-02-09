@@ -1,9 +1,9 @@
-.. OptimGPT documentation master file, created by
+.. CoderGPT documentation master file, created by
    sphinx-quickstart on Fri Aug 12 08:35:01 2022.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to OptimGPT's documentation!
+Welcome to CoderGPT's documentation!
 =========================================================
 
 .. toctree::

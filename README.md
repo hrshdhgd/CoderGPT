@@ -1,4 +1,4 @@
-# OptimGPT
+# CoderGPT
 
 A language agnostic code optimizer.
 
