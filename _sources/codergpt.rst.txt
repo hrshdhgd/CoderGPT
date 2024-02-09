@@ -12,6 +12,14 @@ codergpt.cli module
    :undoc-members:
    :show-inheritance:
 
+codergpt.constants module
+-------------------------
+
+.. automodule:: codergpt.constants
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 codergpt.main module
 --------------------
 

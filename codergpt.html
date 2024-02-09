@@ -49,10 +49,9 @@
 <li class="toctree-l2 current"><a class="current reference internal" href="#">codergpt package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-codergpt.cli">codergpt.cli module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-codergpt.constants">codergpt.constants module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-codergpt.main">codergpt.main module</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#codergpt.main.get_language_from_extension"><code class="docutils literal notranslate"><span class="pre">get_language_from_extension()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#codergpt.main.inspecting_code"><code class="docutils literal notranslate"><span class="pre">inspecting_code()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#codergpt.main.start"><code class="docutils literal notranslate"><span class="pre">start()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#codergpt.main.CoderGPT"><code class="docutils literal notranslate"><span class="pre">CoderGPT</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-codergpt">Module contents</a></li>
@@ -96,23 +95,21 @@
 <span id="codergpt-cli-module"></span><h2>codergpt.cli module<a class="headerlink" href="#module-codergpt.cli" title="Link to this heading"></a></h2>
 <p>Command line interface for CoderGPT.</p>
 </section>
+<section id="module-codergpt.constants">
+<span id="codergpt-constants-module"></span><h2>codergpt.constants module<a class="headerlink" href="#module-codergpt.constants" title="Link to this heading"></a></h2>
+<p>All constants used in the package.</p>
+</section>
 <section id="module-codergpt.main">
 <span id="codergpt-main-module"></span><h2>codergpt.main module<a class="headerlink" href="#module-codergpt.main" title="Link to this heading"></a></h2>
 <p>Main python file.</p>
-<dl class="py function">
-<dt class="sig sig-object py" id="codergpt.main.get_language_from_extension">
-<span class="sig-prename descclassname"><span class="pre">codergpt.main.</span></span><span class="sig-name descname"><span class="pre">get_language_from_extension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ext</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.main.get_language_from_extension" title="Link to this definition"></a></dt>
-<dd><p>Get language from file extension.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="codergpt.main.inspecting_code">
-<span class="sig-prename descclassname"><span class="pre">codergpt.main.</span></span><span class="sig-name descname"><span class="pre">inspecting_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.main.inspecting_code" title="Link to this definition"></a></dt>
+<dl class="py class">
+<dt class="sig sig-object py" id="codergpt.main.CoderGPT">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">codergpt.main.</span></span><span class="sig-name descname"><span class="pre">CoderGPT</span></span><a class="headerlink" href="#codergpt.main.CoderGPT" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>CoderGPT class.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="codergpt.main.CoderGPT.inspect_package">
+<span class="sig-name descname"><span class="pre">inspect_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.main.CoderGPT.inspect_package" title="Link to this definition"></a></dt>
 <dd><p>Inspecting the code and returning a mapping of files to their languages.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -121,10 +118,6 @@
 </dl>
 </dd></dl>
 
-<dl class="py function">
-<dt class="sig sig-object py" id="codergpt.main.start">
-<span class="sig-prename descclassname"><span class="pre">codergpt.main.</span></span><span class="sig-name descname"><span class="pre">start</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.main.start" title="Link to this definition"></a></dt>
-<dd><p>Entry point function.</p>
 </dd></dl>
 
 </section>
