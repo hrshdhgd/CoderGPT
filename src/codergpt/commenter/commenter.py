@@ -23,6 +23,7 @@ class CodeCommenter:
 
         :param code: The string containing the code to be commented.
         :param filename: The original filename of the code file.
+        :param overwrite: A boolean indicating whether to overwrite the original file. Default is False.
         """
         response = self.chain.invoke(
             {
