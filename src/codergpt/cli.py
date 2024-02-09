@@ -16,6 +16,9 @@ __all__ = [
 logger = logging.getLogger(__name__)
 
 path_argument = click.argument("path", type=click.Path(exists=True))
+overwrite_option = click.option(
+    "--overwrite/--no-overwrite", is_flag=True, default=False, help="Overwrite the existing file."
+)
 
 coder = CoderGPT()
 
@@ -61,6 +64,24 @@ def explain(path: Union[str, Path], function: str, classname: str):
     # Check if path is a file
     if path.is_file():
         coder.explainer(path=path, function=function, classname=classname)
+    else:
+        raise ValueError("The path provided is not a file.")
+
+
+@main.command("comment")
+@path_argument
+@click.option("-f", "--function", help="Function name to explain.")
+@click.option("-c", "--classname", help="Class name to explain.")
+@overwrite_option
+def add_comments(path: Union[str, Path], function: str, classname: str, overwrite: bool = False):
+    """Inspect package to show file-language-map."""
+    # Ensure path is a string or Path object for consistency
+    if isinstance(path, str):
+        path = Path(path)
+
+    # Check if path is a file
+    if path.is_file():
+        coder.commenter(path=path, function=function, classname=classname, overwrite=overwrite)
     else:
         raise ValueError("The path provided is not a file.")
 
