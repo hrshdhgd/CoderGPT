@@ -116,32 +116,3 @@ class CodeExplainer:
             response = self.chain.invoke({"input": f"Explain the following code: \n\n```\n{code}\n```"})
             # Pretty print the response
             print(f"Explanation for the code:\n{response.content}")
-
-        # # Ensure path is a string or Path object for consistency
-        # if isinstance(path, str):
-        #     path = Path(path)
-
-        # with open(path, "r") as file:
-        #     code = file.read()
-
-        # # Guess the lexer based on the file name and content
-        # lexer = guess_lexer_for_filename(path.name, code)
-
-        # # Tokenize the code using the guessed lexer
-        # tokens = list(pygments.lex(code, lexer))
-
-        # all_functions = []
-        # all_classes = []
-        # # Process the tokens (for demonstration, just print them)
-        # for token_type, token_value in tokens:
-        #     if token_type in Token.Name.Function:
-        #         print(f"{token_type}: {token_value}")
-        #         all_functions.append(token_value)
-        #     elif token_type in Token.Name.Class:
-        #         all_classes.append(token_value)
-        #     else:
-        #         continue
-
-        # elif token_type in Token.Comment:
-        #     print(f"Comment: {token_value}")
-        # Add more conditions as needed to handle different parts of the code
