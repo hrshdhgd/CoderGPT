@@ -11,6 +11,7 @@ Subpackages
    codergpt.explainer
    codergpt.optimizer
    codergpt.test_writer
+   codergpt.utils
 
 Submodules
 ----------

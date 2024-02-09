@@ -53,6 +53,7 @@
 <li class="toctree-l4"><a class="reference internal" href="codergpt.explainer.html">codergpt.explainer package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="codergpt.optimizer.html">codergpt.optimizer package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="codergpt.test_writer.html">codergpt.test_writer package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="codergpt.utils.html">codergpt.utils package</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
@@ -62,7 +63,12 @@
 <li class="toctree-l4"><a class="reference internal" href="#codergpt.main.CoderGPT"><code class="docutils literal notranslate"><span class="pre">CoderGPT</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#module-codergpt">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-codergpt">Module contents</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#codergpt.CodeCommenter"><code class="docutils literal notranslate"><span class="pre">CodeCommenter</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#codergpt.CodeExplainer"><code class="docutils literal notranslate"><span class="pre">CodeExplainer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#codergpt.CoderGPT"><code class="docutils literal notranslate"><span class="pre">CoderGPT</span></code></a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -101,7 +107,21 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="codergpt.commenter.html">codergpt.commenter package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="codergpt.commenter.html#module-codergpt.commenter">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codergpt.commenter.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codergpt.commenter.html#module-codergpt.commenter.commenter">codergpt.commenter.commenter module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="codergpt.commenter.html#codergpt.commenter.commenter.CodeCommenter"><code class="docutils literal notranslate"><span class="pre">CodeCommenter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="codergpt.commenter.html#codergpt.commenter.commenter.CodeCommenter.comment"><code class="docutils literal notranslate"><span class="pre">CodeCommenter.comment()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="codergpt.commenter.html#module-codergpt.commenter">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="codergpt.commenter.html#codergpt.commenter.CodeCommenter"><code class="docutils literal notranslate"><span class="pre">CodeCommenter</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="codergpt.commenter.html#codergpt.commenter.CodeCommenter.comment"><code class="docutils literal notranslate"><span class="pre">CodeCommenter.comment()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="codergpt.explainer.html">codergpt.explainer package</a><ul>
@@ -109,7 +129,6 @@
 <li class="toctree-l2"><a class="reference internal" href="codergpt.explainer.html#module-codergpt.explainer.explainer">codergpt.explainer.explainer module</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="codergpt.explainer.html#codergpt.explainer.explainer.CodeExplainer"><code class="docutils literal notranslate"><span class="pre">CodeExplainer</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="codergpt.explainer.html#codergpt.explainer.explainer.CodeExplainer.explain"><code class="docutils literal notranslate"><span class="pre">CodeExplainer.explain()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="codergpt.explainer.html#codergpt.explainer.explainer.CodeExplainer.get_function_code"><code class="docutils literal notranslate"><span class="pre">CodeExplainer.get_function_code()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -117,7 +136,6 @@
 <li class="toctree-l2"><a class="reference internal" href="codergpt.explainer.html#module-codergpt.explainer">Module contents</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="codergpt.explainer.html#codergpt.explainer.CodeExplainer"><code class="docutils literal notranslate"><span class="pre">CodeExplainer</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="codergpt.explainer.html#codergpt.explainer.CodeExplainer.explain"><code class="docutils literal notranslate"><span class="pre">CodeExplainer.explain()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="codergpt.explainer.html#codergpt.explainer.CodeExplainer.get_function_code"><code class="docutils literal notranslate"><span class="pre">CodeExplainer.get_function_code()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -130,6 +148,19 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="codergpt.test_writer.html">codergpt.test_writer package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="codergpt.test_writer.html#module-codergpt.test_writer">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="codergpt.utils.html">codergpt.utils package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="codergpt.utils.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codergpt.utils.html#module-codergpt.utils.expression_evaluator">codergpt.utils.expression_evaluator module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="codergpt.utils.html#codergpt.utils.expression_evaluator.ExpressionEvaluator"><code class="docutils literal notranslate"><span class="pre">ExpressionEvaluator</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="codergpt.utils.html#codergpt.utils.expression_evaluator.ExpressionEvaluator.visit_ClassDef"><code class="docutils literal notranslate"><span class="pre">ExpressionEvaluator.visit_ClassDef()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="codergpt.utils.html#codergpt.utils.expression_evaluator.ExpressionEvaluator.visit_FunctionDef"><code class="docutils literal notranslate"><span class="pre">ExpressionEvaluator.visit_FunctionDef()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="codergpt.utils.html#module-codergpt.utils">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -154,15 +185,64 @@
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>CoderGPT class.</p>
 <dl class="py method">
+<dt class="sig sig-object py" id="codergpt.main.CoderGPT.commenter">
+<span class="sig-name descname"><span class="pre">commenter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.main.CoderGPT.commenter" title="Link to this definition"></a></dt>
+<dd><p>Add comments to the code file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</span>) – The path to the code file.</p></li>
+<li><p><strong>overwrite</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether to overwrite the existing comments. Default is False.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="codergpt.main.CoderGPT.explainer">
 <span class="sig-name descname"><span class="pre">explainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.main.CoderGPT.explainer" title="Link to this definition"></a></dt>
 <dd><p>Explains contents of the code file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</span>) – The path to the code file.</p></li>
+<li><p><strong>function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the function to explain. Default is None.</p></li>
+<li><p><strong>classname</strong> – The name of the class to explain. Default is None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="codergpt.main.CoderGPT.get_code">
+<span class="sig-name descname"><span class="pre">get_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.main.CoderGPT.get_code" title="Link to this definition"></a></dt>
+<dd><p>Extract and return the source code of the specified function or class from a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The path to the file containing the code.</p></li>
+<li><p><strong>function_name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the function to extract code for. Default is None.</p></li>
+<li><p><strong>class_name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the class to extract code for. Default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The extracted source code of the specified function or class, if found.</p>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="codergpt.main.CoderGPT.inspect_package">
 <span class="sig-name descname"><span class="pre">inspect_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.main.CoderGPT.inspect_package" title="Link to this definition"></a></dt>
 <dd><p>Inspecting the code and displaying a mapping of files to their languages in a table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</span>) – The path to the package or directory.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>
@@ -171,6 +251,118 @@
 <section id="module-codergpt">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-codergpt" title="Link to this heading"></a></h2>
 <p>CoderGPT package.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="codergpt.CodeCommenter">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">codergpt.</span></span><span class="sig-name descname"><span class="pre">CodeCommenter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CodeCommenter" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Code Explainer class that extracts and explains code from a given file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="codergpt.CodeCommenter.comment">
+<span class="sig-name descname"><span class="pre">comment</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CodeCommenter.comment" title="Link to this definition"></a></dt>
+<dd><p>Comment the contents of the code string by invoking the runnable chain and write it to a new file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>code</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The string containing the code to be commented.</p></li>
+<li><p><strong>filename</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The original filename of the code file.</p></li>
+<li><p><strong>overwrite</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – A boolean indicating whether to overwrite the original file. Default is False.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="codergpt.CodeExplainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">codergpt.</span></span><span class="sig-name descname"><span class="pre">CodeExplainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CodeExplainer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Code Explainer class that extracts and explains code from a given file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="codergpt.CodeExplainer.explain">
+<span class="sig-name descname"><span class="pre">explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CodeExplainer.explain" title="Link to this definition"></a></dt>
+<dd><p>Explain the contents of the code file by invoking the runnable chain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – The path to the code file to be explained.</p></li>
+<li><p><strong>function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the function to explain. Default is None.</p></li>
+<li><p><strong>classname</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the class to explain. Default is None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="codergpt.CoderGPT">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">codergpt.</span></span><span class="sig-name descname"><span class="pre">CoderGPT</span></span><a class="headerlink" href="#codergpt.CoderGPT" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>CoderGPT class.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="codergpt.CoderGPT.commenter">
+<span class="sig-name descname"><span class="pre">commenter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CoderGPT.commenter" title="Link to this definition"></a></dt>
+<dd><p>Add comments to the code file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</span>) – The path to the code file.</p></li>
+<li><p><strong>overwrite</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – Whether to overwrite the existing comments. Default is False.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="codergpt.CoderGPT.explainer">
+<span class="sig-name descname"><span class="pre">explainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CoderGPT.explainer" title="Link to this definition"></a></dt>
+<dd><p>Explains contents of the code file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</span>) – The path to the code file.</p></li>
+<li><p><strong>function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the function to explain. Default is None.</p></li>
+<li><p><strong>classname</strong> – The name of the class to explain. Default is None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="codergpt.CoderGPT.get_code">
+<span class="sig-name descname"><span class="pre">get_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CoderGPT.get_code" title="Link to this definition"></a></dt>
+<dd><p>Extract and return the source code of the specified function or class from a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The path to the file containing the code.</p></li>
+<li><p><strong>function_name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the function to extract code for. Default is None.</p></li>
+<li><p><strong>class_name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the class to extract code for. Default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The extracted source code of the specified function or class, if found.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="codergpt.CoderGPT.inspect_package">
+<span class="sig-name descname"><span class="pre">inspect_package</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CoderGPT.inspect_package" title="Link to this definition"></a></dt>
+<dd><p>Inspecting the code and displaying a mapping of files to their languages in a table.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</span>) – The path to the package or directory.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 

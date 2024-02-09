@@ -1,6 +1,17 @@
 codergpt.commenter package
 ==========================
 
+Submodules
+----------
+
+codergpt.commenter.commenter module
+-----------------------------------
+
+.. automodule:: codergpt.commenter.commenter
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 
