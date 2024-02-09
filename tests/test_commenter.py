@@ -4,7 +4,7 @@ import os
 import unittest
 from unittest.mock import MagicMock
 
-from codergpt.commenter import CodeCommenter
+from codergpt import CodeCommenter
 
 from tests.test_constants import TEST_INPUT_DIR
 
