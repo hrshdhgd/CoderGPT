@@ -70,10 +70,8 @@ def explain(path: Union[str, Path], function: str, classname: str):
 
 @main.command("comment")
 @path_argument
-@click.option("-f", "--function", help="Function name to explain.")
-@click.option("-c", "--classname", help="Class name to explain.")
 @overwrite_option
-def add_comments(path: Union[str, Path], function: str, classname: str, overwrite: bool = False):
+def add_comments(path: Union[str, Path], overwrite: bool = False):
     """Inspect package to show file-language-map."""
     # Ensure path is a string or Path object for consistency
     if isinstance(path, str):
@@ -81,7 +79,7 @@ def add_comments(path: Union[str, Path], function: str, classname: str, overwrit
 
     # Check if path is a file
     if path.is_file():
-        coder.commenter(path=path, function=function, classname=classname, overwrite=overwrite)
+        coder.commenter(path=path, overwrite=overwrite)
     else:
         raise ValueError("The path provided is not a file.")
 

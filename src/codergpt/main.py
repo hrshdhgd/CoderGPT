@@ -100,11 +100,11 @@ class CoderGPT:
         code = self.get_code(filename=path, function_name=function, class_name=classname)
         code_explainer.explain(code)
 
-    def commenter(self, path: Union[str, Path], function: str = None, classname=None, overwrite: bool = False):
+    def commenter(self, path: Union[str, Path], overwrite: bool = False):
         """Explains contents of the code file."""
         # Ensure path is a string or Path object for consistency
         code_commenter = CodeCommenter(self.chain)
-        code = self.get_code(filename=path, function_name=function, class_name=classname)
+        code = self.get_code(filename=path)
         code_commenter.comment(code=code, filename=path, overwrite=overwrite)
 
 
