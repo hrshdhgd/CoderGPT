@@ -4,9 +4,9 @@
   "checkout": null,
   "context": {
     "cookiecutter": {
-      "project_name": "OptimGPT",
+      "project_name": "CoderGPT",
       "github_org_name": "hrshdhgd",
-      "__project_slug": "optimgpt",
+      "__project_slug": "codergpt",
       "project_description": "A language agnostic code optimizer.",
       "min_python_version": "3.9",
       "file_name": "main",

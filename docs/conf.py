@@ -5,12 +5,12 @@
 import os
 from datetime import date
 
-from optimgpt import __version__
+from codergpt import __version__
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
-project = "OptimGPT"
+project = "CoderGPT"
 copyright = f"{date.today().year}, Harshad Hegde <hhegde@lbl.gov>"
 author = "Harshad Hegde <hhegde@lbl.gov>"
 release = __version__

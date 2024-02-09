@@ -2,7 +2,7 @@
 
 import unittest
 
-from optimgpt import __version__
+from codergpt import __version__
 
 
 class TestVersion(unittest.TestCase):

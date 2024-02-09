@@ -1,1 +1,1 @@
-"""Tests for OptimGPT."""
+"""Tests for CoderGPT."""
