@@ -1,0 +1,10 @@
+codergpt.optimizer package
+==========================
+
+Module contents
+---------------
+
+.. automodule:: codergpt.optimizer
+   :members:
+   :undoc-members:
+   :show-inheritance:

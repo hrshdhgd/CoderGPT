@@ -1,6 +1,16 @@
 codergpt package
 ================
 
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   codergpt.explainer
+   codergpt.optimizer
+   codergpt.test_writer
+
 Submodules
 ----------
 
