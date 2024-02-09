@@ -42,6 +42,7 @@ overwrite_option = click.option(
 
 coder = CoderGPT()
 
+
 @click.group()
 @click.option("-v", "--verbose", count=True)
 @click.option("-q", "--quiet")
@@ -62,6 +63,7 @@ def main(verbose: int, quiet: bool):
     if quiet:
         logger.setLevel(level=logging.ERROR)
 
+
 @main.command()
 @path_argument
 def inspect(path: Union[str, Path, TextIO]):
@@ -71,6 +73,7 @@ def inspect(path: Union[str, Path, TextIO]):
     :param path: Path to the package.
     """
     coder.inspect_package(path=path)
+
 
 @main.command()
 @path_argument
@@ -94,6 +97,7 @@ def explain(path: Union[str, Path], function: str, classname: str):
     else:
         raise ValueError("The path provided is not a file.")
 
+
 @main.command("comment")
 @path_argument
 @overwrite_option
@@ -113,6 +117,7 @@ def add_comments(path: Union[str, Path], overwrite: bool = False):
         coder.commenter(path=path, overwrite=overwrite)
     else:
         raise ValueError("The path provided is not a file.")
+
 
 if __name__ == "__main__":
     main()
