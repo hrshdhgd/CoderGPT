@@ -143,41 +143,53 @@
 
 </dd></dl>
 
-<dl class="py class">
-<dt class="sig sig-object py" id="codergpt.explainer.explainer.ExpressionEvaluator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">codergpt.explainer.explainer.</span></span><span class="sig-name descname"><span class="pre">ExpressionEvaluator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">source_code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.explainer.explainer.ExpressionEvaluator" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">NodeVisitor</span></code></p>
-<p>Evaluate the code expression and extract the source code of the specified function or class.</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="codergpt.explainer.explainer.ExpressionEvaluator.visit_ClassDef">
-<span class="sig-name descname"><span class="pre">visit_ClassDef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.explainer.explainer.ExpressionEvaluator.visit_ClassDef" title="Link to this definition"></a></dt>
-<dd><p>Visit a ClassDef (class definition) node in the AST.</p>
-<p>If the class name matches the target class name, it extracts the source segment.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node</strong> (<em>ast.ClassDef</em>) – The node representing a class definition in the AST.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="codergpt.explainer.explainer.ExpressionEvaluator.visit_FunctionDef">
-<span class="sig-name descname"><span class="pre">visit_FunctionDef</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">node</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.explainer.explainer.ExpressionEvaluator.visit_FunctionDef" title="Link to this definition"></a></dt>
-<dd><p>Visit a FunctionDef (function definition) node in the AST.</p>
-<p>If the function name matches the target function name, it extracts the source segment.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>node</strong> (<em>ast.FunctionDef</em>) – The node representing a function definition in the AST.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
 </section>
 <section id="module-codergpt.explainer">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-codergpt.explainer" title="Link to this heading"></a></h2>
 <p>Code explanation module.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="codergpt.explainer.CodeExplainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">codergpt.explainer.</span></span><span class="sig-name descname"><span class="pre">CodeExplainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.explainer.CodeExplainer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Code Explainer class that extracts and explains code from a given file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="codergpt.explainer.CodeExplainer.explain">
+<span class="sig-name descname"><span class="pre">explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.explainer.CodeExplainer.explain" title="Link to this definition"></a></dt>
+<dd><p>Explain the contents of the code file by invoking the runnable chain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</span>) – The path to the code file to be explained.</p></li>
+<li><p><strong>function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the function to explain. Default is None.</p></li>
+<li><p><strong>classname</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the class to explain. Default is None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="codergpt.explainer.CodeExplainer.get_function_code">
+<span class="sig-name descname"><span class="pre">get_function_code</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_name</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.explainer.CodeExplainer.get_function_code" title="Link to this definition"></a></dt>
+<dd><p>Extract and return the source code of the specified function or class from a file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The path to the file containing the code.</p></li>
+<li><p><strong>function_name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the function to extract code for. Default is None.</p></li>
+<li><p><strong>class_name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the class to extract code for. Default is None.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The extracted source code of the specified function or class, if found.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 
