@@ -7,6 +7,7 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+   codergpt.commenter
    codergpt.explainer
    codergpt.optimizer
    codergpt.test_writer

@@ -1,6 +1,17 @@
 codergpt.explainer package
 ==========================
 
+Submodules
+----------
+
+codergpt.explainer.explainer module
+-----------------------------------
+
+.. automodule:: codergpt.explainer.explainer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 
