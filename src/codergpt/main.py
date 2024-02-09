@@ -10,6 +10,7 @@ from langchain_openai import ChatOpenAI
 from tabulate import tabulate
 
 from codergpt.constants import EXTENSION_MAP_FILE, INSPECTION_HEADERS
+from codergpt.explainer.explainer import CodeExplainer
 
 
 class CoderGPT:
@@ -27,16 +28,6 @@ class CoderGPT:
         # Combine the prompt template with the ChatOpenAI object to create a chain.
         # This chain will be used to send the input to the AI in the correct context.
         self.chain = self.prompt | self.llm
-
-        # # Invoke the chain with the specific input asking about the programming language
-        # # associated with the given file extension. The input is formatted to include the
-        # # file extension in the question and requests a one-word response.
-        # response = chain.invoke(
-        #     {
-        #         "input": f"Given the file extensions {ext},\
-        #         return just programming language name e.g. 'Python' or 'JavaScript'."
-        #     }
-        # )
 
     def inspect_package(self, path: Union[str, Path]):
         """Inspecting the code and displaying a mapping of files to their languages in a table."""
@@ -71,6 +62,12 @@ class CoderGPT:
 
         # Display the results as a table
         print(tabulate(file_language_list, headers=INSPECTION_HEADERS))
+
+    def explainer(self, path: Union[str, Path], function: str = None, classname=None):
+        """Explains contents of the code file."""
+        # Ensure path is a string or Path object for consistency
+        code_explainer = CodeExplainer(self.chain)
+        code_explainer.explain(path=path, function=function, classname=classname)
 
 
 if __name__ == "__main__":

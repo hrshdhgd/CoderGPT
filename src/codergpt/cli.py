@@ -15,6 +15,10 @@ __all__ = [
 
 logger = logging.getLogger(__name__)
 
+path_argument = click.argument("path", type=click.Path(exists=True))
+
+coder = CoderGPT()
+
 
 @click.group()
 @click.option("-v", "--verbose", count=True)
@@ -38,11 +42,27 @@ def main(verbose: int, quiet: bool):
 
 
 @main.command()
-@click.argument("path", type=click.Path(exists=True))
+@path_argument
 def inspect(path: Union[str, Path, TextIO]):
     """Inspect package to show file-language-map."""
-    coder = CoderGPT()
     coder.inspect_package(path=path)
+
+
+@main.command()
+@path_argument
+@click.option("-f", "--function", help="Function name to explain.")
+@click.option("-c", "--classname", help="Class name to explain.")
+def explain(path: Union[str, Path], function: str, classname: str):
+    """Inspect package to show file-language-map."""
+    # Ensure path is a string or Path object for consistency
+    if isinstance(path, str):
+        path = Path(path)
+
+    # Check if path is a file
+    if path.is_file():
+        coder.explainer(path=path, function=function, classname=classname)
+    else:
+        raise ValueError("The path provided is not a file.")
 
 
 if __name__ == "__main__":
