@@ -5,7 +5,7 @@ import logging
 import click
 
 from codergpt import __version__
-from codergpt.main import start
+from codergpt.main import CoderGPT
 
 __all__ = [
     "main",
@@ -36,14 +36,11 @@ def main(verbose: int, quiet: bool):
 
 
 @main.command()
-def run():
-    """Run the CoderGPT's demo command."""
-    start()
-
-
-def explore():
-    """Explore the code."""
-    print("Exploring the code.")
+@click.argument("path", type=click.Path(exists=True))
+def inspect(path: str):
+    """Inspect pckage to show file-language-map."""
+    coder = CoderGPT()
+    coder.inspect_package(path=path)
 
 
 if __name__ == "__main__":
