@@ -2,7 +2,7 @@
 
 ## Description
 
-CoderGPT CLI is a command line interface for CoderGPT, a state-of-the-art code generation tool. It allows developers to interact with the CoderGPT functionalities directly from the terminal, streamlining their workflow and enhancing productivity.
+CoderGPT CLI is a command line interface, a state-of-the-art code generation/modifying tool. It allows developers to interact with the CoderGPT functionalities directly from the terminal, streamlining their workflow and enhancing productivity. The underlying engine that facilitates the code enhancement and modificatoin is [langchain](https://github.com/langchain-ai/langchain).
 
 ## Author
 
