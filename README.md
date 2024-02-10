@@ -68,7 +68,7 @@ code explain <path> [--function <function_name>] [--classname <class_name>]
 
 #### Example
 ```shell
-$ code explain src/codergpt/explainer/explainer.py -f explain
+$ code explain src/codergpt/explainer/explainer.py --function explain
 Explanation for the code:
 This code defines a method called `explain` that takes in three parameters: `code`, `function`, and `classname`. The `code` parameter is a string that represents the code file to be explained. The `function` parameter is an optional string that represents the name of a specific function within the code file that needs to be explained. The `classname` parameter is also an optional string that represents the name of a specific class within the code file that needs to be explained.
 
