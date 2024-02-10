@@ -140,7 +140,7 @@ Contributions are welcome! Please read our [contributing guidelines](CONTRIBUTIN
 
 This project is licensed under the MIT License - see the LICENSE.md file for details.
 
-# Acknowledgements
+## Acknowledgements
 
 This [cookiecutter](https://cookiecutter.readthedocs.io/en/stable/README.html) project was developed from the [monarch-project-template](https://github.com/monarch-initiative/monarch-project-template) template and will be kept up-to-date using [cruft](https://cruft.github.io/cruft/).
 
