@@ -32,15 +32,13 @@ code [OPTIONS] COMMAND [ARGS]...
 
 ### Commands
 
-#### inspect
-
-Inspect a package and display a file-language map.
+`inspect`: Inspect a package and display a file-language map.
 
 ```shell
 code inspect <path>
 ```
 
-##### example
+#### Example
 ```shell
 $ code inspect code inspect src/codergpt/
 Inspecting the code.
@@ -62,17 +60,26 @@ src/codergpt/test_writer/__init__.py        Python
 ```
 
 
-#### explain
-
-Explain a specific function or class within a package.
+`explain`: Explain a specific function or class within a package.
 
 ```shell
 code explain <path> [--function <function_name>] [--classname <class_name>]
 ```
 
-#### comment
+#### Example
+```shell
+$ code explain src/codergpt/explainer/explainer.py -f explain
+Explanation for the code:
+This code defines a method called `explain` that takes in three parameters: `code`, `function`, and `classname`. The `code` parameter is a string that represents the code file to be explained. The `function` parameter is an optional string that represents the name of a specific function within the code file that needs to be explained. The `classname` parameter is also an optional string that represents the name of a specific class within the code file that needs to be explained.
 
-Add comments to the code in a package.
+The method first checks if the `function` parameter is provided. If it is, the method invokes a `chain` by passing a dictionary with an "input" key and a formatted string containing the code. The response from the `chain.invoke` call is then printed in a pretty format, including the name of the function being explained.
+
+If the `function` parameter is not provided but the `classname` parameter is, the same process is followed, but with the class name instead.
+
+If both `function` and `classname` parameters are not provided, the method assumes that the full code needs to be explained. It again invokes the `chain` with the code as input and prints the response in a pretty format, indicating that it is explaining the entire code.
+```
+
+`comment`: Add comments to the code in a package. The user has the choice to overwrite the file or create a new one.
 
 ```shell
 code comment <path> [--overwrite/--no-overwrite]
