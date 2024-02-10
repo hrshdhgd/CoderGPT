@@ -42,7 +42,7 @@ code inspect <path>
 
 ##### example
 ```shell
-code inspect code inspect src/codergpt/
+$ code inspect code inspect src/codergpt/
 Inspecting the code.
 File                                        Language
 ------------------------------------------  ----------
