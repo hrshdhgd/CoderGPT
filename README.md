@@ -40,6 +40,28 @@ Inspect a package and display a file-language map.
 code inspect <path>
 ```
 
+##### example
+```shell
+code inspect code inspect src/codergpt/
+Inspecting the code.
+File                                        Language
+------------------------------------------  ----------
+src/codergpt/constants.py                   Python
+src/codergpt/__init__.py                    Python
+src/codergpt/cli.py                         Python
+src/codergpt/extensions.yaml                YAML
+src/codergpt/main.py                        Python
+src/codergpt/optimizer/__init__.py          Python
+src/codergpt/utils/expression_evaluator.py  Python
+src/codergpt/utils/__init__.py              Python
+src/codergpt/commenter/commenter.py         Python
+src/codergpt/commenter/__init__.py          Python
+src/codergpt/explainer/explainer.py         Python
+src/codergpt/explainer/__init__.py          Python
+src/codergpt/test_writer/__init__.py        Python
+```
+
+
 #### explain
 
 Explain a specific function or class within a package.
