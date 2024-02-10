@@ -85,7 +85,36 @@ code [OPTIONS] COMMAND [ARGS]...
     ```shell
     code comment <path> [--overwrite/--no-overwrite]
     ```
+    #### Example
+    - Let's consider a python file `greetings.py`:
+    ```
+        def greet(name):
+            return f"Hello, {name}!"
 
+        if __name__ == "__main__":
+            user_name = "Alice"
+            print(greet(user_name))
+    ```
+
+    ```shell
+    $ code comment greetings.py --overwrite
+    ```
+    results in .... 
+    ```
+        def greet(name):
+            """
+            Generates a greeting message for the given name.
+
+            :param name: (str) The name of the person to greet.
+            :return: (str) The greeting message.
+            """
+            return f"Hello, {name}!"
+
+
+        if __name__ == "__main__":
+            user_name = "Alice"
+            print(greet(user_name))
+    ```
 ## Development
 
 The CLI is built using Python and the `click` library. Below is an example of how to define a new command:
