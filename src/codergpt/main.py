@@ -83,7 +83,7 @@ class CoderGPT:
                 {
                     "input": f"Identify the structure of this {language} code \n{source_code}\n"
                     f" and give me only the code (no explanation) that corresponds"
-                    f"to the {search_term} function or class."
+                    f" to the {search_term} function or class."
                 }
             )
             code = response.content
