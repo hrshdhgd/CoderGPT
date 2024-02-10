@@ -41,23 +41,27 @@ class CoderGPT:
         path = Path(path)
 
         file_language_list = []
+        file_language_dict = {}
 
         if path.is_dir():
             for file in path.rglob("*.*"):
                 language = extension_to_language["language-map"].get(file.suffix)
                 if language is not None:
                     file_language_list.append((str(file), language))
+                    file_language_dict[str(file)] = language
 
         elif path.is_file():
             language = extension_to_language["language-map"].get(path.suffix)
             if language is not None:
                 file_language_list.append((str(path), language))
+                file_language_dict[str(path)] = language
 
         else:
             print(f"The path {path} is neither a file nor a directory.")
-            return
+            return {}
 
         print(tabulate(file_language_list, headers=INSPECTION_HEADERS))
+        return file_language_dict
 
     def get_code(
         self, filename: str, function_name: Optional[str] = None, class_name: Optional[str] = None
@@ -73,16 +77,19 @@ class CoderGPT:
         with open(filename, "r") as source_file:
             source_code = source_file.read()
 
+        language_map = self.inspect_package(filename)
+        language = language_map.get(str(filename))
+
         parsed_code = ast.parse(source_code)
 
         visitor = ExpressionEvaluator(source_code=source_code, function_name=function_name, class_name=class_name)
         visitor.visit(parsed_code)
         if function_name:
-            return visitor.function_code
+            return (visitor.function_code, language)
         elif class_name:
-            return visitor.class_code
+            return (visitor.class_code, language)
         else:
-            return source_code
+            return (source_code, language)
 
     def explainer(self, path: Union[str, Path], function: str = None, classname=None):
         """
@@ -93,8 +100,8 @@ class CoderGPT:
         :param classname: The name of the class to explain. Default is None.
         """
         code_explainer = CodeExplainer(self.chain)
-        code = self.get_code(filename=path, function_name=function, class_name=classname)
-        code_explainer.explain(code)
+        code, language = self.get_code(filename=path, function_name=function, class_name=classname)
+        code_explainer.explain(code, language)
 
     def commenter(self, path: Union[str, Path], overwrite: bool = False):
         """
@@ -104,8 +111,8 @@ class CoderGPT:
         :param overwrite: Whether to overwrite the existing comments. Default is False.
         """
         code_commenter = CodeCommenter(self.chain)
-        code = self.get_code(filename=path)
-        code_commenter.comment(code=code, filename=path, overwrite=overwrite)
+        code, language = self.get_code(filename=path)
+        code_commenter.comment(code=code, filename=path, overwrite=overwrite, language=language)
 
 
 if __name__ == "__main__":

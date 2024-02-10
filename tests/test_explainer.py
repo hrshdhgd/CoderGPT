@@ -30,10 +30,10 @@ class TestExplainer(unittest.TestCase):
         sample_function_name = "example"  # Replace with actual function name
 
         # Call the explain method with a sample code snippet and function name
-        self.code_explainer.explain(code=sample_code, function=sample_function_name)
+        self.code_explainer.explain(code=sample_code, function=sample_function_name, language="python")
 
         # Verify that invoke was called once with the correct parameters
-        expected_invoke_input = {"input": f"Explain the following code: \n\n```\n{sample_code}\n```"}
+        expected_invoke_input = {"input": f"Explain the following python code: \n\n```\n{sample_code}\n```"}
         self.mock_chain.invoke.assert_called_once_with(expected_invoke_input)
 
         # Check if the expected explanation message is in the captured output
@@ -48,10 +48,10 @@ class TestExplainer(unittest.TestCase):
         sample_class_name = "Example"  # Replace with actual class name
 
         # Call the explain method with a sample code snippet and class name
-        self.code_explainer.explain(code=sample_code, classname=sample_class_name)
+        self.code_explainer.explain(code=sample_code, classname=sample_class_name, language="python")
 
         # Verify that invoke was called once with the correct parameters
-        expected_invoke_input = {"input": f"Explain the following code: \n\n```\n{sample_code}\n```"}
+        expected_invoke_input = {"input": f"Explain the following python code: \n\n```\n{sample_code}\n```"}
         self.mock_chain.invoke.assert_called_once_with(expected_invoke_input)
 
         # Check if the expected explanation message is in the captured output
@@ -64,10 +64,10 @@ class TestExplainer(unittest.TestCase):
         sample_code = "# Your full code here"  # Replace with actual code
 
         # Call the explain method with a sample code snippet
-        self.code_explainer.explain(code=sample_code)
+        self.code_explainer.explain(code=sample_code, language="python")
 
         # Verify that invoke was called once with the correct parameters
-        expected_invoke_input = {"input": f"Explain the following code: \n\n```\n{sample_code}\n```"}
+        expected_invoke_input = {"input": f"Explain the following python code: \n\n```\n{sample_code}\n```"}
         self.mock_chain.invoke.assert_called_once_with(expected_invoke_input)
 
         # Check if the expected explanation message is in the captured output

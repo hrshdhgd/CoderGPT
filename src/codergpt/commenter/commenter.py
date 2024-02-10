@@ -1,7 +1,7 @@
 """Commenter Module."""
 
 import os
-from typing import Any, Dict
+from typing import Any, Dict, Optional
 
 from langchain_core.runnables.base import RunnableSerializable
 
@@ -17,7 +17,7 @@ class CodeCommenter:
         """
         self.chain = chain
 
-    def comment(self, code: str, filename: str, overwrite: bool = False):
+    def comment(self, code: str, filename: str, overwrite: bool = False, language: Optional[str] = None):
         """
         Comment the contents of the code string by invoking the runnable chain and write it to a new file.
 
@@ -27,7 +27,7 @@ class CodeCommenter:
         """
         response = self.chain.invoke(
             {
-                "input": f"Rewrite and return this code with\
+                "input": f"Rewrite and return this {language} code with\
                 comments and docstrings in :param: format: \n{code}\n"
             }
         )

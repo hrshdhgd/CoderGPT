@@ -28,7 +28,7 @@ class TestCodeCommenter(unittest.TestCase):
         self.mock_chain.invoke.return_value.content = expected_commented_code
 
         # Act
-        self.commenter.comment(code=code, filename=filename, overwrite=True)
+        self.commenter.comment(code=code, filename=filename, overwrite=True, language="python")
 
         # Assert
         self.mock_chain.invoke.assert_called_once()
