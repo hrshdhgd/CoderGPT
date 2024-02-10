@@ -33,6 +33,7 @@ code [OPTIONS] COMMAND [ARGS]...
 ### Commands
 
 `inspect`: Inspect a package and display a file-language map.
+---------
 
 ```shell
 code inspect <path>
