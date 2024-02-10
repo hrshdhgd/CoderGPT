@@ -1,6 +1,5 @@
 """Main python file."""
 
-import ast
 import os
 from pathlib import Path
 from typing import Optional, Union
@@ -13,7 +12,6 @@ from tabulate import tabulate
 from codergpt.commenter.commenter import CodeCommenter
 from codergpt.constants import EXTENSION_MAP_FILE, INSPECTION_HEADERS
 from codergpt.explainer.explainer import CodeExplainer
-from codergpt.utils.expression_evaluator import ExpressionEvaluator
 
 
 class CoderGPT:
@@ -79,17 +77,20 @@ class CoderGPT:
 
         language_map = self.inspect_package(filename)
         language = language_map.get(str(filename))
-
-        parsed_code = ast.parse(source_code)
-
-        visitor = ExpressionEvaluator(source_code=source_code, function_name=function_name, class_name=class_name)
-        visitor.visit(parsed_code)
-        if function_name:
-            return (visitor.function_code, language)
-        elif class_name:
-            return (visitor.class_code, language)
+        search_term = function_name if function_name else class_name
+        if search_term:
+            response = self.chain.invoke(
+                {
+                    "input": f"Identify the structure of this {language} code \n{source_code}\n"
+                    f" and give me only the code (no explanation) that corresponds"
+                    f"to the {search_term} function or class."
+                }
+            )
+            code = response.content
         else:
-            return (source_code, language)
+            code = source_code
+
+        return (code, language)
 
     def explainer(self, path: Union[str, Path], function: str = None, classname=None):
         """
