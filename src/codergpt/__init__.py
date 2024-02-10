@@ -4,6 +4,7 @@ import importlib_metadata
 
 from codergpt.commenter import CodeCommenter
 from codergpt.explainer import CodeExplainer
+from codergpt.optimizer import CodeOptimizer
 
 from .main import CoderGPT
 
@@ -14,4 +15,4 @@ except importlib_metadata.PackageNotFoundError:
     __version__ = "0.0.0"  # pragma: no cover
 
 
-__all__ = ["CoderGPT", "CodeExplainer", "CodeCommenter"]
+__all__ = ["CoderGPT", "CodeExplainer", "CodeCommenter", "CodeOptimizer"]

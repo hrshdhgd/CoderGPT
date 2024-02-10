@@ -12,6 +12,7 @@ from tabulate import tabulate
 from codergpt.commenter.commenter import CodeCommenter
 from codergpt.constants import EXTENSION_MAP_FILE, INSPECTION_HEADERS
 from codergpt.explainer.explainer import CodeExplainer
+from codergpt.optimizer.optimizer import CodeOptimizer
 
 
 class CoderGPT:
@@ -114,6 +115,24 @@ class CoderGPT:
         code_commenter = CodeCommenter(self.chain)
         code, language = self.get_code(filename=path)
         code_commenter.comment(code=code, filename=path, overwrite=overwrite, language=language)
+
+    def optimizer(self, path: Union[str, Path], function: str = None, classname=None, overwrite: bool = False):
+        """
+        Optimize the code file.
+
+        :param path: The path to the code file.
+        """
+        code_optimizer = CodeOptimizer(self.chain)
+        # code, language = self.get_code(filename=path, function_name=function, class_name=classname)
+        code_optimizer.optimize(filename=path, function=function, classname=classname, overwrite=overwrite)
+
+    def tester(self, path: Union[str, Path]):
+        """
+        Test the code file.
+
+        :param path: The path to the code file.
+        """
+        pass
 
 
 if __name__ == "__main__":
