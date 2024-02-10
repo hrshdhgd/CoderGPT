@@ -32,59 +32,59 @@ code [OPTIONS] COMMAND [ARGS]...
 
 ### Commands
 
-`inspect`: Inspect a package and display a file-language map.
----------
-
-```shell
-code inspect <path>
-```
-
-#### Example
-```shell
-$ code inspect code inspect src/codergpt/
-Inspecting the code.
-File                                        Language
-------------------------------------------  ----------
-src/codergpt/constants.py                   Python
-src/codergpt/__init__.py                    Python
-src/codergpt/cli.py                         Python
-src/codergpt/extensions.yaml                YAML
-src/codergpt/main.py                        Python
-src/codergpt/optimizer/__init__.py          Python
-src/codergpt/utils/expression_evaluator.py  Python
-src/codergpt/utils/__init__.py              Python
-src/codergpt/commenter/commenter.py         Python
-src/codergpt/commenter/__init__.py          Python
-src/codergpt/explainer/explainer.py         Python
-src/codergpt/explainer/__init__.py          Python
-src/codergpt/test_writer/__init__.py        Python
-```
+1. `inspect`: Inspect a package and display a file-language map.
 
 
-`explain`: Explain a specific function or class within a package.
+    ```shell
+    code inspect <path>
+    ```
 
-```shell
-code explain <path> [--function <function_name>] [--classname <class_name>]
-```
+    #### Example
+    ```shell
+    $ code inspect code inspect src/codergpt/
+    Inspecting the code.
+    File                                        Language
+    ------------------------------------------  ----------
+    src/codergpt/constants.py                   Python
+    src/codergpt/__init__.py                    Python
+    src/codergpt/cli.py                         Python
+    src/codergpt/extensions.yaml                YAML
+    src/codergpt/main.py                        Python
+    src/codergpt/optimizer/__init__.py          Python
+    src/codergpt/utils/expression_evaluator.py  Python
+    src/codergpt/utils/__init__.py              Python
+    src/codergpt/commenter/commenter.py         Python
+    src/codergpt/commenter/__init__.py          Python
+    src/codergpt/explainer/explainer.py         Python
+    src/codergpt/explainer/__init__.py          Python
+    src/codergpt/test_writer/__init__.py        Python
+    ```
 
-#### Example
-```shell
-$ code explain src/codergpt/explainer/explainer.py --function explain
-Explanation for the code:
-This code defines a method called `explain` that takes in three parameters: `code`, `function`, and `classname`. The `code` parameter is a string that represents the code file to be explained. The `function` parameter is an optional string that represents the name of a specific function within the code file that needs to be explained. The `classname` parameter is also an optional string that represents the name of a specific class within the code file that needs to be explained.
 
-The method first checks if the `function` parameter is provided. If it is, the method invokes a `chain` by passing a dictionary with an "input" key and a formatted string containing the code. The response from the `chain.invoke` call is then printed in a pretty format, including the name of the function being explained.
+2. `explain`: Explain a specific function or class within a package.
 
-If the `function` parameter is not provided but the `classname` parameter is, the same process is followed, but with the class name instead.
+    ```shell
+    code explain <path> [--function <function_name>] [--classname <class_name>]
+    ```
 
-If both `function` and `classname` parameters are not provided, the method assumes that the full code needs to be explained. It again invokes the `chain` with the code as input and prints the response in a pretty format, indicating that it is explaining the entire code.
-```
+    #### Example
+    ```shell
+    $ code explain src/codergpt/explainer/explainer.py --function explain
+    Explanation for the code:
+    This code defines a method called `explain` that takes in three parameters: `code`, `function`, and `classname`. The `code` parameter is a string that represents the code file to be explained. The `function` parameter is an optional string that represents the name of a specific function within the code file that needs to be explained. The `classname` parameter is also an optional string that represents the name of a specific class within the code file that needs to be explained.
 
-`comment`: Add comments to the code in a package. The user has the choice to overwrite the file or create a new one.
+    The method first checks if the `function` parameter is provided. If it is, the method invokes a `chain` by passing a dictionary with an "input" key and a formatted string containing the code. The response from the `chain.invoke` call is then printed in a pretty format, including the name of the function being explained.
 
-```shell
-code comment <path> [--overwrite/--no-overwrite]
-```
+    If the `function` parameter is not provided but the `classname` parameter is, the same process is followed, but with the class name instead.
+
+    If both `function` and `classname` parameters are not provided, the method assumes that the full code needs to be explained. It again invokes the `chain` with the code as input and prints the response in a pretty format, indicating that it is explaining the entire code.
+    ```
+
+3. `comment`: Add comments to the code in a package. The user has the choice to overwrite the file or create a new one.
+
+    ```shell
+    code comment <path> [--overwrite/--no-overwrite]
+    ```
 
 ## Development
 
