@@ -6,10 +6,6 @@ CoderGPT is a command line interface for generating/modifying code. It allows de
 enhance code by commenting, optimizing and adding tests to their project using the power of LLM. 
 This project is powered by [langchain](https://github.com/langchain-ai/langchain).
 
-## Author
-
-Harshad Hegde
-
 ## Installation
 
 To use the CoderGPT CLI, clone the repository and install the required dependencies.
