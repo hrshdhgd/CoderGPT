@@ -12,8 +12,6 @@ Welcome to CoderGPT's documentation!
    :name: start
 
    description
-   installation
-   usage
    modules
 
 Indices and tables
