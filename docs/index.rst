@@ -12,6 +12,7 @@ Welcome to CoderGPT's documentation!
    :name: start
 
    description
+   developer
    modules
 
 Indices and tables
