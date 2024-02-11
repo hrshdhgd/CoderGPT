@@ -3,7 +3,7 @@
 CoderGPT
 ========
 
-Description
+What is it?
 -----------
 
 CoderGPT is a command line interface for generating/modifying code. It allows developers to 
