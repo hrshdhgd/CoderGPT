@@ -44,8 +44,10 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="description.html">CoderGPT CLI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">codergpt</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">codergpt package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
@@ -66,6 +68,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#module-codergpt">Module contents</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#codergpt.CodeCommenter"><code class="docutils literal notranslate"><span class="pre">CodeCommenter</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#codergpt.CodeExplainer"><code class="docutils literal notranslate"><span class="pre">CodeExplainer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#codergpt.CodeOptimizer"><code class="docutils literal notranslate"><span class="pre">CodeOptimizer</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#codergpt.CoderGPT"><code class="docutils literal notranslate"><span class="pre">CoderGPT</span></code></a></li>
 </ul>
 </li>
@@ -143,7 +146,21 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="codergpt.optimizer.html">codergpt.optimizer package</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="codergpt.optimizer.html#module-codergpt.optimizer">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codergpt.optimizer.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codergpt.optimizer.html#module-codergpt.optimizer.optimizer">codergpt.optimizer.optimizer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="codergpt.optimizer.html#codergpt.optimizer.optimizer.CodeOptimizer"><code class="docutils literal notranslate"><span class="pre">CodeOptimizer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="codergpt.optimizer.html#codergpt.optimizer.optimizer.CodeOptimizer.optimize"><code class="docutils literal notranslate"><span class="pre">CodeOptimizer.optimize()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="codergpt.optimizer.html#module-codergpt.optimizer">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="codergpt.optimizer.html#codergpt.optimizer.CodeOptimizer"><code class="docutils literal notranslate"><span class="pre">CodeOptimizer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="codergpt.optimizer.html#codergpt.optimizer.CodeOptimizer.optimize"><code class="docutils literal notranslate"><span class="pre">CodeOptimizer.optimize()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="codergpt.test_writer.html">codergpt.test_writer package</a><ul>
@@ -245,6 +262,28 @@
 </dl>
 </dd></dl>
 
+<dl class="py method">
+<dt class="sig sig-object py" id="codergpt.main.CoderGPT.optimizer">
+<span class="sig-name descname"><span class="pre">optimizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.main.CoderGPT.optimizer" title="Link to this definition"></a></dt>
+<dd><p>Optimize the code file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</span>) – The path to the code file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="codergpt.main.CoderGPT.tester">
+<span class="sig-name descname"><span class="pre">tester</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.main.CoderGPT.tester" title="Link to this definition"></a></dt>
+<dd><p>Test the code file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</span>) – The path to the code file.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 </section>
@@ -282,6 +321,28 @@
 <dt class="sig sig-object py" id="codergpt.CodeExplainer.explain">
 <span class="sig-name descname"><span class="pre">explain</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CodeExplainer.explain" title="Link to this definition"></a></dt>
 <dd><p>Explain the contents of the code file by invoking the runnable chain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – The path to the code file to be explained.</p></li>
+<li><p><strong>function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the function to explain. Default is None.</p></li>
+<li><p><strong>classname</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the class to explain. Default is None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="codergpt.CodeOptimizer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">codergpt.</span></span><span class="sig-name descname"><span class="pre">CodeOptimizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CodeOptimizer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Code Explainer class that extracts and explains code from a given file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="codergpt.CodeOptimizer.optimize">
+<span class="sig-name descname"><span class="pre">optimize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CodeOptimizer.optimize" title="Link to this definition"></a></dt>
+<dd><p>Optimize the the code by invoking the runnable chain.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
@@ -357,6 +418,28 @@
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>path</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</span>) – The path to the package or directory.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="codergpt.CoderGPT.optimizer">
+<span class="sig-name descname"><span class="pre">optimizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CoderGPT.optimizer" title="Link to this definition"></a></dt>
+<dd><p>Optimize the code file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</span>) – The path to the code file.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="codergpt.CoderGPT.tester">
+<span class="sig-name descname"><span class="pre">tester</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CoderGPT.tester" title="Link to this definition"></a></dt>
+<dd><p>Test the code file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>path</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</span>) – The path to the code file.</p>
 </dd>
 </dl>
 </dd></dl>

@@ -1,6 +1,17 @@
 codergpt.optimizer package
 ==========================
 
+Submodules
+----------
+
+codergpt.optimizer.optimizer module
+-----------------------------------
+
+.. automodule:: codergpt.optimizer.optimizer
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 

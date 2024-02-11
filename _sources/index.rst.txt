@@ -8,8 +8,12 @@ Welcome to CoderGPT's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Getting Started
+   :name: start
 
+   description
+   installation
+   usage
    modules
 
 Indices and tables
