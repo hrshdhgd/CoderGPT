@@ -1,6 +1,17 @@
 codergpt.test\_writer package
 =============================
 
+Submodules
+----------
+
+codergpt.test\_writer.tester module
+-----------------------------------
+
+.. automodule:: codergpt.test_writer.tester
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 
