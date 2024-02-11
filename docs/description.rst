@@ -152,11 +152,52 @@ Commands
    results in ....
 
    .. code-block:: python
+        """
+        Optimized and Documented Code.
+        """
 
-       """
-       Optimized and Documented Code:
-       ...
-       """
+        from typing import List
+
+
+        def calculate_sum(numbers: List[int]) -> int:
+            """
+            Calculates the sum of a list of numbers.
+
+            Parameters:
+            numbers (List[int]): A list of integers.
+
+            Returns:
+            int: The sum of the numbers.
+
+            """
+            result = sum(numbers)
+            return result
+
+
+        class MathOperations:
+            def multiply(self, a: int, b: int) -> int:
+                """
+                Multiplies two numbers.
+
+                Parameters:
+                a (int): The first number.
+                b (int): The second number.
+
+                Returns:
+                int: The result of multiplying a and b.
+
+                """
+                answer = a * b
+                return answer
+
+
+        """
+        Optimization:
+
+        1. In the 'calculate_sum' function, we can use the built-in 'sum' function to calculate the sum of the numbers in the list. This is more efficient than manually iterating over the list and adding each number to the result.
+        2. In the 'multiply' method of the 'MathOperations' class, we can directly multiply the two numbers using the '*' operator. This eliminates the need for a loop and improves performance.
+        By using these optimizations, we improve the efficiency and readability of the code.
+        """
 
 Development
 -----------

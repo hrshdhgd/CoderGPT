@@ -10,7 +10,7 @@ from langchain_openai import ChatOpenAI
 from tabulate import tabulate
 
 from codergpt.commenter.commenter import CodeCommenter
-from codergpt.constants import EXTENSION_MAP_FILE, INSPECTION_HEADERS
+from codergpt.constants import EXTENSION_MAP_FILE, GPT_3_5_TURBO, INSPECTION_HEADERS
 from codergpt.explainer.explainer import CodeExplainer
 from codergpt.optimizer.optimizer import CodeOptimizer
 
@@ -18,9 +18,9 @@ from codergpt.optimizer.optimizer import CodeOptimizer
 class CoderGPT:
     """CoderGPT class."""
 
-    def __init__(self):
+    def __init__(self, model: str = GPT_3_5_TURBO):
         """Initialize the CoderGPT class."""
-        self.llm = ChatOpenAI(openai_api_key=os.environ.get("OPENAI_API_KEY"))
+        self.llm = ChatOpenAI(openai_api_key=os.environ.get("OPENAI_API_KEY"), temperature=0.7, model=model)
         self.prompt = ChatPromptTemplate.from_messages(
             [("system", "You are world class software developer."), ("user", "{input}")]
         )

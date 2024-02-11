@@ -38,7 +38,7 @@ class CodeOptimizer:
                 {
                     "input": f"Optimize, comment and add sphinx docstrings"
                     f" to the function '{function}' in \n\n```\n{source_code}\n```"
-                    "Also explain the optimization ina systematic way."
+                    "Also explain the optimization in a systematic way as a comment."
                 }
             )
         elif classname:
@@ -46,7 +46,7 @@ class CodeOptimizer:
                 {
                     "input": f"Optimize, comment and add sphinx docstrings"
                     f" to the class '{classname}' in \n\n```\n{source_code}\n```"
-                    "Also explain the optimization ina systematic way."
+                    "Also explain the optimization in a systematic way."
                 }
             )
         else:
@@ -55,7 +55,7 @@ class CodeOptimizer:
                 {
                     "input": f"Optimize, comment and add sphinx style docstrings"
                     f" to the following code: \n\n```\n{source_code}\n```"
-                    "Also explain the optimization ina systematic way."
+                    "Also explain the optimization in a systematic way."
                 }
             )
         optimized_code = response.content
