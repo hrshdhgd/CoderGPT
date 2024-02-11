@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Developer Documentation &mdash; CoderGPT 0.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=7026087e"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="codergpt" href="modules.html" />
+    <link rel="prev" title="CoderGPT" href="description.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CoderGPT
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="description.html">CoderGPT</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Developer Documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="#command-line-interface-for-codergpt">Command Line Interface for CoderGPT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#options">Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#details">Details</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#environment-variables">Environment Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="#main-python-file">Main Python File</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#description">Description</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id2">Dependencies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id3">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#id4">Environment Variables</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#files">Files</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">codergpt</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CoderGPT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Developer Documentation</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/developer.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="developer-documentation">
+<span id="developer-docs"></span><h1>Developer Documentation<a class="headerlink" href="#developer-documentation" title="Link to this heading"></a></h1>
+<p>This section contains documentation for developers who want to contribute or extend the functionality of the project.</p>
+</section>
+<section id="command-line-interface-for-codergpt">
+<span id="codergpt-cli"></span><h1>Command Line Interface for CoderGPT<a class="headerlink" href="#command-line-interface-for-codergpt" title="Link to this heading"></a></h1>
+<section id="overview">
+<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
+<p>This module provides a command line interface (CLI) for CoderGPT, a powerful code generation tool that facilitates various operations on code files such as inspection, explanation, commenting, and optimization.</p>
+</section>
+<section id="usage">
+<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
+<p>To use the CLI, run the following command with the desired options and commands:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>codergpt_cli.py<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
+</pre></div>
+</div>
+</section>
+<section id="options">
+<h2>Options<a class="headerlink" href="#options" title="Link to this heading"></a></h2>
+<dl class="option-list">
+<dt><kbd><span class="option">-v</span>, <span class="option">--verbose <var>INTEGER</var></span></kbd></dt>
+<dd><p>Verbosity level (0, 1 or 2).</p>
+</dd>
+<dt><kbd><span class="option">-q</span>, <span class="option">--quiet</span></kbd></dt>
+<dd><p>Run in quiet mode.</p>
+</dd>
+<dt><kbd><span class="option">--version</span></kbd></dt>
+<dd><p>Show the version and exit.</p>
+</dd>
+</dl>
+</section>
+<section id="commands">
+<h2>Commands<a class="headerlink" href="#commands" title="Link to this heading"></a></h2>
+<dl class="simple">
+<dt>inspect</dt><dd><p>Inspect package to show file-language-map.</p>
+</dd>
+<dt>explain</dt><dd><p>Explain the contents of a code file.</p>
+</dd>
+<dt>comment</dt><dd><p>Add comments to a code file.</p>
+</dd>
+</dl>
+</section>
+<section id="details">
+<h2>Details<a class="headerlink" href="#details" title="Link to this heading"></a></h2>
+<p>The CLI is built using the Click library and provides a user-friendly way to interact with the CoderGPT functionalities from the terminal.</p>
+</section>
+<section id="examples">
+<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
+<p>Inspecting a package:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>codergpt_cli.py<span class="w"> </span>inspect<span class="w"> </span>src/
+</pre></div>
+</div>
+<p>Explaining a function within a file:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>codergpt_cli.py<span class="w"> </span>explain<span class="w"> </span>src/main.py<span class="w"> </span>--function<span class="w"> </span>my_function
+</pre></div>
+</div>
+<p>Adding comments to a file:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>codergpt_cli.py<span class="w"> </span>comment<span class="w"> </span>src/main.py<span class="w"> </span>--overwrite
+</pre></div>
+</div>
+<p>Optimizing a class within a file:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>codergpt_cli.py<span class="w"> </span>optimize<span class="w"> </span>src/main.py<span class="w"> </span>--classname<span class="w"> </span>MyClass<span class="w"> </span>--overwrite
+</pre></div>
+</div>
+</section>
+<section id="environment-variables">
+<h2>Environment Variables<a class="headerlink" href="#environment-variables" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OPENAI_API_KEY</span></code>: The API key for OpenAI services required by CoderGPT.</p></li>
+</ul>
+</section>
+<section id="dependencies">
+<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>click</p></li>
+<li><p>logging</p></li>
+<li><p>pathlib.Path</p></li>
+<li><p>typing.TextIO, typing.Union</p></li>
+<li><p>codergpt.__version__</p></li>
+<li><p>codergpt.main.CoderGPT</p></li>
+</ul>
+</section>
+</section>
+<section id="main-python-file">
+<span id="id1"></span><h1>Main Python File<a class="headerlink" href="#main-python-file" title="Link to this heading"></a></h1>
+<p>This is the main Python file for the CoderGPT project.</p>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+</section>
+<section id="description">
+<h2>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">CoderGPT</span></code> class provides a suite of methods to interact with code files, including inspection, explanation, commenting, optimization, and testing. It utilizes language models to perform these tasks.</p>
+</section>
+<section id="id2">
+<h2>Dependencies<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p>os</p></li>
+<li><p>pathlib.Path</p></li>
+<li><p>typing.Optional, typing.Union</p></li>
+<li><p>yaml</p></li>
+<li><p>langchain_core.prompts.ChatPromptTemplate</p></li>
+<li><p>langchain_openai.ChatOpenAI</p></li>
+<li><p>tabulate.tabulate</p></li>
+<li><p>codergpt.commenter.commenter.CodeCommenter</p></li>
+<li><p>codergpt.constants.EXTENSION_MAP_FILE, codergpt.constants.GPT_3_5_TURBO, codergpt.constants.INSPECTION_HEADERS</p></li>
+<li><p>codergpt.explainer.explainer.CodeExplainer</p></li>
+<li><p>codergpt.optimizer.optimizer.CodeOptimizer</p></li>
+</ul>
+</section>
+<section id="id3">
+<h2>Usage<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
+<p>To use the <code class="docutils literal notranslate"><span class="pre">CoderGPT</span></code> class, initialize it with an optional model parameter. Then call its methods with appropriate arguments to perform various operations on code files.</p>
+<p>Example:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">coder</span> <span class="o">=</span> <span class="n">CoderGPT</span><span class="p">()</span>
+    <span class="n">coder</span><span class="o">.</span><span class="n">inspect_package</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="id4">
+<h2>Environment Variables<a class="headerlink" href="#id4" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">OPENAI_API_KEY</span></code>: The API key for OpenAI services.</p></li>
+</ul>
+</section>
+<section id="files">
+<h2>Files<a class="headerlink" href="#files" title="Link to this heading"></a></h2>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">EXTENSION_MAP_FILE</span></code>: YAML file mapping file extensions to programming languages.</p></li>
+</ul>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="description.html" class="btn btn-neutral float-left" title="CoderGPT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="modules.html" class="btn btn-neutral float-right" title="codergpt" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Harshad Hegde &lt;hhegde@lbl.gov&gt;.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
