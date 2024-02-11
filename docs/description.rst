@@ -1,7 +1,7 @@
-.. _codergpt-cli:
+.. _codergpt:
 
-CoderGPT CLI
-============
+CoderGPT
+========
 
 Description
 -----------
