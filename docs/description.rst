@@ -7,8 +7,8 @@ What is it?
 -----------
 
 CoderGPT is a command line interface for generating/modifying code. It allows developers to 
-enhance code by commenting, optimizing and adding tests to their projects using the power of LLM. 
-TThis project is powered by `langchain <https://github.com/langchain-ai/langchain>`_.
+enhance code by commenting, optimizing, documenting and adding tests to their projects using 
+the power of LLM and GPT. This project is powered by `langchain <https://github.com/langchain-ai/langchain>`_.
 
 Installation
 ------------
