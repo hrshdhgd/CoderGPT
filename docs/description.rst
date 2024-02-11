@@ -130,20 +130,20 @@ Commands
 
      .. code-block:: python
 
-         # example.py
+        # example.py
 
-         def calculate_sum(numbers):
-             result = 0
-             for number in numbers:
-                 result += number
-             return result
+        def calculate_sum(numbers):
+            result = 0
+            for number in numbers:
+                result += number
+            return result
 
-         class MathOperations:
-             def multiply(self, a, b):
-                 answer = 0
-                 for i in range(b):
-                     answer += a
-                 return answer
+        class MathOperations:
+            def multiply(self, a, b):
+                answer = 0
+                for i in range(b):
+                    answer += a
+                return answer
 
    .. code-block:: shell
 
@@ -152,6 +152,9 @@ Commands
    results in ....
 
    .. code-block:: python
+
+        # example.py
+
         """
         Optimized and Documented Code.
         """
@@ -198,6 +201,7 @@ Commands
         2. In the 'multiply' method of the 'MathOperations' class, we can directly multiply the two numbers using the '*' operator. This eliminates the need for a loop and improves performance.
         By using these optimizations, we improve the efficiency and readability of the code.
         """
+
 
 Development
 -----------
