@@ -28,7 +28,7 @@ class CodeCommenter:
         response = self.chain.invoke(
             {
                 "input": f"Rewrite and return this {language} code with\
-                comments and docstrings in :param: format: \n{code}\n"
+                comments and sphinx docstrings in :param: format: \n{code}\n"
             }
         )
 

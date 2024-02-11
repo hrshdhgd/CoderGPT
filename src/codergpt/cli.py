@@ -36,6 +36,8 @@ __all__ = [
 logger = logging.getLogger(__name__)
 
 path_argument = click.argument("path", type=click.Path(exists=True))
+function_option = click.option("-f", "--function", help="Function name to explain or optimize.")
+class_option = click.option("-c", "--classname", help="Class name to explain or optimize.")
 overwrite_option = click.option(
     "--overwrite/--no-overwrite", is_flag=True, default=False, help="Overwrite the existing file."
 )
@@ -77,8 +79,8 @@ def inspect(path: Union[str, Path, TextIO]):
 
 @main.command()
 @path_argument
-@click.option("-f", "--function", help="Function name to explain.")
-@click.option("-c", "--classname", help="Class name to explain.")
+@function_option
+@class_option
 def explain(path: Union[str, Path], function: str, classname: str):
     """
     Inspect package to show file-language-map.
@@ -115,6 +117,31 @@ def add_comments(path: Union[str, Path], overwrite: bool = False):
     # Check if path is a file
     if path.is_file():
         coder.commenter(path=path, overwrite=overwrite)
+    else:
+        raise ValueError("The path provided is not a file.")
+
+
+@main.command("optimize")
+@path_argument
+@function_option
+@class_option
+@overwrite_option
+def optimize_code(path: Union[str, Path], function: str, classname: str, overwrite: bool = False):
+    """
+    Optimize the code file.
+
+    :param path: The path to the code file.
+    :param function: The name of the function to optimize. Default is None.
+    :param classname: The name of the class to optimize. Default is None.
+    :param overwrite: Whether to overwrite the existing file. Default is False.
+    """
+    # Ensure path is a string or Path object for consistency
+    if isinstance(path, str):
+        path = Path(path)
+
+    # Check if path is a file
+    if path.is_file():
+        coder.optimizer(path=path, function=function, classname=classname, overwrite=overwrite)
     else:
         raise ValueError("The path provided is not a file.")
 
