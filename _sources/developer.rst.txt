@@ -5,7 +5,6 @@ Developer Documentation
 
 This section contains documentation for developers who want to contribute or extend the functionality of the project.
 
-.. _codergpt-cli:
 
 Command Line Interface for CoderGPT
 ===================================
@@ -95,7 +94,6 @@ Dependencies
 - codergpt.__version__
 - codergpt.main.CoderGPT
 
-.. _main-python-file:
 
 Main Python File
 ================
