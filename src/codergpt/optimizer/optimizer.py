@@ -50,7 +50,7 @@ class CodeOptimizer:
                 }
             )
         else:
-            # Explain full code
+            # Optimize full code
             response = self.chain.invoke(
                 {
                     "input": f"Optimize, comment and add sphinx style docstrings"

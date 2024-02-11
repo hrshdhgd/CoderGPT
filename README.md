@@ -2,7 +2,12 @@
 
 ## Description
 
-CoderGPT CLI is a command line interface, a state-of-the-art code generation/modifying tool. It allows developers to interact with the CoderGPT functionalities directly from the terminal, streamlining their workflow and enhancing productivity. The underlying engine that facilitates the code enhancement and modificatoin is [langchain](https://github.com/langchain-ai/langchain).
+CoderGPT CLI is a command line interface, a state-of-the-art code 
+generation/modifying tool. It allows developers to interact with the 
+CoderGPT functionalities directly from the terminal, streamlining their 
+workflow and enhancing code. The underlying engine that facilitates 
+the code enhancement and modification is `langchain 
+<https://github.com/langchain-ai/langchain>`_.
 
 ## Author
 
@@ -87,7 +92,7 @@ code [OPTIONS] COMMAND [ARGS]...
     ```
     #### Example
     - Let's consider a python file `greetings.py`:
-    ```
+    ```python
         def greet(name):
             return f"Hello, {name}!"
 
@@ -100,7 +105,7 @@ code [OPTIONS] COMMAND [ARGS]...
     $ code comment greetings.py --overwrite
     ```
     results in .... 
-    ```
+    ```python
         def greet(name):
             """
             Generates a greeting message for the given name.
@@ -115,6 +120,85 @@ code [OPTIONS] COMMAND [ARGS]...
             user_name = "Alice"
             print(greet(user_name))
     ```
+4. `optimize`: Optimizes and adds commets to the code in a package. The user has the choice to overwrite the file or create a new one.
+
+    ```shell
+    code optimize <path> [--overwrite/--no-overwrite]
+    ```
+    #### Example
+    - Let's consider a python file `example.py`:
+    ```python
+    # example.py
+
+    def calculate_sum(numbers):
+        result = 0
+        for number in numbers:
+            result += number
+        return result
+
+    class MathOperations:
+        def multiply(self, a, b):
+            answer = 0
+            for i in range(b):
+                answer += a
+            return answer
+    ```
+    ```shell
+    $ code optimize example.py --overwrite
+    ```
+    results in .... 
+    ```python
+    """
+    Optimized and Documented Code:
+
+    """
+
+    from typing import List
+
+
+    def calculate_sum(numbers: List[int]) -> int:
+        """
+        Calculates the sum of a list of numbers.
+
+        Parameters:
+        numbers (List[int]): A list of integers.
+
+        Returns:
+        int: The sum of the numbers.
+
+        """
+        result = sum(numbers)
+        return result
+
+
+    class MathOperations:
+        def multiply(self, a: int, b: int) -> int:
+            """
+            Multiplies two numbers.
+
+            Parameters:
+            a (int): The first number.
+            b (int): The second number.
+
+            Returns:
+            int: The result of multiplying a and b.
+
+            """
+            answer = a * b
+            return answer
+
+
+    """
+    Optimization:
+
+    1. In the 'calculate_sum' function, we can use the built-in 'sum' function to calculate the sum of the numbers in the list. This is more efficient than manually iterating over the list and adding each number to the result.
+
+    2. In the 'multiply' method of the 'MathOperations' class, we can directly multiply the two numbers using the '*' operator. This eliminates the need for a loop and improves performance.
+
+    By using these optimizations, we improve the efficiency and readability of the code.
+    """
+    ```
+
 ## Development
 
 The CLI is built using Python and the `click` library. Below is an example of how to define a new command:
