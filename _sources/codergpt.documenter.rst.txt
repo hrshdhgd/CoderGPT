@@ -1,0 +1,21 @@
+codergpt.documenter package
+===========================
+
+Submodules
+----------
+
+codergpt.documenter.documenter module
+-------------------------------------
+
+.. automodule:: codergpt.documenter.documenter
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: codergpt.documenter
+   :members:
+   :undoc-members:
+   :show-inheritance:
