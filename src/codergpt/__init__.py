@@ -6,6 +6,7 @@ from codergpt.commenter import CodeCommenter
 from codergpt.explainer import CodeExplainer
 from codergpt.optimizer import CodeOptimizer
 
+# from codergpt.tester import CodeTester
 from .main import CoderGPT
 
 try:
