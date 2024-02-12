@@ -135,7 +135,7 @@ $<span class="w"> </span>poetry<span class="w"> </span>install
 </section>
 <section id="commands">
 <h3>Commands<a class="headerlink" href="#commands" title="Link to this heading"></a></h3>
-<ol class="arabic">
+<ol class="arabic" id="inspect-command">
 <li><p><strong>inspect</strong>: Inspect a package and display a file-language map.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>codergpt<span class="w"> </span>inspect<span class="w"> </span>&lt;path&gt;
 </pre></div>
@@ -152,6 +152,8 @@ src/codergpt/cli.py<span class="w">                         </span>Python
 </pre></div>
 </div>
 </li>
+</ol>
+<ol class="arabic" id="explain-command" start="2">
 <li><p><strong>explain</strong>: Explain a specific function or class within a package.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>codergpt<span class="w"> </span>explain<span class="w"> </span>&lt;path&gt;<span class="w"> </span><span class="o">[</span>--function<span class="w"> </span>&lt;function_name&gt;<span class="o">]</span><span class="w"> </span><span class="o">[</span>--classname<span class="w"> </span>&lt;class_name&gt;<span class="o">]</span>
 </pre></div>
@@ -163,6 +165,8 @@ This<span class="w"> </span>code<span class="w"> </span>defines<span class="w"> 
 </pre></div>
 </div>
 </li>
+</ol>
+<ol class="arabic" id="comment-command" start="3">
 <li><p><strong>comment</strong>: Add comments to the code in a package. The user has the choice to overwrite the file or create a new one.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>codergpt<span class="w"> </span>comment<span class="w"> </span>&lt;path&gt;<span class="w"> </span><span class="o">[</span>--overwrite/--no-overwrite<span class="o">]</span>
 </pre></div>
@@ -192,6 +196,8 @@ This<span class="w"> </span>code<span class="w"> </span>defines<span class="w"> 
 </pre></div>
 </div>
 </li>
+</ol>
+<ol class="arabic" id="optimize-command" start="4">
 <li><p><strong>optimize</strong>: Optimizes and adds comments to the code in a package. The user has the choice to overwrite the file or create a new one.</p>
 <div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>codergpt<span class="w"> </span>optimize<span class="w"> </span>&lt;path&gt;<span class="w"> </span><span class="o">[</span>--overwrite/--no-overwrite<span class="o">]</span>
 </pre></div>
@@ -273,9 +279,9 @@ This<span class="w"> </span>code<span class="w"> </span>defines<span class="w"> 
 </div>
 </li>
 </ol>
-<p>5s. <strong>write-tests</strong>: Generates test cases for specified functions and/or classes within a Python code file.</p>
-<blockquote>
-<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>codergpt<span class="w"> </span>write-tests<span class="w"> </span>&lt;path&gt;<span class="w"> </span><span class="o">[</span>--function<span class="w"> </span>&lt;function_name&gt;<span class="o">]</span><span class="w"> </span><span class="o">[</span>--class<span class="w"> </span>&lt;classname&gt;<span class="o">]</span>
+<ol class="arabic" id="write-tests-command" start="5">
+<li><p><strong>write-tests</strong>: Generates test cases for specified functions and/or classes within a Python code file.</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>codergpt<span class="w"> </span>write-tests<span class="w"> </span>&lt;filename&gt;<span class="w"> </span><span class="o">[</span>--function<span class="w"> </span>&lt;function_name&gt;<span class="o">]</span><span class="w"> </span><span class="o">[</span>--class<span class="w"> </span>&lt;classname&gt;<span class="o">]</span><span class="w"> </span><span class="o">[</span>--outfile<span class="w"> </span>&lt;output_filename&gt;<span class="o">]</span>
 </pre></div>
 </div>
 <p><strong>Example</strong></p>
@@ -315,7 +321,49 @@ This<span class="w"> </span>code<span class="w"> </span>defines<span class="w"> 
 </pre></div>
 </div>
 <p>In this example, executing the command generates unit tests for the <cite>add</cite> function and the <cite>Calculator</cite> class defined in <cite>example.py</cite>. The tests verify whether the <cite>add</cite> function correctly computes the sum of two numbers and if the <cite>Calculator</cite>’s <cite>subtract</cite> method accurately performs subtraction.</p>
-</div></blockquote>
+</li>
+</ol>
+<ol class="arabic simple" id="document-command" start="6">
+<li><p><code class="docutils literal notranslate"><span class="pre">document</span></code>: Generates documentation for the specified code file by invoking a runnable chain that processes and explains the code.</p></li>
+</ol>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>codergpt<span class="w"> </span>document<span class="w"> </span>&lt;path&gt;<span class="w"> </span><span class="o">[</span>--outfile<span class="w"> </span>&lt;output_filename&gt;<span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>Example</strong></p>
+<p>Consider a Python file named <code class="docutils literal notranslate"><span class="pre">example.py</span></code>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example.py</span>
+
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Add two numbers and return the result.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">class</span> <span class="nc">Calculator</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A simple calculator class.&quot;&quot;&quot;</span>
+
+    <span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;Subtract b from a and return the result.&quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+</pre></div>
+</div>
+<p>To generate documentation for <code class="docutils literal notranslate"><span class="pre">example.py</span></code>, execute the following command:</p>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>codergpt<span class="w"> </span>document<span class="w"> </span>example.py
+</pre></div>
+</div>
+<p>This command will produce documentation files that include explanations for all functions and classes within the <code class="docutils literal notranslate"><span class="pre">example.py</span></code> file. By default, the output file will be named after the input file with an <code class="docutils literal notranslate"><span class="pre">.rst</span></code> extension and saved in the directory specified by <code class="docutils literal notranslate"><span class="pre">DOCS_DIR</span></code>. If an <code class="docutils literal notranslate"><span class="pre">&lt;outfile&gt;</span></code> is provided, the documentation will be written to that file instead.</p>
+<p>The content of the generated documentation files will vary based on the implementation of the <code class="docutils literal notranslate"><span class="pre">CodeDocumenter.document</span></code> method but would typically resemble the following structured documentation:</p>
+<div class="highlight-rst notranslate"><div class="highlight"><pre><span></span><span class="gh">add Function</span>
+<span class="gh">------------</span>
+
+<span class="p">..</span> <span class="ow">autofunction</span><span class="p">::</span> example.add
+
+<span class="gh">Calculator Class</span>
+<span class="gh">----------------</span>
+
+<span class="p">..</span> <span class="ow">autoclass</span><span class="p">::</span> example.Calculator
+   <span class="nc">:members:</span>
+</pre></div>
+</div>
+<p>In this case, running the command produces ReStructuredText (RST) formatted documentation for the entire <code class="docutils literal notranslate"><span class="pre">example.py</span></code> file. The documentation includes detailed descriptions of the <cite>add</cite> function and the <cite>Calculator</cite> class, as well as any public methods of the class.</p>
 </section>
 </section>
 <section id="development">
