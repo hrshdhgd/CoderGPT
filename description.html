@@ -266,6 +266,49 @@ This<span class="w"> </span>code<span class="w"> </span>defines<span class="w"> 
 </div>
 </li>
 </ol>
+<p>5s. <strong>write-tests</strong>: Generates test cases for specified functions and/or classes within a Python code file.</p>
+<blockquote>
+<div><div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>code<span class="w"> </span>write-tests<span class="w"> </span>&lt;path&gt;<span class="w"> </span><span class="o">[</span>--function<span class="w"> </span>&lt;function_name&gt;<span class="o">]</span><span class="w"> </span><span class="o">[</span>--class<span class="w"> </span>&lt;classname&gt;<span class="o">]</span>
+</pre></div>
+</div>
+<p><strong>Example</strong></p>
+<ul>
+<li><p>Let’s consider a Python file <cite>example.py</cite>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># example.py</span>
+
+<span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
+
+<span class="k">class</span> <span class="nc">Calculator</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
+</pre></div>
+</div>
+</li>
+</ul>
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>code<span class="w"> </span>write-tests<span class="w"> </span>example.py<span class="w"> </span>--function<span class="w"> </span>add<span class="w"> </span>--class<span class="w"> </span>Calculator
+</pre></div>
+</div>
+<p>results in the creation of test files that contain test cases for both the <cite>add</cite> function and the <cite>Calculator</cite> class. The content of the generated test files might look like this:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">unittest</span>
+<span class="kn">from</span> <span class="nn">example</span> <span class="kn">import</span> <span class="n">add</span><span class="p">,</span> <span class="n">Calculator</span>
+
+<span class="k">class</span> <span class="nc">TestAddFunction</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">test_addition</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">),</span> <span class="mi">7</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">TestCalculator</span><span class="p">(</span><span class="n">unittest</span><span class="o">.</span><span class="n">TestCase</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="nf">setUp</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">calc</span> <span class="o">=</span> <span class="n">Calculator</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">test_subtract</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">calc</span><span class="o">.</span><span class="n">subtract</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>In this example, executing the command generates unit tests for the <cite>add</cite> function and the <cite>Calculator</cite> class defined in <cite>example.py</cite>. The tests verify whether the <cite>add</cite> function correctly computes the sum of two numbers and if the <cite>Calculator</cite>’s <cite>subtract</cite> method accurately performs subtraction.</p>
+</div></blockquote>
 </section>
 </section>
 <section id="development">

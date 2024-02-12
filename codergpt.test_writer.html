@@ -103,9 +103,31 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 </section>
-<section id="module-codergpt.test_writer.tester">
-<span id="codergpt-test-writer-tester-module"></span><h2>codergpt.test_writer.tester module<a class="headerlink" href="#module-codergpt.test_writer.tester" title="Link to this heading"></a></h2>
+<section id="module-codergpt.test_writer.test_writer">
+<span id="codergpt-test-writer-test-writer-module"></span><h2>codergpt.test_writer.test_writer module<a class="headerlink" href="#module-codergpt.test_writer.test_writer" title="Link to this heading"></a></h2>
 <p>Test writing module.</p>
+<dl class="py class">
+<dt class="sig sig-object py" id="codergpt.test_writer.test_writer.CodeTester">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">codergpt.test_writer.test_writer.</span></span><span class="sig-name descname"><span class="pre">CodeTester</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.test_writer.test_writer.CodeTester" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p>Code tester class writes testing code from a given file.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="codergpt.test_writer.test_writer.CodeTester.write_tests">
+<span class="sig-name descname"><span class="pre">write_tests</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.test_writer.test_writer.CodeTester.write_tests" title="Link to this definition"></a></dt>
+<dd><p>Write tests for the code by invoking the runnable chain.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> – The path to the code file to be explained.</p></li>
+<li><p><strong>function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the function to explain. Default is None.</p></li>
+<li><p><strong>classname</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the class to explain. Default is None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 <section id="module-codergpt.test_writer">
 <span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-codergpt.test_writer" title="Link to this heading"></a></h2>

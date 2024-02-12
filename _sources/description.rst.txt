@@ -202,6 +202,52 @@ Commands
         By using these optimizations, we improve the efficiency and readability of the code.
         """
 
+5s. **write-tests**: Generates test cases for specified functions and/or classes within a Python code file.
+
+   .. code-block:: shell
+
+       code write-tests <path> [--function <function_name>] [--class <classname>]
+
+   **Example**
+
+   - Let's consider a Python file `example.py`:
+
+     .. code-block:: python
+
+        # example.py
+
+        def add(a, b):
+            return a + b
+
+        class Calculator:
+            def subtract(self, a, b):
+                return a - b
+
+   .. code-block:: shell
+
+       $ code write-tests example.py --function add --class Calculator
+
+   results in the creation of test files that contain test cases for both the `add` function and the `Calculator` class. The content of the generated test files might look like this:
+
+   .. code-block:: python
+
+        import unittest
+        from example import add, Calculator
+
+        class TestAddFunction(unittest.TestCase):
+
+            def test_addition(self):
+                self.assertEqual(add(3, 4), 7)
+
+        class TestCalculator(unittest.TestCase):
+
+            def setUp(self):
+                self.calc = Calculator()
+
+            def test_subtract(self):
+                self.assertEqual(self.calc.subtract(10, 5), 5)
+
+   In this example, executing the command generates unit tests for the `add` function and the `Calculator` class defined in `example.py`. The tests verify whether the `add` function correctly computes the sum of two numbers and if the `Calculator`'s `subtract` method accurately performs subtraction.
 
 Development
 -----------

@@ -174,7 +174,13 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="codergpt.test_writer.html">codergpt.test_writer package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="codergpt.test_writer.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="codergpt.test_writer.html#module-codergpt.test_writer.tester">codergpt.test_writer.tester module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codergpt.test_writer.html#module-codergpt.test_writer.test_writer">codergpt.test_writer.test_writer module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="codergpt.test_writer.html#codergpt.test_writer.test_writer.CodeTester"><code class="docutils literal notranslate"><span class="pre">CodeTester</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="codergpt.test_writer.html#codergpt.test_writer.test_writer.CodeTester.write_tests"><code class="docutils literal notranslate"><span class="pre">CodeTester.write_tests()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="codergpt.test_writer.html#module-codergpt.test_writer">Module contents</a></li>
 </ul>
 </li>
@@ -209,7 +215,7 @@
 <p>Main python file.</p>
 <dl class="py class">
 <dt class="sig sig-object py" id="codergpt.main.CoderGPT">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">codergpt.main.</span></span><span class="sig-name descname"><span class="pre">CoderGPT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gpt-3.5-turbo'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.main.CoderGPT" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">codergpt.main.</span></span><span class="sig-name descname"><span class="pre">CoderGPT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gpt-4-turbo-preview'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.main.CoderGPT" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>CoderGPT class.</p>
 <dl class="py method">
@@ -285,8 +291,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="codergpt.main.CoderGPT.tester">
-<span class="sig-name descname"><span class="pre">tester</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.main.CoderGPT.tester" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="codergpt.main.CoderGPT.test_writer">
+<span class="sig-name descname"><span class="pre">test_writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.main.CoderGPT.test_writer" title="Link to this definition"></a></dt>
 <dd><p>Test the code file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -369,7 +375,7 @@
 
 <dl class="py class">
 <dt class="sig sig-object py" id="codergpt.CoderGPT">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">codergpt.</span></span><span class="sig-name descname"><span class="pre">CoderGPT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gpt-3.5-turbo'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CoderGPT" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">codergpt.</span></span><span class="sig-name descname"><span class="pre">CoderGPT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gpt-4-turbo-preview'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CoderGPT" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>CoderGPT class.</p>
 <dl class="py method">
@@ -445,8 +451,8 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="codergpt.CoderGPT.tester">
-<span class="sig-name descname"><span class="pre">tester</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CoderGPT.tester" title="Link to this definition"></a></dt>
+<dt class="sig sig-object py" id="codergpt.CoderGPT.test_writer">
+<span class="sig-name descname"><span class="pre">test_writer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CoderGPT.test_writer" title="Link to this definition"></a></dt>
 <dd><p>Test the code file.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>

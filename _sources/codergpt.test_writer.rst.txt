@@ -4,10 +4,10 @@ codergpt.test\_writer package
 Submodules
 ----------
 
-codergpt.test\_writer.tester module
------------------------------------
+codergpt.test\_writer.test\_writer module
+-----------------------------------------
 
-.. automodule:: codergpt.test_writer.tester
+.. automodule:: codergpt.test_writer.test_writer
    :members:
    :undoc-members:
    :show-inheritance:
