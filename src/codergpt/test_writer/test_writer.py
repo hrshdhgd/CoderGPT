@@ -36,20 +36,21 @@ class CodeTester:
         """
         with open(filename, "r") as source_file:
             source_code = source_file.read()
-        if function:
-            response = self.chain.invoke(
-                {
-                    "input": f"Write tests for the function '{function}' in \n\n```\n{source_code}\n```"
-                    "Return just the code block. Also explain the tests in a systematic way as a comment."
-                }
-            )
-        elif classname:
-            response = self.chain.invoke(
-                {
-                    "input": f"Write tests for the class '{classname}' in \n\n```\n{source_code}\n```"
-                    "Also explain the tests in a systematic way."
-                }
-            )
+        if function or classname:
+            if function:
+                response = self.chain.invoke(
+                    {
+                        "input": f"Write tests for the function '{function}' in \n\n```\n{source_code}\n```"
+                        "Return just the code block. Also explain the tests in a systematic way as a comment."
+                    }
+                )
+            if classname:
+                response = self.chain.invoke(
+                    {
+                        "input": f"Write tests for the class '{classname}' in \n\n```\n{source_code}\n```"
+                        "Also explain the tests in a systematic way."
+                    }
+                )
         else:
             # Write tests for full code
             response = self.chain.invoke(

@@ -192,6 +192,50 @@ code [OPTIONS] COMMAND [ARGS]...
     """
     ```
 
+5. `write-tests`: Writes tests for the specified code file. The user can specify a function and/or a class within the file to target with the tests.
+
+```shell
+code write-tests <path> [--function <function_name>] [--class <classname>]
+```
+
+#### Example
+- Let's consider a python file `example.py`:
+```python
+# example.py
+
+def add(a, b):
+    return a + b
+
+class Calculator:
+    def subtract(self, a, b):
+        return a - b
+```
+```shell
+$ code write-tests example.py --function add --class Calculator
+```
+results in test files being generated that contain test cases for the `add` function and the `Calculator` class. The actual content of the test files will depend on the implementation of the `coder.test_writer` method but would typically look something like this:
+
+```python
+import unittest
+from example import add, Calculator
+
+class TestAddFunction(unittest.TestCase):
+
+    def test_addition(self):
+        self.assertEqual(add(3, 4), 7)
+
+class TestCalculator(unittest.TestCase):
+
+    def setUp(self):
+        self.calc = Calculator()
+
+    def test_subtract(self):
+        self.assertEqual(self.calc.subtract(10, 5), 5)
+```
+
+In this example, running the command generates unit tests for both the `add` function and the `Calculator` class in the `example.py` file. The tests check if the `add` function correctly adds two numbers and if the `Calculator`'s `subtract` method correctly subtracts one number from another.
+
+
 ## Development
 
 The CLI is built using Python and the `click` library. Below is an example of how to define a new command:
