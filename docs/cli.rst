@@ -1,4 +1,3 @@
-```
 Command line interface for CoderGPT
 ====================================
 
@@ -103,4 +102,3 @@ Parameters and Options
 
 --overwrite/--no-overwrite
   A flag indicating whether to overwrite the existing file. This is an optional argument for the ``comment`` and ``optimize`` commands.
-```
