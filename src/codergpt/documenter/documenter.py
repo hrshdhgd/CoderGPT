@@ -31,6 +31,8 @@ class CodeDocumenter:
         :param function: The name of the function to document. Default is None.
         :param classname: The name of the class to document
         """
+        if isinstance(filename, str):
+            filename = Path(filename)
         with open(filename, "r") as source_file:
             source_code = source_file.read()
         response = self.chain.invoke(
