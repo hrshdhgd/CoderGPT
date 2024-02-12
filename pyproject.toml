@@ -31,7 +31,7 @@ sphinx-click = {version = ">=4.3.0"}
 myst-parser = {version = ">=0.18.1"}
 
 [tool.poetry.scripts]
-code = "codergpt.cli:main"
+codergpt = "codergpt.cli:main"
 
 [tool.poetry-dynamic-versioning]
 enable = true
