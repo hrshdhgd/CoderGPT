@@ -12,7 +12,7 @@ To use this CLI, run the following command in your terminal:
 
 .. code-block:: shell
 
-    python codergpt_cli.py [OPTIONS] COMMAND [ARGS]...
+    codergpt [OPTIONS] COMMAND [ARGS]...
 
 Options
 -------
@@ -56,37 +56,37 @@ Inspect a package:
 
 .. code-block:: shell
 
-    python codergpt_cli.py inspect /path/to/package
+    codergpt inspect /path/to/package
 
 Explain a function in a file:
 
 .. code-block:: shell
 
-    python codergpt_cli.py explain -f my_function /path/to/file.py
+    codergpt explain -f my_function /path/to/file.py
 
 Add comments to a file with overwrite enabled:
 
 .. code-block:: shell
 
-    python codergpt_cli.py comment --overwrite /path/to/file.py
+    codergpt comment --overwrite /path/to/file.py
 
 Optimize a class within a file without overwriting:
 
 .. code-block:: shell
 
-    python codergpt_cli.py optimize -c MyClass /path/to/file.py
+    codergpt optimize -c MyClass /path/to/file.py
 
 Write tests for a function:
 
 .. code-block:: shell
 
-    python codergpt_cli.py write-tests -f my_function /path/to/file.py
+    codergpt write-tests -f my_function /path/to/file.py
 
 Write documentation for a file:
 
 .. code-block:: shell
 
-    python codergpt_cli.py document /path/to/file.py
+    codergpt document /path/to/file.py
 
 Parameters and Options
 ----------------------

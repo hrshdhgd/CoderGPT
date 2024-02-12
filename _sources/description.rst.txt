@@ -51,7 +51,7 @@ Run the CLI using the following syntax:
 
 .. code-block:: shell
 
-    code [OPTIONS] COMMAND [ARGS]...
+    codergpt [OPTIONS] COMMAND [ARGS]...
 
 Options
 ~~~~~~~
@@ -67,13 +67,13 @@ Commands
 
    .. code-block:: shell
 
-       code inspect <path>
+       codergpt inspect <path>
 
    **Example**
 
    .. code-block:: shell
 
-       $ code inspect src/codergpt/
+       $ codergpt inspect src/codergpt/
        Inspecting the code.
        File                                        Language
        ------------------------------------------  ----------
@@ -86,13 +86,13 @@ Commands
 
    .. code-block:: shell
 
-       code explain <path> [--function <function_name>] [--classname <class_name>]
+       codergpt explain <path> [--function <function_name>] [--classname <class_name>]
 
    **Example**
 
    .. code-block:: shell
 
-       $ code explain src/codergpt/explainer/explainer.py --function explain
+       $ codergpt explain src/codergpt/explainer/explainer.py --function explain
        Explanation for the code:
        This code defines a method called `explain` that takes in three parameters...
 
@@ -100,7 +100,7 @@ Commands
 
    .. code-block:: shell
 
-       code comment <path> [--overwrite/--no-overwrite]
+       codergpt comment <path> [--overwrite/--no-overwrite]
 
    **Example**
 
@@ -117,7 +117,7 @@ Commands
 
    .. code-block:: shell
 
-       $ code comment greetings.py --overwrite
+       $ codergpt comment greetings.py --overwrite
 
    results in ....
 
@@ -133,7 +133,7 @@ Commands
 
    .. code-block:: shell
 
-       code optimize <path> [--overwrite/--no-overwrite]
+       codergpt optimize <path> [--overwrite/--no-overwrite]
 
    **Example**
 
@@ -158,7 +158,7 @@ Commands
 
    .. code-block:: shell
 
-       $ code optimize example.py --overwrite
+       $ codergpt optimize example.py --overwrite
 
    results in ....
 
@@ -217,7 +217,7 @@ Commands
 
    .. code-block:: shell
 
-       code write-tests <path> [--function <function_name>] [--class <classname>]
+       codergpt write-tests <path> [--function <function_name>] [--class <classname>]
 
    **Example**
 
@@ -236,7 +236,7 @@ Commands
 
    .. code-block:: shell
 
-       $ code write-tests example.py --function add --class Calculator
+       $ codergpt write-tests example.py --function add --class Calculator
 
    results in the creation of test files that contain test cases for both the `add` function and the `Calculator` class. The content of the generated test files might look like this:
 
