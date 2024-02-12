@@ -16,6 +16,8 @@ def calculate_sum(numbers):
 
 
 class MathOperations:
+    """Class to perform mathematical operations."""
+
     def multiply(self, a, b):
         """
         Multiply two numbers.
