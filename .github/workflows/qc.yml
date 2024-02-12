@@ -33,4 +33,5 @@ jobs:
         run: poetry run tox -e lint
 
       - name: Test with pytest and generate coverage file
-        run: poetry run tox -e py -- --ignore=tests/test_tester.py
+        run: poetry run pytest --ignore=tests/test_tester.py
+        # Changed from tox to pytest to make --ignore work.
