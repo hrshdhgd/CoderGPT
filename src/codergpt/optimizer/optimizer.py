@@ -39,6 +39,7 @@ class CodeOptimizer:
                     {
                         "input": f"Optimize, comment and add sphinx docstrings"
                         f" to the function '{function}' in \n\n```\n{source_code}\n```"
+                        "Return just the code block since all this will be a test file."
                         "Also explain the optimization in a systematic way as a comment."
                     }
                 )
@@ -47,6 +48,7 @@ class CodeOptimizer:
                     {
                         "input": f"Optimize, comment and add sphinx docstrings"
                         f" to the class '{classname}' in \n\n```\n{source_code}\n```"
+                        "Return just the code block since all this will be a test file."
                         "Also explain the optimization in a systematic way."
                     }
                 )
@@ -56,6 +58,7 @@ class CodeOptimizer:
                 {
                     "input": f"Optimize, comment and add sphinx style docstrings"
                     f" to the following code: \n\n```\n{source_code}\n```"
+                    "Return just the code block since all this will be a test file."
                     "Also explain the optimization in a systematic way."
                 }
             )
