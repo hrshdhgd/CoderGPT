@@ -267,7 +267,7 @@ Commands
 
 .. _document-command:
 
-6. ``document``: Generates documentation for the specified code file by invoking a runnable chain that processes and explains the code.
+6. **document**: Generates documentation for the specified code file by invoking a runnable chain that processes and explains the code.
 
 .. code-block:: shell
 
