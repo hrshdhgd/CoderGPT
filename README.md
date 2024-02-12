@@ -205,7 +205,7 @@ codergpt [OPTIONS] COMMAND [ARGS]...
 5. `write-tests`: Writes tests for the specified code file. The user can specify a function and/or a class within the file to target with the tests.
 
     ```shell
-    codergpt write-tests <path> [--function <function_name>] [--class <classname>]
+    codergpt write-tests <path> [--function <function_name>] [--class <classname>]  [<outfile>]
     ```
 
     #### Example
@@ -245,47 +245,50 @@ codergpt [OPTIONS] COMMAND [ARGS]...
 
     In this example, running the command generates unit tests for both the `add` function and the `Calculator` class in the `example.py` file. The tests check if the `add` function correctly adds two numbers and if the `Calculator`'s `subtract` method correctly subtracts one number from another.
 
-6. `document`: Generates documentation for the specified code file.
+6. `document`: Generates documentation for the specified code file by invoking a runnable chain that processes and explains the code.
 
-    ```shell
-    codergpt document <path>
-    ```
+```shell
+codergpt document <path> [<outfile>]
+```
 
-    #### Example
-    - Let's consider a python file `example.py`:
-    ```python
-    # example.py
+#### Example
+- Consider a Python file `example.py`:
+```python
+# example.py
 
-    def add(a, b):
-        """Add two numbers and return the result."""
-        return a + b
+def add(a, b):
+    """Add two numbers and return the result."""
+    return a + b
 
-    class Calculator:
-        """A simple calculator class."""
+class Calculator:
+    """A simple calculator class."""
 
-        def subtract(self, a, b):
-            """Subtract b from a and return the result."""
-            return a - b
-    ```
-    ```shell
-    $ codergpt document example.py
-    ```
-    results in documentation files being generated that contain documentation for all functions and classes within the `example.py` file. The actual content of the documentation files will depend on the implementation of the `DocumentationGenerator.document` method but would typically look something like this:
+    def subtract(self, a, b):
+        """Subtract b from a and return the result."""
+        return a - b
+```
+- To generate documentation for `example.py`, run the following command:
+```shell
+$ codergpt document example.py
+```
+This results in documentation files being generated that contain explanations for all functions and classes within the `example.py` file. The output file will be named after the input file with an `.rst` extension and saved in the directory specified by `DOCS_DIR`. If an `<outfile>` is provided, the documentation will be written to that file instead.
 
-    ```rst
-    add Function
-    ------------
+The actual content of the documentation files will depend on the implementation of the `CodeDocumenter.document` method but would typically include structured documentation like this:
 
-    .. autofunction:: example.add
+```rst
+add Function
+------------
 
-    Calculator Class
-    ----------------
+.. autofunction:: example.add
 
-    .. autoclass:: example.Calculator
-    :members:
-    ```
+Calculator Class
+----------------
 
-    In this example, running the command generates documentation for the entire `example.py` file, including both the `add` function and the `Calculator` class. The documentation includes descriptions of the function and class, as well as any public methods of the class.
+.. autoclass:: example.Calculator
+   :members:
+```
+
+In this example, running the command generates ReStructuredText (RST) formatted documentation for the entire `example.py` file, including both the `add` function and the `Calculator` class. The documentation includes descriptions of the function and class, as well as any public methods of the class.
 
 ## Development
 
