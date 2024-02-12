@@ -11,6 +11,7 @@ from tabulate import tabulate
 
 from codergpt.commenter.commenter import CodeCommenter
 from codergpt.constants import EXTENSION_MAP_FILE, GPT_4_TURBO, INSPECTION_HEADERS
+from codergpt.documenter.documenter import CodeDocumenter
 from codergpt.explainer.explainer import CodeExplainer
 from codergpt.optimizer.optimizer import CodeOptimizer
 from codergpt.test_writer.test_writer import CodeTester
@@ -135,6 +136,15 @@ class CoderGPT:
         """
         code_tester = CodeTester(self.chain)
         code_tester.write_tests(filename=path, function=function, classname=classname)
+
+    def documenter(self, path: Union[str, Path]):
+        """
+        Document the code file.
+
+        :param path: The path to the code file.
+        """
+        code_documenter = CodeDocumenter(self.chain)
+        code_documenter.document(filename=path)
 
 
 if __name__ == "__main__":

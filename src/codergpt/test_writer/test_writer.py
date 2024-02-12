@@ -41,14 +41,14 @@ class CodeTester:
                 response = self.chain.invoke(
                     {
                         "input": f"Write tests for the function '{function}' in \n\n```\n{source_code}\n```"
-                        "Return just the code block. Also explain the tests in a systematic way as a comment."
+                        "Return just the code block since all this will be a test file."
                     }
                 )
             if classname:
                 response = self.chain.invoke(
                     {
                         "input": f"Write tests for the class '{classname}' in \n\n```\n{source_code}\n```"
-                        "Also explain the tests in a systematic way."
+                        "Return just the code block since all this will be a test file."
                     }
                 )
         else:
@@ -56,7 +56,7 @@ class CodeTester:
             response = self.chain.invoke(
                 {
                     "input": f"Write tests for the following code: \n\n```\n{source_code}\n```"
-                    "Also explain the tests in a systematic way."
+                    "Return just the code block since all this will be a test file."
                 }
             )
         test_code = response.content

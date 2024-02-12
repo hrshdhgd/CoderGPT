@@ -22,7 +22,7 @@ class CodeExplainer:
         """
         Explain the contents of the code file by invoking the runnable chain.
 
-        :param path: The path to the code file to be explained.
+        :param code: The code to be explained.
         :param function: The name of the function to explain. Default is None.
         :param classname: The name of the class to explain. Default is None.
         """
