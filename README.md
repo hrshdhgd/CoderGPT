@@ -149,6 +149,6 @@ CoderGPT is open-sourced under the MIT License. For more details, refer to the [
 
 This project was scaffolded using the [cookiecutter](https://cookiecutter.readthedocs.io/en/stable/README.html) framework, based on the [monarch-project-template](https://github.com/monarch-initiative/monarch-project-template). Updates are managed through [cruft](https://cruft.github.io/cruft/).
 
-For comprehensive details on the CoderGPT CLI, please refer to [the official documentation](#).
+For comprehensive details on the CoderGPT CLI, please refer to [the official documentation](https://hrshdhgd.github.io/CoderGPT/).
 
 ---
