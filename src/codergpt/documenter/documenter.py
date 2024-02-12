@@ -36,8 +36,8 @@ class CodeDocumenter:
         response = self.chain.invoke(
             {
                 "input": f"Document the following code: \n\n```\n{source_code}\n```"
-                          "This should be in reStructuredText (RST, ReST, or reST)"\
-                          " format that is Sphinx compatible. Return only the documentation content."
+                "This should be in reStructuredText (RST, ReST, or reST)"
+                " format that is Sphinx compatible. Return only the documentation content."
             }
         )
 
