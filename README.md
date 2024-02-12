@@ -4,8 +4,8 @@
 
 CoderGPT is a command line interface for generating/modifying code. It allows developers to enhance code by commenting, optimizing, documenting, and adding tests to their project using the power of LLM and GPT. This project is powered by [langchain](https://github.com/langchain-ai/langchain).
 
----
-**NOTE**
+
+**_NOTE:_**
 Before using CoderGPT, ensure that the environment variable `OPENAI_API_KEY` is set locally on your machine. This key is required for authentication with the OpenAI API which powers the underlying language model.
 
 ```sh
@@ -14,7 +14,6 @@ export OPENAI_API_KEY='your-api-key-here'
 
 Replace `your-api-key-here` with your actual OpenAI API key. This step is crucial for the proper functioning of CoderGPT as it relies on the OpenAI API for generating and modifying code.
 
----
 
 ## Installation
 
