@@ -6,7 +6,7 @@ Author: Harshad Hegde
 This module provides a command line interface (CLI) for CoderGPT, a powerful code generation tool.
 
 Usage:
-    python codergpt_cli.py [OPTIONS] COMMAND [ARGS]...
+    codergpt [OPTIONS] COMMAND [ARGS]...
 
 Options:
     -v, --verbose INTEGER    Verbosity level (0, 1 or 2).

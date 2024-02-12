@@ -29,7 +29,7 @@ pip install codergpt
 Run the CLI using the following syntax:
 
 ```shell
-code [OPTIONS] COMMAND [ARGS]...
+codergpt [OPTIONS] COMMAND [ARGS]...
 ```
 
 ### Options
@@ -44,12 +44,12 @@ code [OPTIONS] COMMAND [ARGS]...
 
 
     ```shell
-    code inspect <path>
+    codergpt inspect <path>
     ```
 
     #### Example
     ```shell
-    $ code inspect code inspect src/codergpt/
+    $ codergpt inspect src/codergpt/
     Inspecting the code.
     File                                        Language
     ------------------------------------------  ----------
@@ -72,12 +72,12 @@ code [OPTIONS] COMMAND [ARGS]...
 2. `explain`: Explain a specific function or class within a package.
 
     ```shell
-    code explain <path> [--function <function_name>] [--classname <class_name>]
+    codergpt explain <path> [--function <function_name>] [--classname <class_name>]
     ```
 
     #### Example
     ```shell
-    $ code explain src/codergpt/explainer/explainer.py --function explain
+    $ codergpt explain src/codergpt/explainer/explainer.py --function explain
     Explanation for the code:
     This code defines a method called `explain` that takes in three parameters: `code`, `function`, and `classname`. The `code` parameter is a string that represents the code file to be explained. The `function` parameter is an optional string that represents the name of a specific function within the code file that needs to be explained. The `classname` parameter is also an optional string that represents the name of a specific class within the code file that needs to be explained.
 
@@ -91,7 +91,7 @@ code [OPTIONS] COMMAND [ARGS]...
 3. `comment`: Add comments to the code in a package. The user has the choice to overwrite the file or create a new one.
 
     ```shell
-    code comment <path> [--overwrite/--no-overwrite]
+    codergpt comment <path> [--overwrite/--no-overwrite]
     ```
     #### Example
     - Let's consider a python file `greetings.py`:
@@ -105,7 +105,7 @@ code [OPTIONS] COMMAND [ARGS]...
     ```
 
     ```shell
-    $ code comment greetings.py --overwrite
+    $ codergpt comment greetings.py --overwrite
     ```
     results in .... 
     ```python
@@ -126,7 +126,7 @@ code [OPTIONS] COMMAND [ARGS]...
 4. `optimize`: Optimizes and adds commets to the code in a package. The user has the choice to overwrite the file or create a new one.
 
     ```shell
-    code optimize <path> [--overwrite/--no-overwrite]
+    codergpt optimize <path> [--overwrite/--no-overwrite]
     ```
     #### Example
     - Let's consider a python file `example.py`:
@@ -147,7 +147,7 @@ code [OPTIONS] COMMAND [ARGS]...
             return answer
     ```
     ```shell
-    $ code optimize example.py --overwrite
+    $ codergpt optimize example.py --overwrite
     ```
     results in .... 
     ```python
@@ -205,7 +205,7 @@ code [OPTIONS] COMMAND [ARGS]...
 5. `write-tests`: Writes tests for the specified code file. The user can specify a function and/or a class within the file to target with the tests.
 
     ```shell
-    code write-tests <path> [--function <function_name>] [--class <classname>]
+    codergpt write-tests <path> [--function <function_name>] [--class <classname>]
     ```
 
     #### Example
@@ -221,7 +221,7 @@ code [OPTIONS] COMMAND [ARGS]...
             return a - b
     ```
     ```shell
-    $ code write-tests example.py --function add --class Calculator
+    $ codergpt write-tests example.py --function add --class Calculator
     ```
     results in test files being generated that contain test cases for the `add` function and the `Calculator` class. The actual content of the test files will depend on the implementation of the `coder.test_writer` method but would typically look something like this:
 
@@ -248,7 +248,7 @@ code [OPTIONS] COMMAND [ARGS]...
 6. `document`: Generates documentation for the specified code file.
 
     ```shell
-    code document <path>
+    codergpt document <path>
     ```
 
     #### Example
@@ -268,7 +268,7 @@ code [OPTIONS] COMMAND [ARGS]...
             return a - b
     ```
     ```shell
-    $ code document example.py
+    $ codergpt document example.py
     ```
     results in documentation files being generated that contain documentation for all functions and classes within the `example.py` file. The actual content of the documentation files will depend on the implementation of the `DocumentationGenerator.document` method but would typically look something like this:
 
