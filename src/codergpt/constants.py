@@ -5,7 +5,7 @@ from pathlib import Path
 PROJECT_DIR = Path(__file__).resolve().parents[2]
 TEST_DIR = PROJECT_DIR / "tests"
 DOCS_DIR = PROJECT_DIR / "docs"
-SRC = PROJECT_DIR / "src"
+SRC = Path(__file__).resolve().parents[1]
 PACKAGE_DIR = SRC / "codergpt"
 EXTENSION_MAP_FILE = PACKAGE_DIR / "extensions.yaml"
 LANGUAGE_MAP_KEY = "language-map"
