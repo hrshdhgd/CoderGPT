@@ -146,5 +146,28 @@ def optimize_code(path: Union[str, Path], function: str, classname: str, overwri
         raise ValueError("The path provided is not a file.")
 
 
+@main.command("write-tests")
+@path_argument
+@function_option
+@class_option
+def write_test_code(path: Union[str, Path], function: str, classname: str):
+    """
+    Write tests for the code file.
+
+    :param path: The path to the code file.
+    :param function: The name of the function to test. Default is None.
+    :param classname: The name of the class to test. Default is None.
+    """
+    # Ensure path is a string or Path object for consistency
+    if isinstance(path, str):
+        path = Path(path)
+
+    # Check if path is a file
+    if path.is_file():
+        coder.test_writer(path=path, function=function, classname=classname)
+    else:
+        raise ValueError("The path provided is not a file.")
+
+
 if __name__ == "__main__":
     main()

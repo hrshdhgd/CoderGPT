@@ -10,15 +10,16 @@ from langchain_openai import ChatOpenAI
 from tabulate import tabulate
 
 from codergpt.commenter.commenter import CodeCommenter
-from codergpt.constants import EXTENSION_MAP_FILE, GPT_3_5_TURBO, INSPECTION_HEADERS
+from codergpt.constants import EXTENSION_MAP_FILE, GPT_4_TURBO, INSPECTION_HEADERS
 from codergpt.explainer.explainer import CodeExplainer
 from codergpt.optimizer.optimizer import CodeOptimizer
+from codergpt.test_writer.test_writer import CodeTester
 
 
 class CoderGPT:
     """CoderGPT class."""
 
-    def __init__(self, model: str = GPT_3_5_TURBO):
+    def __init__(self, model: str = GPT_4_TURBO):
         """Initialize the CoderGPT class."""
         self.llm = ChatOpenAI(openai_api_key=os.environ.get("OPENAI_API_KEY"), temperature=0.7, model=model)
         self.prompt = ChatPromptTemplate.from_messages(
@@ -126,13 +127,14 @@ class CoderGPT:
         # code, language = self.get_code(filename=path, function_name=function, class_name=classname)
         code_optimizer.optimize(filename=path, function=function, classname=classname, overwrite=overwrite)
 
-    def tester(self, path: Union[str, Path]):
+    def test_writer(self, path: Union[str, Path], function: str = None, classname: str = None):
         """
         Test the code file.
 
         :param path: The path to the code file.
         """
-        pass
+        code_tester = CodeTester(self.chain)
+        code_tester.write_tests(filename=path, function=function, classname=classname)
 
 
 if __name__ == "__main__":

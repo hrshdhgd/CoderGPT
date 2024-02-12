@@ -33,22 +33,23 @@ class CodeOptimizer:
         """
         with open(filename, "r") as source_file:
             source_code = source_file.read()
-        if function:
-            response = self.chain.invoke(
-                {
-                    "input": f"Optimize, comment and add sphinx docstrings"
-                    f" to the function '{function}' in \n\n```\n{source_code}\n```"
-                    "Also explain the optimization in a systematic way as a comment."
-                }
-            )
-        elif classname:
-            response = self.chain.invoke(
-                {
-                    "input": f"Optimize, comment and add sphinx docstrings"
-                    f" to the class '{classname}' in \n\n```\n{source_code}\n```"
-                    "Also explain the optimization in a systematic way."
-                }
-            )
+        if function or classname:
+            if function:
+                response = self.chain.invoke(
+                    {
+                        "input": f"Optimize, comment and add sphinx docstrings"
+                        f" to the function '{function}' in \n\n```\n{source_code}\n```"
+                        "Also explain the optimization in a systematic way as a comment."
+                    }
+                )
+            if classname:
+                response = self.chain.invoke(
+                    {
+                        "input": f"Optimize, comment and add sphinx docstrings"
+                        f" to the class '{classname}' in \n\n```\n{source_code}\n```"
+                        "Also explain the optimization in a systematic way."
+                    }
+                )
         else:
             # Optimize full code
             response = self.chain.invoke(
