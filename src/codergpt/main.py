@@ -128,23 +128,23 @@ class CoderGPT:
         # code, language = self.get_code(filename=path, function_name=function, class_name=classname)
         code_optimizer.optimize(filename=path, function=function, classname=classname, overwrite=overwrite)
 
-    def test_writer(self, path: Union[str, Path], function: str = None, classname: str = None):
+    def test_writer(self, path: Union[str, Path], function: str = None, classname: str = None, outfile: str = None):
         """
         Test the code file.
 
         :param path: The path to the code file.
         """
         code_tester = CodeTester(self.chain)
-        code_tester.write_tests(filename=path, function=function, classname=classname)
+        code_tester.write_tests(filename=path, function=function, classname=classname, outfile=outfile)
 
-    def documenter(self, path: Union[str, Path]):
+    def documenter(self, path: Union[str, Path], outfile: str = None):
         """
         Document the code file.
 
         :param path: The path to the code file.
         """
         code_documenter = CodeDocumenter(self.chain)
-        code_documenter.document(filename=path)
+        code_documenter.document(filename=path, outfile=outfile)
 
 
 if __name__ == "__main__":

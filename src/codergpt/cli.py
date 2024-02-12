@@ -41,6 +41,7 @@ class_option = click.option("-c", "--classname", help="Class name to explain or 
 overwrite_option = click.option(
     "--overwrite/--no-overwrite", is_flag=True, default=False, help="Overwrite the existing file."
 )
+output_option = click.option("-o", "--outfile", help="Output file to write to.")
 
 coder = CoderGPT()
 
@@ -150,7 +151,8 @@ def optimize_code(path: Union[str, Path], function: str, classname: str, overwri
 @path_argument
 @function_option
 @class_option
-def write_test_code(path: Union[str, Path], function: str, classname: str):
+@output_option
+def write_test_code(path: Union[str, Path], function: str, classname: str, outfile: Union[str, Path] = None):
     """
     Write tests for the code file.
 
@@ -164,14 +166,15 @@ def write_test_code(path: Union[str, Path], function: str, classname: str):
 
     # Check if path is a file
     if path.is_file():
-        coder.test_writer(path=path, function=function, classname=classname)
+        coder.test_writer(path=path, function=function, classname=classname, outfile=outfile)
     else:
         raise ValueError("The path provided is not a file.")
 
 
 @main.command("document")
 @path_argument
-def write_documentation(path: Union[str, Path]):
+@output_option
+def write_documentation(path: Union[str, Path], outfile: Union[str, Path] = None):
     """
     Write documentation files for the code file.
 
@@ -183,7 +186,7 @@ def write_documentation(path: Union[str, Path]):
 
     # Check if path is a file
     if path.is_file():
-        coder.documenter(path=path)
+        coder.documenter(path=path, outfile=outfile)
     else:
         raise ValueError("The path provided is not a file.")
 
