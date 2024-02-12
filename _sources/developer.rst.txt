@@ -16,5 +16,4 @@ This section contains documentation for developers who want to contribute or ext
    commenter
    optimizer
    test_writer
-   expression_evaluator
 
