@@ -45,8 +45,6 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="description.html">CoderGPT</a></li>
 <li class="toctree-l1"><a class="reference internal" href="developer.html">Developer Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer.html#command-line-interface-for-codergpt">Command Line Interface for CoderGPT</a></li>
-<li class="toctree-l1"><a class="reference internal" href="developer.html#main-python-file">Main Python File</a></li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">codergpt</a></li>
 </ul>
 
@@ -79,6 +77,7 @@
 <div class="genindex-jumpbox">
  <a href="#_"><strong>_</strong></a>
  | <a href="#C"><strong>C</strong></a>
+ | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
  | <a href="#G"><strong>G</strong></a>
  | <a href="#I"><strong>I</strong></a>
@@ -92,15 +91,21 @@
 <h2 id="_">_</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="test.html#codergpt.CodeTester.__init__">__init__() (codergpt.CodeTester method)</a>
+      <li><a href="main.html#codergpt.CoderGPT.__init__">__init__() (codergpt.CoderGPT method)</a>
+
+      <ul>
+        <li><a href="test.html#codergpt.CodeTester.__init__">(codergpt.CodeTester method)</a>
 </li>
+        <li><a href="test_writer.html#CodeTester.__init__">(CodeTester method)</a>
+</li>
+      </ul></li>
   </ul></td>
 </tr></table>
 
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="codergpt.html#codergpt.CodeCommenter">CodeCommenter (class in codergpt)</a>
+      <li><a href="codergpt.html#codergpt.CodeCommenter">CodeCommenter (class in codergpt)</a>, <a href="main.html#codergpt.CodeCommenter">[1]</a>
 
       <ul>
         <li><a href="codergpt.commenter.html#codergpt.commenter.CodeCommenter">(class in codergpt.commenter)</a>
@@ -108,7 +113,15 @@
         <li><a href="codergpt.commenter.html#codergpt.commenter.commenter.CodeCommenter">(class in codergpt.commenter.commenter)</a>
 </li>
       </ul></li>
-      <li><a href="codergpt.html#codergpt.CodeExplainer">CodeExplainer (class in codergpt)</a>
+      <li><a href="codergpt.html#codergpt.CodeDocumenter">CodeDocumenter (class in codergpt)</a>, <a href="main.html#codergpt.CodeDocumenter">[1]</a>
+
+      <ul>
+        <li><a href="codergpt.documenter.html#codergpt.documenter.CodeDocumenter">(class in codergpt.documenter)</a>
+</li>
+        <li><a href="codergpt.documenter.html#codergpt.documenter.documenter.CodeDocumenter">(class in codergpt.documenter.documenter)</a>
+</li>
+      </ul></li>
+      <li><a href="codergpt.html#codergpt.CodeExplainer">CodeExplainer (class in codergpt)</a>, <a href="main.html#codergpt.CodeExplainer">[1]</a>
 
       <ul>
         <li><a href="codergpt.explainer.html#codergpt.explainer.CodeExplainer">(class in codergpt.explainer)</a>
@@ -116,22 +129,24 @@
         <li><a href="codergpt.explainer.html#codergpt.explainer.explainer.CodeExplainer">(class in codergpt.explainer.explainer)</a>
 </li>
       </ul></li>
-      <li><a href="codergpt.html#codergpt.CodeOptimizer">CodeOptimizer (class in codergpt)</a>
+      <li><a href="codergpt.html#codergpt.CodeOptimizer">CodeOptimizer (class in codergpt)</a>, <a href="main.html#codergpt.CodeOptimizer">[1]</a>
 
       <ul>
         <li><a href="codergpt.optimizer.html#codergpt.optimizer.CodeOptimizer">(class in codergpt.optimizer)</a>
 </li>
         <li><a href="codergpt.optimizer.html#codergpt.optimizer.optimizer.CodeOptimizer">(class in codergpt.optimizer.optimizer)</a>
 </li>
+        <li><a href="optimizer.html#optimizer.CodeOptimizer">(class in optimizer)</a>
+</li>
       </ul></li>
       <li>
     codergpt
 
       <ul>
-        <li><a href="codergpt.html#module-codergpt">module</a>, <a href="test.html#module-codergpt">[1]</a>
+        <li><a href="codergpt.html#module-codergpt">module</a>, <a href="main.html#module-codergpt">[1]</a>, <a href="test.html#module-codergpt">[2]</a>
 </li>
       </ul></li>
-      <li><a href="codergpt.html#codergpt.CoderGPT">CoderGPT (class in codergpt)</a>
+      <li><a href="codergpt.html#codergpt.CoderGPT">CoderGPT (class in codergpt)</a>, <a href="main.html#codergpt.CoderGPT">[1]</a>, <a href="main.html#id0">[2]</a>
 
       <ul>
         <li><a href="codergpt.html#codergpt.main.CoderGPT">(class in codergpt.main)</a>
@@ -172,6 +187,8 @@
         <li><a href="codergpt.documenter.html#module-codergpt.documenter.documenter">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     codergpt.explainer
 
@@ -179,8 +196,6 @@
         <li><a href="codergpt.explainer.html#module-codergpt.explainer">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     codergpt.explainer.explainer
 
@@ -237,13 +252,15 @@
         <li><a href="codergpt.utils.html#module-codergpt.utils.expression_evaluator">module</a>
 </li>
       </ul></li>
-      <li><a href="test.html#codergpt.CodeTester">CodeTester (class in codergpt)</a>
+      <li><a href="test_writer.html#CodeTester">CodeTester (built-in class)</a>
 
       <ul>
+        <li><a href="test.html#codergpt.CodeTester">(class in codergpt)</a>
+</li>
         <li><a href="codergpt.test_writer.html#codergpt.test_writer.test_writer.CodeTester">(class in codergpt.test_writer.test_writer)</a>
 </li>
       </ul></li>
-      <li><a href="codergpt.html#codergpt.CodeCommenter.comment">comment() (codergpt.CodeCommenter method)</a>
+      <li><a href="codergpt.html#codergpt.CodeCommenter.comment">comment() (codergpt.CodeCommenter method)</a>, <a href="main.html#codergpt.CodeCommenter.comment">[1]</a>
 
       <ul>
         <li><a href="codergpt.commenter.html#codergpt.commenter.CodeCommenter.comment">(codergpt.commenter.CodeCommenter method)</a>
@@ -251,7 +268,7 @@
         <li><a href="codergpt.commenter.html#codergpt.commenter.commenter.CodeCommenter.comment">(codergpt.commenter.commenter.CodeCommenter method)</a>
 </li>
       </ul></li>
-      <li><a href="codergpt.html#codergpt.CoderGPT.commenter">commenter() (codergpt.CoderGPT method)</a>
+      <li><a href="codergpt.html#codergpt.CoderGPT.commenter">commenter() (codergpt.CoderGPT method)</a>, <a href="main.html#codergpt.CoderGPT.commenter">[1]</a>, <a href="main.html#id1">[2]</a>
 
       <ul>
         <li><a href="codergpt.html#codergpt.main.CoderGPT.commenter">(codergpt.main.CoderGPT method)</a>
@@ -260,10 +277,32 @@
   </ul></td>
 </tr></table>
 
+<h2 id="D">D</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="codergpt.html#codergpt.CodeDocumenter.document">document() (codergpt.CodeDocumenter method)</a>, <a href="main.html#codergpt.CodeDocumenter.document">[1]</a>
+
+      <ul>
+        <li><a href="codergpt.documenter.html#codergpt.documenter.CodeDocumenter.document">(codergpt.documenter.CodeDocumenter method)</a>
+</li>
+        <li><a href="codergpt.documenter.html#codergpt.documenter.documenter.CodeDocumenter.document">(codergpt.documenter.documenter.CodeDocumenter method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="codergpt.html#codergpt.CoderGPT.documenter">documenter() (codergpt.CoderGPT method)</a>, <a href="main.html#codergpt.CoderGPT.documenter">[1]</a>, <a href="main.html#id2">[2]</a>
+
+      <ul>
+        <li><a href="codergpt.html#codergpt.main.CoderGPT.documenter">(codergpt.main.CoderGPT method)</a>
+</li>
+      </ul></li>
+  </ul></td>
+</tr></table>
+
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="codergpt.html#codergpt.CodeExplainer.explain">explain() (codergpt.CodeExplainer method)</a>
+      <li><a href="codergpt.html#codergpt.CodeExplainer.explain">explain() (codergpt.CodeExplainer method)</a>, <a href="main.html#codergpt.CodeExplainer.explain">[1]</a>
 
       <ul>
         <li><a href="codergpt.explainer.html#codergpt.explainer.CodeExplainer.explain">(codergpt.explainer.CodeExplainer method)</a>
@@ -273,7 +312,7 @@
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="codergpt.html#codergpt.CoderGPT.explainer">explainer() (codergpt.CoderGPT method)</a>
+      <li><a href="codergpt.html#codergpt.CoderGPT.explainer">explainer() (codergpt.CoderGPT method)</a>, <a href="main.html#codergpt.CoderGPT.explainer">[1]</a>, <a href="main.html#id3">[2]</a>
 
       <ul>
         <li><a href="codergpt.html#codergpt.main.CoderGPT.explainer">(codergpt.main.CoderGPT method)</a>
@@ -287,7 +326,7 @@
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="codergpt.html#codergpt.CoderGPT.get_code">get_code() (codergpt.CoderGPT method)</a>
+      <li><a href="codergpt.html#codergpt.CoderGPT.get_code">get_code() (codergpt.CoderGPT method)</a>, <a href="main.html#codergpt.CoderGPT.get_code">[1]</a>, <a href="main.html#id4">[2]</a>
 
       <ul>
         <li><a href="codergpt.html#codergpt.main.CoderGPT.get_code">(codergpt.main.CoderGPT method)</a>
@@ -299,7 +338,7 @@
 <h2 id="I">I</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="codergpt.html#codergpt.CoderGPT.inspect_package">inspect_package() (codergpt.CoderGPT method)</a>
+      <li><a href="codergpt.html#codergpt.CoderGPT.inspect_package">inspect_package() (codergpt.CoderGPT method)</a>, <a href="main.html#codergpt.CoderGPT.inspect_package">[1]</a>, <a href="main.html#id5">[2]</a>
 
       <ul>
         <li><a href="codergpt.html#codergpt.main.CoderGPT.inspect_package">(codergpt.main.CoderGPT method)</a>
@@ -315,7 +354,7 @@
     module
 
       <ul>
-        <li><a href="codergpt.html#module-codergpt">codergpt</a>, <a href="test.html#module-codergpt">[1]</a>
+        <li><a href="codergpt.html#module-codergpt">codergpt</a>, <a href="main.html#module-codergpt">[1]</a>, <a href="test.html#module-codergpt">[2]</a>
 </li>
         <li><a href="codergpt.commenter.html#module-codergpt.commenter">codergpt.commenter</a>
 </li>
@@ -345,6 +384,8 @@
 </li>
         <li><a href="codergpt.utils.html#module-codergpt.utils.expression_evaluator">codergpt.utils.expression_evaluator</a>
 </li>
+        <li><a href="optimizer.html#module-optimizer">optimizer</a>
+</li>
       </ul></li>
   </ul></td>
 </tr></table>
@@ -352,17 +393,26 @@
 <h2 id="O">O</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="codergpt.html#codergpt.CodeOptimizer.optimize">optimize() (codergpt.CodeOptimizer method)</a>
+      <li><a href="codergpt.html#codergpt.CodeOptimizer.optimize">optimize() (codergpt.CodeOptimizer method)</a>, <a href="main.html#codergpt.CodeOptimizer.optimize">[1]</a>
 
       <ul>
         <li><a href="codergpt.optimizer.html#codergpt.optimizer.CodeOptimizer.optimize">(codergpt.optimizer.CodeOptimizer method)</a>
 </li>
         <li><a href="codergpt.optimizer.html#codergpt.optimizer.optimizer.CodeOptimizer.optimize">(codergpt.optimizer.optimizer.CodeOptimizer method)</a>
 </li>
+        <li><a href="optimizer.html#optimizer.optimize">(in module optimizer)</a>
+</li>
       </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="codergpt.html#codergpt.CoderGPT.optimizer">optimizer() (codergpt.CoderGPT method)</a>
+      <li>
+    optimizer
+
+      <ul>
+        <li><a href="optimizer.html#module-optimizer">module</a>
+</li>
+      </ul></li>
+      <li><a href="codergpt.html#codergpt.CoderGPT.optimizer">optimizer() (codergpt.CoderGPT method)</a>, <a href="main.html#codergpt.CoderGPT.optimizer">[1]</a>, <a href="main.html#id6">[2]</a>
 
       <ul>
         <li><a href="codergpt.html#codergpt.main.CoderGPT.optimizer">(codergpt.main.CoderGPT method)</a>
@@ -374,7 +424,7 @@
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="codergpt.html#codergpt.CoderGPT.test_writer">test_writer() (codergpt.CoderGPT method)</a>
+      <li><a href="codergpt.html#codergpt.CoderGPT.test_writer">test_writer() (codergpt.CoderGPT method)</a>, <a href="main.html#codergpt.CoderGPT.test_writer">[1]</a>, <a href="main.html#id7">[2]</a>
 
       <ul>
         <li><a href="codergpt.html#codergpt.main.CoderGPT.test_writer">(codergpt.main.CoderGPT method)</a>
@@ -402,6 +452,8 @@
 
       <ul>
         <li><a href="codergpt.test_writer.html#codergpt.test_writer.test_writer.CodeTester.write_tests">(codergpt.test_writer.test_writer.CodeTester method)</a>
+</li>
+        <li><a href="test_writer.html#CodeTester.write_tests">(CodeTester method)</a>
 </li>
       </ul></li>
   </ul></td>

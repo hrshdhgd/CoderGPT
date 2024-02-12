@@ -21,7 +21,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="codergpt" href="modules.html" />
+    <link rel="next" title="Command line interface for CoderGPT" href="cli.html" />
     <link rel="prev" title="CoderGPT" href="description.html" /> 
 </head>
 
@@ -47,25 +47,19 @@
               <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="description.html">CoderGPT</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Developer Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="#command-line-interface-for-codergpt">Command Line Interface for CoderGPT</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#overview">Overview</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#usage">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#options">Options</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#details">Details</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#environment-variables">Environment Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#dependencies">Dependencies</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="#main-python-file">Main Python File</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#classes">Classes</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#description">Description</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id1">Dependencies</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id2">Usage</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#id3">Environment Variables</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#files">Files</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Developer Documentation</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cli.html">Command line interface for CoderGPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html"><code class="docutils literal notranslate"><span class="pre">CodeCommenter</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#codergpt.CodeDocumenter"><code class="docutils literal notranslate"><span class="pre">CodeDocumenter</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#codergpt.CodeExplainer"><code class="docutils literal notranslate"><span class="pre">CodeExplainer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#codergpt.CodeOptimizer"><code class="docutils literal notranslate"><span class="pre">CodeOptimizer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#codergpt.CoderGPT"><code class="docutils literal notranslate"><span class="pre">CoderGPT</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#codergpt">CoderGPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="explainer.html">Explainer Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commenter.html">Commenter Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html">Optimizer Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_writer.html">Test Writing Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expression_evaluator.html">The ExpressionEvaluator Class</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="modules.html">codergpt</a></li>
@@ -98,134 +92,82 @@
   <section id="developer-documentation">
 <span id="developer-docs"></span><h1>Developer Documentation<a class="headerlink" href="#developer-documentation" title="Link to this heading"></a></h1>
 <p>This section contains documentation for developers who want to contribute or extend the functionality of the project.</p>
-</section>
-<section id="command-line-interface-for-codergpt">
-<h1>Command Line Interface for CoderGPT<a class="headerlink" href="#command-line-interface-for-codergpt" title="Link to this heading"></a></h1>
-<section id="overview">
-<h2>Overview<a class="headerlink" href="#overview" title="Link to this heading"></a></h2>
-<p>This module provides a command line interface (CLI) for CoderGPT, a powerful code generation tool that facilitates various operations on code files such as inspection, explanation, commenting, and optimization.</p>
-</section>
-<section id="usage">
-<h2>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h2>
-<p>To use the CLI, run the following command with the desired options and commands:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>codergpt_cli.py<span class="w"> </span><span class="o">[</span>OPTIONS<span class="o">]</span><span class="w"> </span>COMMAND<span class="w"> </span><span class="o">[</span>ARGS<span class="o">]</span>...
-</pre></div>
-</div>
-</section>
-<section id="options">
-<h2>Options<a class="headerlink" href="#options" title="Link to this heading"></a></h2>
-<dl class="option-list">
-<dt><kbd><span class="option">-v</span>, <span class="option">--verbose <var>INTEGER</var></span></kbd></dt>
-<dd><p>Verbosity level (0, 1 or 2).</p>
-</dd>
-<dt><kbd><span class="option">-q</span>, <span class="option">--quiet</span></kbd></dt>
-<dd><p>Run in quiet mode.</p>
-</dd>
-<dt><kbd><span class="option">--version</span></kbd></dt>
-<dd><p>Show the version and exit.</p>
-</dd>
-</dl>
-</section>
-<section id="commands">
-<h2>Commands<a class="headerlink" href="#commands" title="Link to this heading"></a></h2>
-<dl class="simple">
-<dt>inspect</dt><dd><p>Inspect package to show file-language-map.</p>
-</dd>
-<dt>explain</dt><dd><p>Explain the contents of a code file.</p>
-</dd>
-<dt>comment</dt><dd><p>Add comments to a code file.</p>
-</dd>
-</dl>
-</section>
-<section id="details">
-<h2>Details<a class="headerlink" href="#details" title="Link to this heading"></a></h2>
-<p>The CLI is built using the Click library and provides a user-friendly way to interact with the CoderGPT functionalities from the terminal.</p>
-</section>
-<section id="examples">
-<h2>Examples<a class="headerlink" href="#examples" title="Link to this heading"></a></h2>
-<p>Inspecting a package:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>codergpt_cli.py<span class="w"> </span>inspect<span class="w"> </span>src/
-</pre></div>
-</div>
-<p>Explaining a function within a file:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>codergpt_cli.py<span class="w"> </span>explain<span class="w"> </span>src/main.py<span class="w"> </span>--function<span class="w"> </span>my_function
-</pre></div>
-</div>
-<p>Adding comments to a file:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>codergpt_cli.py<span class="w"> </span>comment<span class="w"> </span>src/main.py<span class="w"> </span>--overwrite
-</pre></div>
-</div>
-<p>Optimizing a class within a file:</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>python<span class="w"> </span>codergpt_cli.py<span class="w"> </span>optimize<span class="w"> </span>src/main.py<span class="w"> </span>--classname<span class="w"> </span>MyClass<span class="w"> </span>--overwrite
-</pre></div>
-</div>
-</section>
-<section id="environment-variables">
-<h2>Environment Variables<a class="headerlink" href="#environment-variables" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">OPENAI_API_KEY</span></code>: The API key for OpenAI services required by CoderGPT.</p></li>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cli.html">Command line interface for CoderGPT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cli.html#usage">Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html#options">Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html#commands">Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cli.html#parameters-and-options">Parameters and Options</a></li>
 </ul>
-</section>
-<section id="dependencies">
-<h2>Dependencies<a class="headerlink" href="#dependencies" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>click</p></li>
-<li><p>logging</p></li>
-<li><p>pathlib.Path</p></li>
-<li><p>typing.TextIO, typing.Union</p></li>
-<li><p>codergpt.__version__</p></li>
-<li><p>codergpt.main.CoderGPT</p></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main.html"><code class="docutils literal notranslate"><span class="pre">CodeCommenter</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main.html#codergpt.CodeCommenter.comment"><code class="docutils literal notranslate"><span class="pre">CodeCommenter.comment()</span></code></a></li>
 </ul>
-</section>
-</section>
-<section id="main-python-file">
-<h1>Main Python File<a class="headerlink" href="#main-python-file" title="Link to this heading"></a></h1>
-<p>This is the main Python file for the CoderGPT project.</p>
-<section id="classes">
-<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
-</section>
-<section id="description">
-<h2>Description<a class="headerlink" href="#description" title="Link to this heading"></a></h2>
-<p>The <code class="docutils literal notranslate"><span class="pre">CoderGPT</span></code> class provides a suite of methods to interact with code files, including inspection, explanation, commenting, optimization, and testing. It utilizes language models to perform these tasks.</p>
-</section>
-<section id="id1">
-<h2>Dependencies<a class="headerlink" href="#id1" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p>os</p></li>
-<li><p>pathlib.Path</p></li>
-<li><p>typing.Optional, typing.Union</p></li>
-<li><p>yaml</p></li>
-<li><p>langchain_core.prompts.ChatPromptTemplate</p></li>
-<li><p>langchain_openai.ChatOpenAI</p></li>
-<li><p>tabulate.tabulate</p></li>
-<li><p>codergpt.commenter.commenter.CodeCommenter</p></li>
-<li><p>codergpt.constants.EXTENSION_MAP_FILE, codergpt.constants.GPT_3_5_TURBO, codergpt.constants.INSPECTION_HEADERS</p></li>
-<li><p>codergpt.explainer.explainer.CodeExplainer</p></li>
-<li><p>codergpt.optimizer.optimizer.CodeOptimizer</p></li>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main.html#codergpt.CodeDocumenter"><code class="docutils literal notranslate"><span class="pre">CodeDocumenter</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main.html#codergpt.CodeDocumenter.document"><code class="docutils literal notranslate"><span class="pre">CodeDocumenter.document()</span></code></a></li>
 </ul>
-</section>
-<section id="id2">
-<h2>Usage<a class="headerlink" href="#id2" title="Link to this heading"></a></h2>
-<p>To use the <code class="docutils literal notranslate"><span class="pre">CoderGPT</span></code> class, initialize it with an optional model parameter. Then call its methods with appropriate arguments to perform various operations on code files.</p>
-<p>Example:</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
-    <span class="n">coder</span> <span class="o">=</span> <span class="n">CoderGPT</span><span class="p">()</span>
-    <span class="n">coder</span><span class="o">.</span><span class="n">inspect_package</span><span class="p">(</span><span class="s2">&quot;src&quot;</span><span class="p">)</span>
-</pre></div>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main.html#codergpt.CodeExplainer"><code class="docutils literal notranslate"><span class="pre">CodeExplainer</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main.html#codergpt.CodeExplainer.explain"><code class="docutils literal notranslate"><span class="pre">CodeExplainer.explain()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main.html#codergpt.CodeOptimizer"><code class="docutils literal notranslate"><span class="pre">CodeOptimizer</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main.html#codergpt.CodeOptimizer.optimize"><code class="docutils literal notranslate"><span class="pre">CodeOptimizer.optimize()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main.html#codergpt.CoderGPT"><code class="docutils literal notranslate"><span class="pre">CoderGPT</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main.html#codergpt.CoderGPT.commenter"><code class="docutils literal notranslate"><span class="pre">CoderGPT.commenter()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#codergpt.CoderGPT.documenter"><code class="docutils literal notranslate"><span class="pre">CoderGPT.documenter()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#codergpt.CoderGPT.explainer"><code class="docutils literal notranslate"><span class="pre">CoderGPT.explainer()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#codergpt.CoderGPT.get_code"><code class="docutils literal notranslate"><span class="pre">CoderGPT.get_code()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#codergpt.CoderGPT.inspect_package"><code class="docutils literal notranslate"><span class="pre">CoderGPT.inspect_package()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#codergpt.CoderGPT.optimizer"><code class="docutils literal notranslate"><span class="pre">CoderGPT.optimizer()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#codergpt.CoderGPT.test_writer"><code class="docutils literal notranslate"><span class="pre">CoderGPT.test_writer()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="main.html#codergpt">CoderGPT</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="main.html#id0"><code class="docutils literal notranslate"><span class="pre">CoderGPT</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#constructor">Constructor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#inspect-package">Inspect Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#get-code">Get Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#explainer">Explainer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#commenter">Commenter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#optimizer">Optimizer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#test-writer">Test Writer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#documenter">Documenter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#main">Main</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="explainer.html">Explainer Module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="commenter.html">Commenter Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="commenter.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commenter.html#methods">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commenter.html#dependencies">Dependencies</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="optimizer.html">Optimizer Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="optimizer.html#codeoptimizer"><code class="docutils literal notranslate"><span class="pre">CodeOptimizer</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="test_writer.html">Test Writing Module</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="test_writer.html#classes">Classes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="test_writer.html#codetester">CodeTester</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="expression_evaluator.html">The ExpressionEvaluator Class</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="expression_evaluator.html#initialization">Initialization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expression_evaluator.html#attributes">Attributes</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expression_evaluator.html#methods">Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expression_evaluator.html#usage">Usage</a></li>
+</ul>
+</li>
+</ul>
 </div>
-</section>
-<section id="id3">
-<h2>Environment Variables<a class="headerlink" href="#id3" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">OPENAI_API_KEY</span></code>: The API key for OpenAI services.</p></li>
-</ul>
-</section>
-<section id="files">
-<h2>Files<a class="headerlink" href="#files" title="Link to this heading"></a></h2>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">EXTENSION_MAP_FILE</span></code>: YAML file mapping file extensions to programming languages.</p></li>
-</ul>
-</section>
 </section>
 
 
@@ -233,7 +175,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="description.html" class="btn btn-neutral float-left" title="CoderGPT" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="modules.html" class="btn btn-neutral float-right" title="codergpt" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="cli.html" class="btn btn-neutral float-right" title="Command line interface for CoderGPT" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

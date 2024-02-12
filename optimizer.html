@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Optimizer Module &mdash; CoderGPT 0.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=7026087e"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Test Writing Module" href="test_writer.html" />
+    <link rel="prev" title="Commenter Module" href="commenter.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            CoderGPT
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="description.html">CoderGPT</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="developer.html">Developer Documentation</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="cli.html">Command line interface for CoderGPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html"><code class="docutils literal notranslate"><span class="pre">CodeCommenter</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#codergpt.CodeDocumenter"><code class="docutils literal notranslate"><span class="pre">CodeDocumenter</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#codergpt.CodeExplainer"><code class="docutils literal notranslate"><span class="pre">CodeExplainer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#codergpt.CodeOptimizer"><code class="docutils literal notranslate"><span class="pre">CodeOptimizer</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#codergpt.CoderGPT"><code class="docutils literal notranslate"><span class="pre">CoderGPT</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="main.html#codergpt">CoderGPT</a></li>
+<li class="toctree-l2"><a class="reference internal" href="explainer.html">Explainer Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="commenter.html">Commenter Module</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Optimizer Module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#classes">Classes</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#codeoptimizer"><code class="docutils literal notranslate"><span class="pre">CodeOptimizer</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#optimizer.CodeOptimizer"><code class="docutils literal notranslate"><span class="pre">CodeOptimizer</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#optimizer.optimize"><code class="docutils literal notranslate"><span class="pre">optimize()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="test_writer.html">Test Writing Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="expression_evaluator.html">The ExpressionEvaluator Class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">codergpt</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">CoderGPT</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="developer.html">Developer Documentation</a></li>
+      <li class="breadcrumb-item active">Optimizer Module</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/optimizer.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-optimizer">
+<span id="optimizer-module"></span><h1>Optimizer Module<a class="headerlink" href="#module-optimizer" title="Link to this heading"></a></h1>
+<section id="classes">
+<h2>Classes<a class="headerlink" href="#classes" title="Link to this heading"></a></h2>
+</section>
+<section id="codeoptimizer">
+<h2><code class="docutils literal notranslate"><span class="pre">CodeOptimizer</span></code><a class="headerlink" href="#codeoptimizer" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="optimizer.CodeOptimizer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">optimizer.</span></span><span class="sig-name descname"><span class="pre">CodeOptimizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">chain</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizer.CodeOptimizer" title="Link to this definition"></a></dt>
+<dd><p>Initializes the CodeOptimizer class with a runnable chain for executing optimization tasks.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>chain</strong> – A RunnableSerializable object capable of executing tasks. This chain is invoked to perform code optimization, commenting, and documentation.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="optimizer.optimize">
+<span class="sig-prename descclassname"><span class="pre">optimizer.</span></span><span class="sig-name descname"><span class="pre">optimize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#optimizer.optimize" title="Link to this definition"></a></dt>
+<dd><p>Optimizes the code within the specified file. This method reads the source code, invokes the optimization chain, and writes the optimized code either to the same file or to a new file with an “_updated” suffix based on the <code class="docutils literal notranslate"><span class="pre">overwrite</span></code> flag.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>filename</strong> (<em>str</em>) – The path to the code file to be optimized. This is the file from which the source code will be read.</p></li>
+<li><p><strong>function</strong> (<em>str</em>) – (Optional) The name of the function within the file to specifically optimize. If provided, only this function will be targeted for optimization. Default is None.</p></li>
+<li><p><strong>classname</strong> (<em>str</em>) – (Optional) The name of the class within the file to specifically optimize. If provided, only this class will be targeted for optimization. Default is None.</p></li>
+<li><p><strong>overwrite</strong> (<em>bool</em>) – If True, the original file will be overwritten with the optimized code. Otherwise, a new file with the “_updated” suffix will be created to hold the optimized code. Default is False.</p></li>
+</ul>
+</dd>
+</dl>
+<p><strong>Example Usage</strong>:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">langchain_core.runnables.base</span> <span class="kn">import</span> <span class="n">RunnableSerializable</span>
+<span class="kn">from</span> <span class="nn">optimizer</span> <span class="kn">import</span> <span class="n">CodeOptimizer</span>
+
+<span class="c1"># Assuming &#39;chain&#39; is an instance of RunnableSerializable</span>
+<span class="n">optimizer</span> <span class="o">=</span> <span class="n">CodeOptimizer</span><span class="p">(</span><span class="n">chain</span><span class="p">)</span>
+<span class="n">optimizer</span><span class="o">.</span><span class="n">optimize</span><span class="p">(</span><span class="s2">&quot;example.py&quot;</span><span class="p">,</span> <span class="n">overwrite</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="commenter.html" class="btn btn-neutral float-left" title="Commenter Module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="test_writer.html" class="btn btn-neutral float-right" title="Test Writing Module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Harshad Hegde &lt;hhegde@lbl.gov&gt;.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
