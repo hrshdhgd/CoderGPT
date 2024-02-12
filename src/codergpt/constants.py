@@ -2,8 +2,10 @@
 
 from pathlib import Path
 
-TEST_DIR = Path(__file__).resolve().parents[2] / "tests"
-SRC = Path(__file__).resolve().parents[1]
+PROJECT_DIR = Path(__file__).resolve().parents[2]
+TEST_DIR = PROJECT_DIR / "tests"
+DOCS_DIR = PROJECT_DIR / "docs"
+SRC = PROJECT_DIR / "src"
 PACKAGE_DIR = SRC / "codergpt"
 EXTENSION_MAP_FILE = PACKAGE_DIR / "extensions.yaml"
 LANGUAGE_MAP_KEY = "language-map"

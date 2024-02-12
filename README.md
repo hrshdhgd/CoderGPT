@@ -2,9 +2,19 @@
 
 ## Description
 
-CoderGPT is a command line interface for generating/modifying code. It allows developers to 
-enhance code by commenting, optimizing, documenting and adding tests to their project using 
-the power of LLM and GPT. This project is powered by [langchain](https://github.com/langchain-ai/langchain).
+CoderGPT is a command line interface for generating/modifying code. It allows developers to enhance code by commenting, optimizing, documenting, and adding tests to their project using the power of LLM and GPT. This project is powered by [langchain](https://github.com/langchain-ai/langchain).
+
+---
+**NOTE**
+Before using CoderGPT, ensure that the environment variable `OPENAI_API_KEY` is set locally on your machine. This key is required for authentication with the OpenAI API which powers the underlying language model.
+
+```sh
+export OPENAI_API_KEY='your-api-key-here'
+```
+
+Replace `your-api-key-here` with your actual OpenAI API key. This step is crucial for the proper functioning of CoderGPT as it relies on the OpenAI API for generating and modifying code.
+
+---
 
 ## Installation
 
@@ -194,47 +204,88 @@ code [OPTIONS] COMMAND [ARGS]...
 
 5. `write-tests`: Writes tests for the specified code file. The user can specify a function and/or a class within the file to target with the tests.
 
-```shell
-code write-tests <path> [--function <function_name>] [--class <classname>]
-```
+    ```shell
+    code write-tests <path> [--function <function_name>] [--class <classname>]
+    ```
 
-#### Example
-- Let's consider a python file `example.py`:
-```python
-# example.py
+    #### Example
+    - Let's consider a python file `example.py`:
+    ```python
+    # example.py
 
-def add(a, b):
-    return a + b
+    def add(a, b):
+        return a + b
 
-class Calculator:
-    def subtract(self, a, b):
-        return a - b
-```
-```shell
-$ code write-tests example.py --function add --class Calculator
-```
-results in test files being generated that contain test cases for the `add` function and the `Calculator` class. The actual content of the test files will depend on the implementation of the `coder.test_writer` method but would typically look something like this:
+    class Calculator:
+        def subtract(self, a, b):
+            return a - b
+    ```
+    ```shell
+    $ code write-tests example.py --function add --class Calculator
+    ```
+    results in test files being generated that contain test cases for the `add` function and the `Calculator` class. The actual content of the test files will depend on the implementation of the `coder.test_writer` method but would typically look something like this:
 
-```python
-import unittest
-from example import add, Calculator
+    ```python
+    import unittest
+    from example import add, Calculator
 
-class TestAddFunction(unittest.TestCase):
+    class TestAddFunction(unittest.TestCase):
 
-    def test_addition(self):
-        self.assertEqual(add(3, 4), 7)
+        def test_addition(self):
+            self.assertEqual(add(3, 4), 7)
 
-class TestCalculator(unittest.TestCase):
+    class TestCalculator(unittest.TestCase):
 
-    def setUp(self):
-        self.calc = Calculator()
+        def setUp(self):
+            self.calc = Calculator()
 
-    def test_subtract(self):
-        self.assertEqual(self.calc.subtract(10, 5), 5)
-```
+        def test_subtract(self):
+            self.assertEqual(self.calc.subtract(10, 5), 5)
+    ```
 
-In this example, running the command generates unit tests for both the `add` function and the `Calculator` class in the `example.py` file. The tests check if the `add` function correctly adds two numbers and if the `Calculator`'s `subtract` method correctly subtracts one number from another.
+    In this example, running the command generates unit tests for both the `add` function and the `Calculator` class in the `example.py` file. The tests check if the `add` function correctly adds two numbers and if the `Calculator`'s `subtract` method correctly subtracts one number from another.
 
+6. `document`: Generates documentation for the specified code file.
+
+    ```shell
+    code document <path>
+    ```
+
+    #### Example
+    - Let's consider a python file `example.py`:
+    ```python
+    # example.py
+
+    def add(a, b):
+        """Add two numbers and return the result."""
+        return a + b
+
+    class Calculator:
+        """A simple calculator class."""
+
+        def subtract(self, a, b):
+            """Subtract b from a and return the result."""
+            return a - b
+    ```
+    ```shell
+    $ code document example.py
+    ```
+    results in documentation files being generated that contain documentation for all functions and classes within the `example.py` file. The actual content of the documentation files will depend on the implementation of the `DocumentationGenerator.document` method but would typically look something like this:
+
+    ```rst
+    add Function
+    ------------
+
+    .. autofunction:: example.add
+
+    Calculator Class
+    ----------------
+
+    .. autoclass:: example.Calculator
+    :members:
+    ```
+
+    In this example, running the command generates documentation for the entire `example.py` file, including both the `add` function and the `Calculator` class. The documentation includes descriptions of the function and class, as well as any public methods of the class.
 
 ## Development
 

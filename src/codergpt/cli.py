@@ -169,5 +169,24 @@ def write_test_code(path: Union[str, Path], function: str, classname: str):
         raise ValueError("The path provided is not a file.")
 
 
+@main.command("document")
+@path_argument
+def write_documentation(path: Union[str, Path]):
+    """
+    Write documentation files for the code file.
+
+    :param path: The path to the code file.
+    """
+    # Ensure path is a string or Path object for consistency
+    if isinstance(path, str):
+        path = Path(path)
+
+    # Check if path is a file
+    if path.is_file():
+        coder.documenter(path=path)
+    else:
+        raise ValueError("The path provided is not a file.")
+
+
 if __name__ == "__main__":
     main()
