@@ -202,14 +202,14 @@ codergpt [OPTIONS] COMMAND [ARGS]...
     """
     ```
 
-5. `write-tests`: Writes tests for the specified code file. The user can specify a function and/or a class within the file to target with the tests.
+5. `write-tests`: Writes tests for the specified code file, with options to target specific functions and/or classes within the file.
 
     ```shell
-    codergpt write-tests <path> [--function <function_name>] [--class <classname>]  [<outfile>]
+    codergpt write-tests <filename> [--function <function_name>] [--class <classname>] [--outfile <output_filename>]
     ```
 
     #### Example
-    - Let's consider a python file `example.py`:
+    - Consider a Python file `example.py`:
     ```python
     # example.py
 
@@ -220,10 +220,13 @@ codergpt [OPTIONS] COMMAND [ARGS]...
         def subtract(self, a, b):
             return a - b
     ```
+    - To generate test cases for both the `add` function and the `Calculator` class in `example.py`, run the following command:
     ```shell
     $ codergpt write-tests example.py --function add --class Calculator
     ```
-    results in test files being generated that contain test cases for the `add` function and the `Calculator` class. The actual content of the test files will depend on the implementation of the `coder.test_writer` method but would typically look something like this:
+    This results in test files being generated that contain test cases for the specified `add` function and the `Calculator` class. The output file will be named `test_example.py` and saved in the directory specified by `TEST_DIR`. If an `--outfile` is provided, the tests will be written to that file instead.
+
+    The actual content of the test files will depend on the implementation of the `CodeTester.write_tests` method but would typically include structured tests like this:
 
     ```python
     import unittest
@@ -243,12 +246,12 @@ codergpt [OPTIONS] COMMAND [ARGS]...
             self.assertEqual(self.calc.subtract(10, 5), 5)
     ```
 
-    In this example, running the command generates unit tests for both the `add` function and the `Calculator` class in the `example.py` file. The tests check if the `add` function correctly adds two numbers and if the `Calculator`'s `subtract` method correctly subtracts one number from another.
+    In this example, running the command generates unit tests for both the `add` function and the `Calculator` class in the `example.py` file. The tests verify that the `add` function correctly adds two numbers and that the `Calculator`'s `subtract` method correctly subtracts one number from another.
 
 6. `document`: Generates documentation for the specified code file by invoking a runnable chain that processes and explains the code.
 
 ```shell
-codergpt document <path> [<outfile>]
+codergpt document <path> [--outfile <output_filename>]s
 ```
 
 #### Example
