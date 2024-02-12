@@ -11,10 +11,10 @@ from langchain_openai import ChatOpenAI
 from .test_constants import TEST_INPUT_DIR, TEST_OUTPUT_DIR
 
 
-@unittest.skipIf(os.getenv("GITHUB_ACTIONS") == "true", "Skipping tests in GitHub Actions")
 class CodeTesterTests(unittest.TestCase):
     """Tests for the CodeTester class."""
 
+    @unittest.skipIf(os.getenv("GITHUB_ACTIONS") == "true", "Skipping tests in GitHub Actions")
     def setUp(self):
         """Create a sample runnable chain for testing."""
         self.llm = ChatOpenAI(openai_api_key=os.environ.get("OPENAI_API_KEY"))
@@ -26,6 +26,7 @@ class CodeTesterTests(unittest.TestCase):
         self.filename = TEST_INPUT_DIR / "math.py"
         self.output_filename = TEST_OUTPUT_DIR / "test_math.py"
 
+    @unittest.skipIf(os.getenv("GITHUB_ACTIONS") == "true", "Skipping tests in GitHub Actions")
     def tearDown(self):
         """Clean up the created test files."""
         test_files = Path(TEST_OUTPUT_DIR).glob("test_*")
