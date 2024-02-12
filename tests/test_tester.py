@@ -10,6 +10,7 @@ from langchain_openai import ChatOpenAI
 
 from .test_constants import TEST_INPUT_DIR, TEST_OUTPUT_DIR
 
+
 @unittest.skipIf(os.getenv("GITHUB_ACTIONS") == "true", "Skipping tests in GitHub Actions")
 class CodeTesterTests(unittest.TestCase):
     """Tests for the CodeTester class."""
