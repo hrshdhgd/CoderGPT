@@ -63,6 +63,7 @@ Options
 Commands
 ~~~~~~~~
 
+.. _inspect-command:
 1. **inspect**: Inspect a package and display a file-language map.
 
    .. code-block:: shell
@@ -82,6 +83,7 @@ Commands
        src/codergpt/cli.py                         Python
        ...
 
+.. _explain-command:
 2. **explain**: Explain a specific function or class within a package.
 
    .. code-block:: shell
@@ -96,6 +98,7 @@ Commands
        Explanation for the code:
        This code defines a method called `explain` that takes in three parameters...
 
+.. _comment-command:
 3. **comment**: Add comments to the code in a package. The user has the choice to overwrite the file or create a new one.
 
    .. code-block:: shell
@@ -129,6 +132,7 @@ Commands
            ...
            """
 
+.. _optimize-command:
 4. **optimize**: Optimizes and adds comments to the code in a package. The user has the choice to overwrite the file or create a new one.
 
    .. code-block:: shell
@@ -213,11 +217,12 @@ Commands
         By using these optimizations, we improve the efficiency and readability of the code.
         """
 
-5s. **write-tests**: Generates test cases for specified functions and/or classes within a Python code file.
+.. _write-tests-command:
+5. **write-tests**: Generates test cases for specified functions and/or classes within a Python code file.
 
    .. code-block:: shell
 
-       codergpt write-tests <path> [--function <function_name>] [--class <classname>]
+       codergpt write-tests <filename> [--function <function_name>] [--class <classname>] [--outfile <output_filename>]
 
    **Example**
 
@@ -259,6 +264,58 @@ Commands
                 self.assertEqual(self.calc.subtract(10, 5), 5)
 
    In this example, executing the command generates unit tests for the `add` function and the `Calculator` class defined in `example.py`. The tests verify whether the `add` function correctly computes the sum of two numbers and if the `Calculator`'s `subtract` method accurately performs subtraction.
+
+.. _document-command:
+
+6. ``document``: Generates documentation for the specified code file by invoking a runnable chain that processes and explains the code.
+
+.. code-block:: shell
+
+   codergpt document <path> [--outfile <output_filename>]
+
+**Example**
+
+Consider a Python file named ``example.py``:
+
+.. code-block:: python
+
+   # example.py
+
+   def add(a, b):
+       """Add two numbers and return the result."""
+       return a + b
+
+   class Calculator:
+       """A simple calculator class."""
+
+       def subtract(self, a, b):
+           """Subtract b from a and return the result."""
+           return a - b
+
+To generate documentation for ``example.py``, execute the following command:
+
+.. code-block:: shell
+
+   $ codergpt document example.py
+
+This command will produce documentation files that include explanations for all functions and classes within the ``example.py`` file. By default, the output file will be named after the input file with an ``.rst`` extension and saved in the directory specified by ``DOCS_DIR``. If an ``<outfile>`` is provided, the documentation will be written to that file instead.
+
+The content of the generated documentation files will vary based on the implementation of the ``CodeDocumenter.document`` method but would typically resemble the following structured documentation:
+
+.. code-block:: rst
+
+   add Function
+   ------------
+
+   .. autofunction:: example.add
+
+   Calculator Class
+   ----------------
+
+   .. autoclass:: example.Calculator
+      :members:
+
+In this case, running the command produces ReStructuredText (RST) formatted documentation for the entire ``example.py`` file. The documentation includes detailed descriptions of the `add` function and the `Calculator` class, as well as any public methods of the class.
 
 Development
 -----------
