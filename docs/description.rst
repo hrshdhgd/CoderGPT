@@ -38,7 +38,7 @@ The following model providers have been implemented in CoderGPT:
    export OPENAI_API_KEY='your-api-key-here'
    export GOOGLE_API_KEY='your-api-key-here'
 
-   Replace ``your-api-key-here`` with your actual OpenAI API key. This step is crucial for the proper functioning of CoderGPT as it relies on the OpenAI API for generating and modifying code.
+   Replace ``your-api-key-here`` with your actual OpenAI and Google API keys. This step is crucial for the proper functioning of CoderGPT as it relies on OpenAI and Google APIs for generating and modifying code.
 
 Installation
 ------------
