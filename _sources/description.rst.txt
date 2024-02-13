@@ -78,7 +78,7 @@ Options
 - ``-v, --verbose INTEGER``: Set verbosity level (0, 1, or 2).
 - ``-q, --quiet``: Enable quiet mode.
 - ``--version``: Display version information.
-- ``--model [gpt-3.5-turbo | gpt-4 | gpt-4-turbo (default) | gemini-pro]``: Set the model provider to use.
+- ``--model [gpt-3.5-turbo | gpt-4 | gpt-4-turbo (default) | gemini-pro]``: Set the model to use.
 
 Commands
 ~~~~~~~~
