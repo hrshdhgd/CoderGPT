@@ -24,7 +24,7 @@ class CoderGPT:
     def __init__(self, model: str = GPT_4_TURBO):
         """Initialize the CoderGPT class."""
         if model is None or model.startswith("gpt-"):
-            self.llm = ChatOpenAI(openai_api_key=os.environ.get("OPENAI_API_KEY"), temperature=0.7, model=model)
+            self.llm = ChatOpenAI(openai_api_key=os.environ.get("OPENAI_API_KEY"), temperature=0, model=model)
         # elif model == CLAUDE:
         #     self.llm = ChatAnthropic()
         #     print("Coming Soon!")
