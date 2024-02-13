@@ -6,11 +6,12 @@ from typing import Optional, Union
 
 import yaml
 from langchain_core.prompts import ChatPromptTemplate
+from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_openai import ChatOpenAI
 from tabulate import tabulate
 
 from codergpt.commenter.commenter import CodeCommenter
-from codergpt.constants import EXTENSION_MAP_FILE, GPT_4_TURBO, INSPECTION_HEADERS
+from codergpt.constants import EXTENSION_MAP_FILE, GEMINI, GPT_4_TURBO, INSPECTION_HEADERS
 from codergpt.documenter.documenter import CodeDocumenter
 from codergpt.explainer.explainer import CodeExplainer
 from codergpt.optimizer.optimizer import CodeOptimizer
@@ -22,7 +23,16 @@ class CoderGPT:
 
     def __init__(self, model: str = GPT_4_TURBO):
         """Initialize the CoderGPT class."""
-        self.llm = ChatOpenAI(openai_api_key=os.environ.get("OPENAI_API_KEY"), temperature=0.7, model=model)
+        if model is None or model.startswith("gpt-"):
+            self.llm = ChatOpenAI(openai_api_key=os.environ.get("OPENAI_API_KEY"), temperature=0.7, model=model)
+        # elif model == CLAUDE:
+        #     self.llm = ChatAnthropic()
+        #     print("Coming Soon!")
+        elif model == GEMINI:
+            self.llm = ChatGoogleGenerativeAI(model=model, convert_system_message_to_human=True)
+        else:
+            raise ValueError(f"The model {model} is not supported yet.")
+
         self.prompt = ChatPromptTemplate.from_messages(
             [("system", "You are world class software developer."), ("user", "{input}")]
         )
