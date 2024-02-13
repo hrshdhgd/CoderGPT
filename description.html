@@ -48,6 +48,7 @@
 <ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="#">CoderGPT</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#what-is-it">What is it?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#model-providers-implemented">Model Providers Implemented</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#command-line-interface-cli">Command Line Interface (CLI)</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#options">Options</a></li>
@@ -92,14 +93,42 @@
 <p>CoderGPT is a command line interface for generating/modifying code. It allows developers to
 enhance code by commenting, optimizing, documenting and adding tests to their projects using
 the power of LLM and GPT. This project is powered by <a class="reference external" href="https://github.com/langchain-ai/langchain">langchain</a>.</p>
+</section>
+<section id="model-providers-implemented">
+<h2>Model Providers Implemented<a class="headerlink" href="#model-providers-implemented" title="Link to this heading"></a></h2>
+<p>The following model providers have been implemented in CoderGPT:</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 25.0%" />
+<col style="width: 75.0%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Provider</p></th>
+<th class="head"><p>Status</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>OpenAI (<code class="docutils literal notranslate"><span class="pre">gpt-3.5-turbo</span></code>, <code class="docutils literal notranslate"><span class="pre">gpt-4</span></code>, <code class="docutils literal notranslate"><span class="pre">gpt-4-turbo-preview</span></code> (default))</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr class="row-odd"><td><p>Google (<code class="docutils literal notranslate"><span class="pre">gemini-pro</span></code>)</p></td>
+<td><p>✓</p></td>
+</tr>
+<tr class="row-even"><td><p>Anthropic (<code class="docutils literal notranslate"><span class="pre">Claude</span></code>)</p></td>
+<td><p>Coming soon!</p></td>
+</tr>
+</tbody>
+</table>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p><strong>NOTE</strong>
-Before using CoderGPT, ensure that the environment variable <code class="docutils literal notranslate"><span class="pre">OPENAI_API_KEY</span></code> is set locally on your machine. This key is required for authentication with the OpenAI API which powers the underlying language model.</p>
-<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">OPENAI_API_KEY</span><span class="o">=</span><span class="s1">&#39;your-api-key-here&#39;</span>
-</pre></div>
+Before you begin using CoderGPT, you must set the <code class="docutils literal notranslate"><span class="pre">OPENAI_API_KEY</span></code> and <code class="docutils literal notranslate"><span class="pre">GOOGLE_API_KEY</span></code> environment variables on your machine. These keys are necessary for authentication with the respective APIs and are crucial for the operation of the language models.</p>
 </div>
-<p>Replace <code class="docutils literal notranslate"><span class="pre">your-api-key-here</span></code> with your actual OpenAI API key. This step is crucial for the proper functioning of CoderGPT as it relies on the OpenAI API for generating and modifying code.</p>
+<div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">OPENAI_API_KEY</span><span class="o">=</span><span class="s1">&#39;your-api-key-here&#39;</span>
+<span class="nb">export</span><span class="w"> </span><span class="nv">GOOGLE_API_KEY</span><span class="o">=</span><span class="s1">&#39;your-api-key-here&#39;</span>
+
+Replace<span class="w"> </span><span class="sb">``</span>your-api-key-here<span class="sb">``</span><span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>actual<span class="w"> </span>OpenAI<span class="w"> </span>and<span class="w"> </span>Google<span class="w"> </span>API<span class="w"> </span>keys.<span class="w"> </span>This<span class="w"> </span>step<span class="w"> </span>is<span class="w"> </span>crucial<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>proper<span class="w"> </span>functioning<span class="w"> </span>of<span class="w"> </span>CoderGPT<span class="w"> </span>as<span class="w"> </span>it<span class="w"> </span>relies<span class="w"> </span>on<span class="w"> </span>OpenAI<span class="w"> </span>and<span class="w"> </span>Google<span class="w"> </span>APIs<span class="w"> </span><span class="k">for</span><span class="w"> </span>generating<span class="w"> </span>and<span class="w"> </span>modifying<span class="w"> </span>code.
+</pre></div>
 </div>
 </section>
 <section id="installation">
