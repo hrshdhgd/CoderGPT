@@ -41,6 +41,10 @@ codergpt [OPTIONS] COMMAND [ARGS]...
 - `-v, --verbose INTEGER`: Adjust the verbosity level (0 for default, 1 for verbose, 2 for debug).
 - `-q, --quiet`: Suppress output.
 - `--version`: Show the version number and exit.
+- `--model`: Model to use for performing requests.
+  - Available models:
+    - OpenAI: [`gpt-3.5-turbo`, `gpt-4`, `gpt-4-turbo-preview`(default)]
+    - Google: [`gemini-pro`]
 
 #### Commands
 
@@ -49,13 +53,13 @@ codergpt [OPTIONS] COMMAND [ARGS]...
 Analyze a package and display its file-language mapping.
 
 ```shell
-codergpt inspect <path>
+codergpt --model <model-name> inspect <path>
 ```
 
 ###### Example
 
 ```shell
-$ codergpt inspect src/codergpt/
+$ codergpt --model gpt-4 inspect src/codergpt/
 ```
 
 ##### Explain

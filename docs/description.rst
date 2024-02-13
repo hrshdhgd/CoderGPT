@@ -16,7 +16,7 @@ Model Providers Implemented
 The following model providers have been implemented in CoderGPT:
 
 .. list-table::
-   :widths: 25 75
+   :widths: 75 25
    :header-rows: 1
 
    * - Provider
@@ -38,7 +38,7 @@ The following model providers have been implemented in CoderGPT:
    export OPENAI_API_KEY='your-api-key-here'
    export GOOGLE_API_KEY='your-api-key-here'
 
-   Replace ``your-api-key-here`` with your actual OpenAI and Google API keys. This step is crucial for the proper functioning of CoderGPT as it relies on OpenAI and Google APIs for generating and modifying code.
+Replace ``your-api-key-here`` with your actual OpenAI and Google API keys. This step is crucial for the proper functioning of CoderGPT as it relies on OpenAI and Google APIs for generating and modifying code.
 
 Installation
 ------------
@@ -78,6 +78,7 @@ Options
 - ``-v, --verbose INTEGER``: Set verbosity level (0, 1, or 2).
 - ``-q, --quiet``: Enable quiet mode.
 - ``--version``: Display version information.
+- ``--model [gpt-3.5-turbo | gpt-4 | gpt-4-turbo (default) | gemini-pro]``: Set the model provider to use.
 
 Commands
 ~~~~~~~~
@@ -87,13 +88,13 @@ Commands
 
    .. code-block:: shell
 
-       codergpt inspect <path>
+       codergpt --model <model-name> inspect <path>
 
    **Example**
 
    .. code-block:: shell
 
-       $ codergpt inspect src/codergpt/
+       $ codergpt --model gpt-4 inspect src/codergpt/
        Inspecting the code.
        File                                        Language
        ------------------------------------------  ----------
