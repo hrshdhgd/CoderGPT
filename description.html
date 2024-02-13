@@ -99,8 +99,8 @@ the power of LLM and GPT. This project is powered by <a class="reference externa
 <p>The following model providers have been implemented in CoderGPT:</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 25.0%" />
 <col style="width: 75.0%" />
+<col style="width: 25.0%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Provider</p></th>
@@ -126,10 +126,9 @@ Before you begin using CoderGPT, you must set the <code class="docutils literal 
 </div>
 <div class="highlight-sh notranslate"><div class="highlight"><pre><span></span><span class="nb">export</span><span class="w"> </span><span class="nv">OPENAI_API_KEY</span><span class="o">=</span><span class="s1">&#39;your-api-key-here&#39;</span>
 <span class="nb">export</span><span class="w"> </span><span class="nv">GOOGLE_API_KEY</span><span class="o">=</span><span class="s1">&#39;your-api-key-here&#39;</span>
-
-Replace<span class="w"> </span><span class="sb">``</span>your-api-key-here<span class="sb">``</span><span class="w"> </span>with<span class="w"> </span>your<span class="w"> </span>actual<span class="w"> </span>OpenAI<span class="w"> </span>and<span class="w"> </span>Google<span class="w"> </span>API<span class="w"> </span>keys.<span class="w"> </span>This<span class="w"> </span>step<span class="w"> </span>is<span class="w"> </span>crucial<span class="w"> </span><span class="k">for</span><span class="w"> </span>the<span class="w"> </span>proper<span class="w"> </span>functioning<span class="w"> </span>of<span class="w"> </span>CoderGPT<span class="w"> </span>as<span class="w"> </span>it<span class="w"> </span>relies<span class="w"> </span>on<span class="w"> </span>OpenAI<span class="w"> </span>and<span class="w"> </span>Google<span class="w"> </span>APIs<span class="w"> </span><span class="k">for</span><span class="w"> </span>generating<span class="w"> </span>and<span class="w"> </span>modifying<span class="w"> </span>code.
 </pre></div>
 </div>
+<p>Replace <code class="docutils literal notranslate"><span class="pre">your-api-key-here</span></code> with your actual OpenAI and Google API keys. This step is crucial for the proper functioning of CoderGPT as it relies on OpenAI and Google APIs for generating and modifying code.</p>
 </section>
 <section id="installation">
 <h2>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h2>
@@ -160,17 +159,18 @@ $<span class="w"> </span>poetry<span class="w"> </span>install
 <li><p><code class="docutils literal notranslate"><span class="pre">-v,</span> <span class="pre">--verbose</span> <span class="pre">INTEGER</span></code>: Set verbosity level (0, 1, or 2).</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">-q,</span> <span class="pre">--quiet</span></code>: Enable quiet mode.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">--version</span></code>: Display version information.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--model</span> <span class="pre">[gpt-3.5-turbo</span> <span class="pre">|</span> <span class="pre">gpt-4</span> <span class="pre">|</span> <span class="pre">gpt-4-turbo</span> <span class="pre">(default)</span> <span class="pre">|</span> <span class="pre">gemini-pro]</span></code>: Set the model provider to use.</p></li>
 </ul>
 </section>
 <section id="commands">
 <h3>Commands<a class="headerlink" href="#commands" title="Link to this heading"></a></h3>
 <ol class="arabic" id="inspect-command">
 <li><p><strong>inspect</strong>: Inspect a package and display a file-language map.</p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>codergpt<span class="w"> </span>inspect<span class="w"> </span>&lt;path&gt;
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>codergpt<span class="w"> </span>--model<span class="w"> </span>&lt;model-name&gt;<span class="w"> </span>inspect<span class="w"> </span>&lt;path&gt;
 </pre></div>
 </div>
 <p><strong>Example</strong></p>
-<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>codergpt<span class="w"> </span>inspect<span class="w"> </span>src/codergpt/
+<div class="highlight-shell notranslate"><div class="highlight"><pre><span></span>$<span class="w"> </span>codergpt<span class="w"> </span>--model<span class="w"> </span>gpt-4<span class="w"> </span>inspect<span class="w"> </span>src/codergpt/
 Inspecting<span class="w"> </span>the<span class="w"> </span>code.
 File<span class="w">                                        </span>Language
 ------------------------------------------<span class="w">  </span>----------
