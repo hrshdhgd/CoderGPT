@@ -27,6 +27,7 @@ from typing import TextIO, Union
 import click
 
 from codergpt import __version__
+from codergpt.constants import ALL_MODELS
 from codergpt.main import CoderGPT
 
 __all__ = [
@@ -36,6 +37,13 @@ __all__ = [
 logger = logging.getLogger(__name__)
 
 path_argument = click.argument("path", type=click.Path(exists=True))
+model_option = click.option(
+    "-m",
+    "--model",
+    type=click.Choice(ALL_MODELS),
+    default="gpt-4",
+    help="Model to use for code generation.",
+)
 function_option = click.option("-f", "--function", help="Function name to explain or optimize.")
 class_option = click.option("-c", "--classname", help="Class name to explain or optimize.")
 overwrite_option = click.option(
@@ -43,20 +51,21 @@ overwrite_option = click.option(
 )
 output_option = click.option("-o", "--outfile", help="Output file to write to.")
 
-coder = CoderGPT()
-
 
 @click.group()
 @click.option("-v", "--verbose", count=True)
 @click.option("-q", "--quiet")
 @click.version_option(__version__)
-def main(verbose: int, quiet: bool):
+@model_option
+def main(verbose: int, quiet: bool, model: str):
     """
     CLI for CoderGPT.
 
     :param verbose: Verbosity while running.
     :param quiet: Boolean to be quiet or verbose.
     """
+    global coder
+    coder = CoderGPT(model=model)
     if verbose >= 2:
         logger.setLevel(level=logging.DEBUG)
     elif verbose == 1:
