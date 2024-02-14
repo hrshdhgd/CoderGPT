@@ -28,9 +28,10 @@ class CodeDocumenter:
         """
         Document the contents of the code file by invoking the runnable chain.
 
+        :param filename: filename of the code file.
         :param code: The string containing the code to be documented.
-        :param function: The name of the function to document. Default is None.
-        :param classname: The name of the class to document
+        :param language: Coding language of the file, defaults to None
+        :param outfile: Destination filepath, defaults to None
         """
         document_template = None
         if language and language in TEMPLATES.keys():

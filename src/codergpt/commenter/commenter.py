@@ -26,6 +26,7 @@ class CodeCommenter:
         :param code: The string containing the code to be commented.
         :param filename: The original filename of the code file.
         :param overwrite: A boolean indicating whether to overwrite the original file. Default is False.
+        :param language: Coding language of the file, defaults to None
         """
         comment_template = None
         if language and language in TEMPLATES.keys():
@@ -41,7 +42,7 @@ class CodeCommenter:
                 "input": f"Rewrite and return this {language} code with\
                 comments: \n{code}\n"
                 f"Use template {comment_template} as reference to render the code comments."
-                "Remember, everything in the template are placeholders."
+                "Everything in the template are placeholders."
                 "Return just the code block since all this will be a file."
             }
         else:
