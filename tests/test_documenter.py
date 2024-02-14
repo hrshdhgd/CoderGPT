@@ -52,9 +52,10 @@ class TestCodeDocumenter(unittest.TestCase):
         filename = "example.py"
         outfile = "output.rst"
         self.mock_chain.invoke.return_value = Mock(content="Documented content")
+        code = "print('Hello, World!')"
 
         # Execute
-        self.documenter.document(filename, outfile)
+        self.documenter.document(filename=filename, outfile=outfile, code=code, language="Python")
 
         # Assert
         self.mock_chain.invoke.assert_called_once()
@@ -74,11 +75,12 @@ class TestCodeDocumenter(unittest.TestCase):
         :type mock_open: unittest.mock.MagicMock
         """
         # Setup
-        filename = "example.py"
+        filename = "example"
+        code = "print('Hello, World!')"
         self.mock_chain.invoke.return_value = Mock(content="Documented content")
 
         # Execute
-        self.documenter.document(filename)
+        self.documenter.document(filename, code=code, language="Python")
 
         # Assert
         expected_path = DOCS_DIR / "example.rst"
@@ -99,11 +101,12 @@ class TestCodeDocumenter(unittest.TestCase):
         # Setup
         filename = Path("example.py")
         outfile = "output.rst"
+        code = "print('Hello, World!')"
         self.mock_chain.invoke.return_value = Mock(content="Documented content")
 
         # Patch and Spy
         with patch("builtins.open", unittest.mock.mock_open()) as mock_open:
-            self.documenter.document(filename, outfile)
+            self.documenter.document(filename, code, language=None, outfile=outfile)
 
             # Assert
             self.mock_chain.invoke.assert_called_once()

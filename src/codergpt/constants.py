@@ -7,6 +7,7 @@ TEST_DIR = PROJECT_DIR / "tests"
 DOCS_DIR = PROJECT_DIR / "docs"
 SRC = Path(__file__).resolve().parents[1]
 PACKAGE_DIR = SRC / "codergpt"
+TEMPLATES_DIR = PACKAGE_DIR / "templates"
 EXTENSION_MAP_FILE = PACKAGE_DIR / "extensions.yaml"
 LANGUAGE_MAP_KEY = "language-map"
 INSPECTION_HEADERS = ["File", "Language"]
@@ -23,3 +24,24 @@ ALL_MODELS = [
     CLAUDE,
     GEMINI,
 ]
+
+SPHINX_DOCUMENTATION_TEMPLATE = TEMPLATES_DIR / "sphinx_style_document.md"
+PYTHON_CODE_COMMENT_TEMPLATE = TEMPLATES_DIR / "python_code_comment.md"
+
+"""
+Templates for different languages and commands.
+
+Follows format:
+    {
+        "language": {
+            "command": "path/to/comment/template",
+        }
+    }
+"""
+
+TEMPLATES = {
+    "Python": {
+        "comment": PYTHON_CODE_COMMENT_TEMPLATE,
+        "document": SPHINX_DOCUMENTATION_TEMPLATE,
+    }
+}

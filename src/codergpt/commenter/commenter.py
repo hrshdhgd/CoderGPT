@@ -5,6 +5,8 @@ from typing import Any, Dict, Optional
 
 from langchain_core.runnables.base import RunnableSerializable
 
+from codergpt.constants import TEMPLATES
+
 
 class CodeCommenter:
     """Code Explainer class that extracts and explains code from a given file."""
@@ -25,13 +27,30 @@ class CodeCommenter:
         :param filename: The original filename of the code file.
         :param overwrite: A boolean indicating whether to overwrite the original file. Default is False.
         """
-        response = self.chain.invoke(
-            {
+        comment_template = None
+        if language and language in TEMPLATES.keys():
+            # Check if "comment" key exists in the language template
+            if "comment" in TEMPLATES[language]:
+                # Get the path to the comment template
+                comment_template_path = TEMPLATES[language]["comment"]
+                with open(comment_template_path, "r") as comment_template_file:
+                    comment_template = comment_template_file.read()
+
+        if comment_template:
+            invoke_params = {
                 "input": f"Rewrite and return this {language} code with\
-                comments and sphinx docstrings in :param: format: \n{code}\n"
+                comments: \n{code}\n"
+                f"Use template {comment_template} as reference to render the code comments."
                 "Return just the code block since all this will be a file."
             }
-        )
+        else:
+            invoke_params = {
+                "input": f"Rewrite and return this {language} code with\
+                    comments: \n{code}\n"
+                "Return just the code block since all this will be a file."
+            }
+
+        response = self.chain.invoke(invoke_params)
 
         # Extract the commented code from the response if necessary
         commented_code = response.content

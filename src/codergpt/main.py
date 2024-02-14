@@ -24,7 +24,7 @@ class CoderGPT:
     def __init__(self, model: str = GPT_4_TURBO):
         """Initialize the CoderGPT class."""
         if model is None or model.startswith("gpt-"):
-            self.llm = ChatOpenAI(openai_api_key=os.environ.get("OPENAI_API_KEY"), temperature=0, model=model)
+            self.llm = ChatOpenAI(openai_api_key=os.environ.get("OPENAI_API_KEY"), temperature=0.3, model=model)
         # elif model == CLAUDE:
         #     self.llm = ChatAnthropic()
         #     print("Coming Soon!")
@@ -153,8 +153,12 @@ class CoderGPT:
 
         :param path: The path to the code file.
         """
+        if isinstance(path, str):
+            path = Path(path)
         code_documenter = CodeDocumenter(self.chain)
-        code_documenter.document(filename=path, outfile=outfile)
+        filename = path.stem
+        code, language = self.get_code(filename=path)
+        code_documenter.document(filename=filename, code=code, language=language, outfile=outfile)
 
 
 if __name__ == "__main__":
