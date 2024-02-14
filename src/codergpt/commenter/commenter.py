@@ -41,9 +41,9 @@ class CodeCommenter:
             invoke_params = {
                 "input": f"Rewrite and return this {language} code with\
                 comments: \n{code}\n"
-                f"Use template {comment_template} as reference to render the code comments."
+                f"Use template {comment_template} as a style reference to render the docstrings."
                 "Everything in the template are placeholders."
-                "Return just the code block since all this will be a file."
+                "Return just the code block since all this will be saved in a file."
             }
         else:
             invoke_params = {

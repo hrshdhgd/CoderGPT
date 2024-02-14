@@ -44,7 +44,7 @@ class CodeDocumenter:
         if document_template:
             invoke_params = {
                 "input": f"Document the {language} code with the following: \n{code}\n"
-                f"Use template {document_template} as reference to render the code documentation."
+                f"Use template {document_template} as a style reference."
                 "Everything in the template are placeholders. Return only the relevant documentation content."
             }
         else:
