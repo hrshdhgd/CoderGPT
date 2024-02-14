@@ -41,6 +41,7 @@ class CodeCommenter:
                 "input": f"Rewrite and return this {language} code with\
                 comments: \n{code}\n"
                 f"Use template {comment_template} as reference to render the code comments."
+                "Remember, everything in the template are placeholders."
                 "Return just the code block since all this will be a file."
             }
         else:
