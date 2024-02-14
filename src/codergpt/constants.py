@@ -26,7 +26,7 @@ ALL_MODELS = [
 ]
 
 SPHINX_DOCUMENTATION_TEMPLATE = TEMPLATES_DIR / "sphinx_style_document.md"
-PYTHON_CODE_COMMENT_TEMPLATE = TEMPLATES_DIR / "python_code_comment.md"
+PYTHON_CODE_COMMENT_TEMPLATE = TEMPLATES_DIR / "python_code_comments.md"
 
 """
 Templates for different languages and commands.
