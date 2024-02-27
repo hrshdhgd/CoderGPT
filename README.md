@@ -5,15 +5,16 @@ CoderGPT is a versatile command-line interface (CLI) designed to enhance coding 
 # Model Providers Implemented
  - [x] OpenAI [`gpt-3.5-turbo`, `gpt-4`, `gpt-4-turbo-preview`(default)]
  - [x] Google [`gemini-pro`]
- - [ ] Anthropic [`Claude`] (coming soon!)
+ - [x] Anthropic [`claude-2`]
 
 ## Prerequisites
 
-Before you begin using CoderGPT, you must set the `OPENAI_API_KEY` and `GOOGLE_API_KEY` environment variables on your machine. This key enables authentication with the OpenAI and Google APIs, which are essential for the language model's operation.
+Before you begin using CoderGPT, you must set the `OPENAI_API_KEY`, `GOOGLE_API_KEY` and `ANTHROPIC_API_KEY` environment variables on your machine. This key enables authentication with the OpenAI and Google APIs, which are essential for the language model's operation.
 
 ```sh
 export OPENAI_API_KEY='your-api-key-here'
 export GOOGLE_API_KEY='your-api-key-here'
+export ANTHROPIC_API_KEY='your-api-key-here''
 ```
 
 Ensure that you replace `your-api-key-here` with your actual OpenAI API key to enable the full functionality of CoderGPT.
@@ -45,6 +46,7 @@ codergpt [OPTIONS] COMMAND [ARGS]...
   - Available models:
     - OpenAI: [`gpt-3.5-turbo`, `gpt-4`, `gpt-4-turbo-preview`(default)]
     - Google: [`gemini-pro`]
+    - Anthropic[`claude-2`]
 
 #### Commands
 
