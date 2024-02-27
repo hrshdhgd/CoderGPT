@@ -60,7 +60,10 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#submodules">Submodules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#module-codergpt.cli">codergpt.cli module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-codergpt.constants">codergpt.constants module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-codergpt.constants">codergpt.constants module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#codergpt.constants.PYTHON_CODE_COMMENT_TEMPLATE"><code class="docutils literal notranslate"><span class="pre">PYTHON_CODE_COMMENT_TEMPLATE</span></code></a></li>
+</ul>
+</li>
 <li class="toctree-l3"><a class="reference internal" href="#module-codergpt.main">codergpt.main module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#codergpt.main.CoderGPT"><code class="docutils literal notranslate"><span class="pre">CoderGPT</span></code></a></li>
 </ul>
@@ -229,6 +232,24 @@ comment     Inspect package to show file-language-map.</p>
 <section id="module-codergpt.constants">
 <span id="codergpt-constants-module"></span><h2>codergpt.constants module<a class="headerlink" href="#module-codergpt.constants" title="Link to this heading"></a></h2>
 <p>All constants used in the package.</p>
+<dl class="py data">
+<dt class="sig sig-object py" id="codergpt.constants.PYTHON_CODE_COMMENT_TEMPLATE">
+<span class="sig-prename descclassname"><span class="pre">codergpt.constants.</span></span><span class="sig-name descname"><span class="pre">PYTHON_CODE_COMMENT_TEMPLATE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">PosixPath('/home/runner/work/CoderGPT/CoderGPT/src/codergpt/templates/python_code_comments.md')</span></em><a class="headerlink" href="#codergpt.constants.PYTHON_CODE_COMMENT_TEMPLATE" title="Link to this definition"></a></dt>
+<dd><p>Templates for different languages and commands.</p>
+<dl>
+<dt>Follows format:</dt><dd><dl>
+<dt>{</dt><dd><dl class="simple">
+<dt>“language”: {</dt><dd><p>“command”: “path/to/comment/template”,</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 <section id="module-codergpt.main">
 <span id="codergpt-main-module"></span><h2>codergpt.main module<a class="headerlink" href="#module-codergpt.main" title="Link to this heading"></a></h2>
@@ -353,6 +374,7 @@ comment     Inspect package to show file-language-map.</p>
 <li><p><strong>code</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The string containing the code to be commented.</p></li>
 <li><p><strong>filename</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The original filename of the code file.</p></li>
 <li><p><strong>overwrite</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span>) – A boolean indicating whether to overwrite the original file. Default is False.</p></li>
+<li><p><strong>language</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – Coding language of the file, defaults to None</p></li>
 </ul>
 </dd>
 </dl>
@@ -367,14 +389,15 @@ comment     Inspect package to show file-language-map.</p>
 <p>Code Explainer class that extracts and explains code from a given file.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="codergpt.CodeDocumenter.document">
-<span class="sig-name descname"><span class="pre">document</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CodeDocumenter.document" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">document</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">code</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">language</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CodeDocumenter.document" title="Link to this definition"></a></dt>
 <dd><p>Document the contents of the code file by invoking the runnable chain.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>code</strong> – The string containing the code to be documented.</p></li>
-<li><p><strong>function</strong> – The name of the function to document. Default is None.</p></li>
-<li><p><strong>classname</strong> – The name of the class to document</p></li>
+<li><p><strong>filename</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – filename of the code file.</p></li>
+<li><p><strong>code</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The string containing the code to be documented.</p></li>
+<li><p><strong>language</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – Coding language of the file, defaults to None</p></li>
+<li><p><strong>outfile</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – Destination filepath, defaults to None</p></li>
 </ul>
 </dd>
 </dl>
