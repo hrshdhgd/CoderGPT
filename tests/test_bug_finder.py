@@ -19,6 +19,12 @@ class TestBugFinder(unittest.TestCase):
         self.bug_finder = BugFinder(mock_runnable)
         self.mock_runnable = mock_runnable
 
+    def skip_if_github_actions(reason):
+        """Skip a test if running on GitHub Actions."""
+        if os.getenv("GITHUB_ACTIONS") == "true":
+            return unittest.skip(reason)
+        return lambda func: func
+
     def test_find_bugs_function(self):
         """Test case for the find_bugs method when the input is a function."""
         code = "def test():\n    pass"
@@ -58,6 +64,7 @@ class TestBugFinder(unittest.TestCase):
         self.bug_finder.fix_bugs("test.py", code, classname=classname, language=language)
         self.mock_runnable.invoke.assert_called_once()
 
+    @skip_if_github_actions("This test case is skipped because it requires an OpenAI API key.")
     def test_fix_bugs_code(self):
         """Test case for the fix_bugs method when the input is a code snippet."""
         code = "print('Hello, World!')"
