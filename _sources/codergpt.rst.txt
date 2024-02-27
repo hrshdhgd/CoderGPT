@@ -7,6 +7,7 @@ Subpackages
 .. toctree::
    :maxdepth: 4
 
+   codergpt.bug_finder
    codergpt.commenter
    codergpt.documenter
    codergpt.explainer
@@ -36,6 +37,14 @@ codergpt.main module
 --------------------
 
 .. automodule:: codergpt.main
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+codergpt.utils module
+---------------------
+
+.. automodule:: codergpt.utils
    :members:
    :undoc-members:
    :show-inheritance:

@@ -21,7 +21,7 @@
     <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="codergpt.commenter package" href="codergpt.commenter.html" />
+    <link rel="next" title="codergpt.bug_finder package" href="codergpt.bug_finder.html" />
     <link rel="prev" title="codergpt" href="modules.html" /> 
 </head>
 
@@ -51,6 +51,7 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">codergpt</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">codergpt package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="codergpt.bug_finder.html">codergpt.bug_finder package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="codergpt.commenter.html">codergpt.commenter package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="codergpt.documenter.html">codergpt.documenter package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="codergpt.explainer.html">codergpt.explainer package</a></li>
@@ -66,6 +67,11 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-codergpt.main">codergpt.main module</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#codergpt.main.CoderGPT"><code class="docutils literal notranslate"><span class="pre">CoderGPT</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#module-codergpt.utils">codergpt.utils module</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#codergpt.utils.extract_code_from_response"><code class="docutils literal notranslate"><span class="pre">extract_code_from_response()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#codergpt.utils.get_language_from_extension"><code class="docutils literal notranslate"><span class="pre">get_language_from_extension()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="#module-codergpt">Module contents</a><ul>
@@ -113,6 +119,26 @@
 <h2>Subpackages<a class="headerlink" href="#subpackages" title="Link to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
+<li class="toctree-l1"><a class="reference internal" href="codergpt.bug_finder.html">codergpt.bug_finder package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="codergpt.bug_finder.html#submodules">Submodules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="codergpt.bug_finder.html#module-codergpt.bug_finder.bug_finder">codergpt.bug_finder.bug_finder module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="codergpt.bug_finder.html#codergpt.bug_finder.bug_finder.BugFinder"><code class="docutils literal notranslate"><span class="pre">BugFinder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="codergpt.bug_finder.html#codergpt.bug_finder.bug_finder.BugFinder.find_bugs"><code class="docutils literal notranslate"><span class="pre">BugFinder.find_bugs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="codergpt.bug_finder.html#codergpt.bug_finder.bug_finder.BugFinder.fix_bugs"><code class="docutils literal notranslate"><span class="pre">BugFinder.fix_bugs()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="codergpt.bug_finder.html#module-codergpt.bug_finder">Module contents</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="codergpt.bug_finder.html#codergpt.bug_finder.BugFinder"><code class="docutils literal notranslate"><span class="pre">BugFinder</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="codergpt.bug_finder.html#codergpt.bug_finder.BugFinder.find_bugs"><code class="docutils literal notranslate"><span class="pre">BugFinder.find_bugs()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="codergpt.bug_finder.html#codergpt.bug_finder.BugFinder.fix_bugs"><code class="docutils literal notranslate"><span class="pre">BugFinder.fix_bugs()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="codergpt.commenter.html">codergpt.commenter package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="codergpt.commenter.html#submodules">Submodules</a></li>
 <li class="toctree-l2"><a class="reference internal" href="codergpt.commenter.html#module-codergpt.commenter.commenter">codergpt.commenter.commenter module</a><ul>
@@ -260,6 +286,37 @@ comment     Inspect package to show file-language-map.</p>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>CoderGPT class.</p>
 <dl class="py method">
+<dt class="sig sig-object py" id="codergpt.main.CoderGPT.bug_finder">
+<span class="sig-name descname"><span class="pre">bug_finder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.main.CoderGPT.bug_finder" title="Link to this definition"></a></dt>
+<dd><p>Find bugs in the code file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</span>) – The path to the code file.</p></li>
+<li><p><strong>function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the function to find bugs in. Default is None.</p></li>
+<li><p><strong>classname</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the class to find bugs in. Default is None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="codergpt.main.CoderGPT.bug_fixer">
+<span class="sig-name descname"><span class="pre">bug_fixer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.main.CoderGPT.bug_fixer" title="Link to this definition"></a></dt>
+<dd><p>Fix bugs in the code file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</span>) – The path to the code file.</p></li>
+<li><p><strong>function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the function to fix bugs in. Default is None.</p></li>
+<li><p><strong>classname</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the class to fix bugs in. Default is None.</p></li>
+<li><p><strong>outfile</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The path to the output file. Default is None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="codergpt.main.CoderGPT.commenter">
 <span class="sig-name descname"><span class="pre">commenter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.main.CoderGPT.commenter" title="Link to this definition"></a></dt>
 <dd><p>Add comments to the code file.</p>
@@ -353,6 +410,46 @@ comment     Inspect package to show file-language-map.</p>
 </dl>
 </dd></dl>
 
+</dd></dl>
+
+</section>
+<section id="module-codergpt.utils">
+<span id="codergpt-utils-module"></span><h2>codergpt.utils module<a class="headerlink" href="#module-codergpt.utils" title="Link to this heading"></a></h2>
+<p>Utility functions for the codergpt package.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="codergpt.utils.extract_code_from_response">
+<span class="sig-prename descclassname"><span class="pre">codergpt.utils.</span></span><span class="sig-name descname"><span class="pre">extract_code_from_response</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">language</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">response</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">filename</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.utils.extract_code_from_response" title="Link to this definition"></a></dt>
+<dd><p>Generate code files based on LLM responses.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>language</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Code language.</p></li>
+<li><p><strong>response</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – LLM response.</p></li>
+<li><p><strong>filename</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</span>) – Source code file.</p></li>
+<li><p><strong>outfile</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – Destination filepath, defaults to None</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="codergpt.utils.get_language_from_extension">
+<span class="sig-prename descclassname"><span class="pre">codergpt.utils.</span></span><span class="sig-name descname"><span class="pre">get_language_from_extension</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.utils.get_language_from_extension" title="Link to this definition"></a></dt>
+<dd><p>Get the language of a file from its extension.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</span>) – The filename to get the language for.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The language of the file, if found.</p>
+</dd>
+</dl>
 </dd></dl>
 
 </section>
@@ -454,6 +551,37 @@ comment     Inspect package to show file-language-map.</p>
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">codergpt.</span></span><span class="sig-name descname"><span class="pre">CoderGPT</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'gpt-4-turbo-preview'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CoderGPT" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
 <p>CoderGPT class.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="codergpt.CoderGPT.bug_finder">
+<span class="sig-name descname"><span class="pre">bug_finder</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CoderGPT.bug_finder" title="Link to this definition"></a></dt>
+<dd><p>Find bugs in the code file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</span>) – The path to the code file.</p></li>
+<li><p><strong>function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the function to find bugs in. Default is None.</p></li>
+<li><p><strong>classname</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the class to find bugs in. Default is None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="codergpt.CoderGPT.bug_fixer">
+<span class="sig-name descname"><span class="pre">bug_fixer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">function</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">classname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">outfile</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CoderGPT.bug_fixer" title="Link to this definition"></a></dt>
+<dd><p>Fix bugs in the code file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>path</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Path</span></code>]</span>) – The path to the code file.</p></li>
+<li><p><strong>function</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the function to fix bugs in. Default is None.</p></li>
+<li><p><strong>classname</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The name of the class to fix bugs in. Default is None.</p></li>
+<li><p><strong>outfile</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The path to the output file. Default is None.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="codergpt.CoderGPT.commenter">
 <span class="sig-name descname"><span class="pre">commenter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">overwrite</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#codergpt.CoderGPT.commenter" title="Link to this definition"></a></dt>
@@ -558,7 +686,7 @@ comment     Inspect package to show file-language-map.</p>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="modules.html" class="btn btn-neutral float-left" title="codergpt" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="codergpt.commenter.html" class="btn btn-neutral float-right" title="codergpt.commenter package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="codergpt.bug_finder.html" class="btn btn-neutral float-right" title="codergpt.bug_finder package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

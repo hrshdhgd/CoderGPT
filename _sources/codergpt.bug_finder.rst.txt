@@ -1,0 +1,21 @@
+codergpt.bug\_finder package
+============================
+
+Submodules
+----------
+
+codergpt.bug\_finder.bug\_finder module
+---------------------------------------
+
+.. automodule:: codergpt.bug_finder.bug_finder
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: codergpt.bug_finder
+   :members:
+   :undoc-members:
+   :show-inheritance:
