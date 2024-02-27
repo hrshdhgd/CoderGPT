@@ -27,11 +27,15 @@ class CodeExplainer:
         :param classname: The name of the class to explain. Default is None.
         """
         if function:
-            response = self.chain.invoke({"input": f"Explain the following {language} code: \n\n```\n{code}\n```"})
+            response = self.chain.invoke(
+                {"input": f"Explain the function {function} in the following {language} code: \n\n```\n{code}\n```"}
+            )
             # Pretty print the response
             print(f"Explanation for '{function}':\n{response.content}")
         elif classname:
-            response = self.chain.invoke({"input": f"Explain the following {language} code: \n\n```\n{code}\n```"})
+            response = self.chain.invoke(
+                {"input": f"Explain the class {classname} in the following {language} code: \n\n```\n{code}\n```"}
+            )
             # Pretty print the response
             print(f"Explanation for '{classname}':\n{response.content}")
         else:

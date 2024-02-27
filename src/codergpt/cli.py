@@ -44,6 +44,12 @@ model_option = click.option(
     default="gpt-4",
     help="Model to use for code generation.",
 )
+prompt_option = click.option(
+    "-p",
+    "--prompt",
+    type=Union[str, Path],
+    help="Prompt to use for code generation.",
+)
 function_option = click.option("-f", "--function", help="Function name to explain or optimize.")
 class_option = click.option("-c", "--classname", help="Class name to explain or optimize.")
 overwrite_option = click.option(
