@@ -5,7 +5,7 @@ CoderGPT is a versatile command-line interface (CLI) designed to enhance coding 
 # Model Providers Implemented
  - [x] OpenAI [`gpt-3.5-turbo`, `gpt-4`, `gpt-4-turbo-preview`(default)]
  - [x] Google [`gemini-pro`]
- - [x] Anthropic [`claude-2`]
+ - [x] Anthropic [`claude-2.1`]
 
 ## Prerequisites
 
@@ -46,7 +46,7 @@ codergpt [OPTIONS] COMMAND [ARGS]...
   - Available models:
     - OpenAI: [`gpt-3.5-turbo`, `gpt-4`, `gpt-4-turbo-preview`(default)]
     - Google: [`gemini-pro`]
-    - Anthropic[`claude-2`]
+    - Anthropic[`claude-2.1`]
 
 #### Commands
 

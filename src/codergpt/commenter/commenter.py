@@ -1,11 +1,13 @@
 """Commenter Module."""
 
 import os
+from pathlib import Path
 from typing import Any, Dict, Optional
 
 from langchain_core.runnables.base import RunnableSerializable
 
 from codergpt.constants import TEMPLATES
+from codergpt.utils import extract_code_from_response, get_language_from_extension
 
 
 class CodeCommenter:
@@ -29,13 +31,17 @@ class CodeCommenter:
         :param language: Coding language of the file, defaults to None
         """
         comment_template = None
-        if language and language in TEMPLATES.keys():
-            # Check if "comment" key exists in the language template
-            if "comment" in TEMPLATES[language]:
-                # Get the path to the comment template
-                comment_template_path = TEMPLATES[language]["comment"]
-                with open(comment_template_path, "r") as comment_template_file:
-                    comment_template = comment_template_file.read()
+        if language:
+            if language in TEMPLATES.keys():
+                # Check if "comment" key exists in the language template
+                if "comment" in TEMPLATES[language]:
+                    # Get the path to the comment template
+                    comment_template_path = TEMPLATES[language]["comment"]
+                    with open(comment_template_path, "r") as comment_template_file:
+                        comment_template = comment_template_file.read()
+        else:
+            # Get the language from the file extension
+            language = get_language_from_extension(filename)
 
         if comment_template:
             invoke_params = {
@@ -54,15 +60,15 @@ class CodeCommenter:
 
         response = self.chain.invoke(invoke_params)
 
-        # Extract the commented code from the response if necessary
-        commented_code = response.content
-
         new_filename = filename
         if not overwrite:
             # Create a new filename with the _updated suffix
             base, ext = os.path.splitext(filename)
-            new_filename = f"{base}_updated{ext}"
+            new_filename = f"{Path(filename).parent / base}_updated{ext}"
 
-        # Write the commented code to the new file
-        with open(new_filename, "w") as updated_file:
-            updated_file.write(commented_code)
+        if language:
+            return extract_code_from_response(language, response.content, filename, new_filename)
+        else:
+            # Write the commented code to the new file
+            with open(new_filename, "w") as updated_file:
+                updated_file.write(response.content)
