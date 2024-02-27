@@ -5,13 +5,14 @@ from pathlib import Path
 from typing import Optional, Union
 
 import yaml
+from langchain_anthropic import ChatAnthropicMessages
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_openai import ChatOpenAI
 from tabulate import tabulate
 
 from codergpt.commenter.commenter import CodeCommenter
-from codergpt.constants import EXTENSION_MAP_FILE, GEMINI, GPT_4_TURBO, INSPECTION_HEADERS
+from codergpt.constants import CLAUDE, EXTENSION_MAP_FILE, GEMINI, GPT_4_TURBO, INSPECTION_HEADERS
 from codergpt.documenter.documenter import CodeDocumenter
 from codergpt.explainer.explainer import CodeExplainer
 from codergpt.optimizer.optimizer import CodeOptimizer
@@ -23,11 +24,16 @@ class CoderGPT:
 
     def __init__(self, model: str = GPT_4_TURBO):
         """Initialize the CoderGPT class."""
+        temp = 0.3
         if model is None or model.startswith("gpt-"):
-            self.llm = ChatOpenAI(openai_api_key=os.environ.get("OPENAI_API_KEY"), temperature=0.3, model=model)
-        # elif model == CLAUDE:
-        #     self.llm = ChatAnthropic()
-        #     print("Coming Soon!")
+            self.llm = ChatOpenAI(openai_api_key=os.environ.get("OPENAI_API_KEY"), temperature=temp, model=model)
+        elif model == CLAUDE:
+            self.llm = ChatAnthropicMessages(
+                model_name=model,
+                anthropic_api_key=os.environ.get("ANTHROPIC_API_KEY"),
+                temperature=temp,
+                max_tokens=2048,
+            )
         elif model == GEMINI:
             self.llm = ChatGoogleGenerativeAI(model=model, convert_system_message_to_human=True)
         else:
@@ -115,7 +121,7 @@ class CoderGPT:
         """
         code_explainer = CodeExplainer(self.chain)
         code, language = self.get_code(filename=path, function_name=function, class_name=classname)
-        code_explainer.explain(code, language)
+        code_explainer.explain(code=code, function=function, classname=classname, language=language)
 
     def commenter(self, path: Union[str, Path], overwrite: bool = False):
         """
