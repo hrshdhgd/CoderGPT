@@ -206,5 +206,52 @@ def write_documentation(path: Union[str, Path], outfile: Union[str, Path] = None
         raise ValueError("The path provided is not a file.")
 
 
+@main.command("find-bugs")
+@path_argument
+@function_option
+@class_option
+def find_bugs_in_code(path: Union[str, Path], function: str, classname: str):
+    """
+    Write tests for the code file.
+
+    :param path: The path to the code file.
+    :param function: The name of the function to test. Default is None.
+    :param classname: The name of the class to test. Default is None.
+    """
+    # Ensure path is a string or Path object for consistency
+    if isinstance(path, str):
+        path = Path(path)
+
+    # Check if path is a file
+    if path.is_file():
+        coder.bug_finder(path=path, function=function, classname=classname)
+    else:
+        raise ValueError("The path provided is not a file.")
+
+
+@main.command("fix-bugs")
+@path_argument
+@function_option
+@class_option
+@output_option
+def fix_bugs_in_code(path: Union[str, Path], function: str, classname: str, outfile: Union[str, Path] = None):
+    """
+    Write tests for the code file.
+
+    :param path: The path to the code file.
+    :param function: The name of the function to test. Default is None.
+    :param classname: The name of the class to test. Default is None.
+    """
+    # Ensure path is a string or Path object for consistency
+    if isinstance(path, str):
+        path = Path(path)
+
+    # Check if path is a file
+    if path.is_file():
+        coder.bug_fixer(path=path, function=function, classname=classname, outfile=outfile)
+    else:
+        raise ValueError("The path provided is not a file.")
+
+
 if __name__ == "__main__":
     main()

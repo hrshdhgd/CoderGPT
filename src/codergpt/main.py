@@ -4,19 +4,20 @@ import os
 from pathlib import Path
 from typing import Optional, Union
 
-import yaml
 from langchain_anthropic import ChatAnthropicMessages
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_openai import ChatOpenAI
 from tabulate import tabulate
 
+from codergpt.bug_finder.bug_finder import BugFinder
 from codergpt.commenter.commenter import CodeCommenter
-from codergpt.constants import CLAUDE, EXTENSION_MAP_FILE, GEMINI, GPT_4_TURBO, INSPECTION_HEADERS
+from codergpt.constants import CLAUDE, GEMINI, GPT_4_TURBO, INSPECTION_HEADERS
 from codergpt.documenter.documenter import CodeDocumenter
 from codergpt.explainer.explainer import CodeExplainer
 from codergpt.optimizer.optimizer import CodeOptimizer
 from codergpt.test_writer.test_writer import CodeTester
+from codergpt.utils import get_language_from_extension
 
 
 class CoderGPT:
@@ -52,9 +53,6 @@ class CoderGPT:
         """
         print("Inspecting the code.")
 
-        with open(EXTENSION_MAP_FILE, "r") as file:
-            extension_to_language = yaml.safe_load(file)
-
         path = Path(path)
 
         file_language_list = []
@@ -62,13 +60,13 @@ class CoderGPT:
 
         if path.is_dir():
             for file in path.rglob("*.*"):
-                language = extension_to_language["language-map"].get(file.suffix)
+                language = get_language_from_extension(filename=file)
                 if language is not None:
                     file_language_list.append((str(file), language))
                     file_language_dict[str(file)] = language
 
         elif path.is_file():
-            language = extension_to_language["language-map"].get(path.suffix)
+            language = get_language_from_extension(filename=path)
             if language is not None:
                 file_language_list.append((str(path), language))
                 file_language_dict[str(path)] = language
@@ -165,6 +163,44 @@ class CoderGPT:
         filename = path.stem
         code, language = self.get_code(filename=path)
         code_documenter.document(filename=filename, code=code, language=language, outfile=outfile)
+
+    def bug_finder(self, path: Union[str, Path], function: Optional[str] = None, classname: Optional[str] = None):
+        """
+        Find bugs in the code file.
+
+        :param path: The path to the code file.
+        :param function: The name of the function to find bugs in. Default is None.
+        :param classname: The name of the class to find bugs in. Default is None.
+        """
+        if isinstance(path, str):
+            path = Path(path)
+        bug_finder = BugFinder(self.chain)
+        code, language = self.get_code(filename=path, function_name=function, class_name=classname)
+        bug_finder.find_bugs(code=code, function=function, classname=classname, language=language)
+
+    def bug_fixer(
+        self,
+        path: Union[str, Path],
+        function: Optional[str] = None,
+        classname: Optional[str] = None,
+        outfile: Optional[str] = None,
+    ):
+        """
+        Fix bugs in the code file.
+
+        :param path: The path to the code file.
+        :param function: The name of the function to fix bugs in. Default is None.
+        :param classname: The name of the class to fix bugs in. Default is None.
+        :param outfile: The path to the output file. Default is None.
+        """
+        if isinstance(path, str):
+            path = Path(path)
+        bug_finder = BugFinder(self.chain)
+        code, language = self.get_code(filename=path, function_name=function, class_name=classname)
+        filename = path.stem
+        bug_finder.fix_bugs(
+            filename=filename, code=code, function=function, classname=classname, language=language, outfile=outfile
+        )
 
 
 if __name__ == "__main__":
