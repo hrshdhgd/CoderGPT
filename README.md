@@ -155,7 +155,7 @@ Contributions to CoderGPT are highly encouraged! Please review our [contributing
 
 ## License
 
-CoderGPT is open-sourced under the MIT License. For more details, refer to the [LICENSE.md](LICENSE.md) file.
+CoderGPT is open-sourced under the MIT License. For more details, refer to the [LICENSE](LICENSE) file.
 
 ## Acknowledgments
 
